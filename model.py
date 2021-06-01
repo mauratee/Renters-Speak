@@ -37,3 +37,16 @@ class Landlord(db.Model):
     def __repr__(self):
         return f"<Landlord landlord_id={self.landlord_id} landlord_name={self.landlord_name}>"
 
+
+class Building(db.Model):
+    """A building"""
+
+    __tablename__ = "buildings"
+
+    building_id = db.Column(db.Integer,
+                            autoincrement=True,
+                            primary_key=True,
+                            )
+    building_address = db.Column(db.String)
+    # Add foreign key to landlord_id
+
