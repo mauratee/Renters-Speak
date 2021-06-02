@@ -92,7 +92,7 @@ class Review(db.Model):
         return f"<Review review_id={self.review_id} created_on={self.created_on}>"
 
 
-def connect_to_db(flask_app, db_uri='postgresql:///renters_speak', echo=True):
+def connect_to_db(flask_app, db_uri='postgresql:///testdb', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
