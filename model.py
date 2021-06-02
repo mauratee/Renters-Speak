@@ -35,6 +35,9 @@ class Landlord(db.Model):
     landlord_name = db.Column(db.String)
     office_address = db.Column(db.String)
 
+    # buildingss = a list of Building objects, available from 
+    # db.Relationship from Building class
+
     def __repr__(self):
         return f"<Landlord landlord_id={self.landlord_id} landlord_name={self.landlord_name}>"
 
@@ -54,6 +57,9 @@ class Building(db.Model):
     
     # reviews = a list of Review objects, available from 
     # db.Relationship from Review class
+
+    # Add relationship to Landlord class
+    landlord = db.relationship('Landlord', backref='buildings')
 
     def __repr__(self):
         return f"<Building building_id={self.building_id} building_address={self.building_address}>"
@@ -80,4 +86,7 @@ class Review(db.Model):
     # Add relationship to User class
     user = db.relationship('User', backref='reviews') 
     # Add relationship to Building class
-    building = db.relationship('Building', backref='reviews') 
+    building = db.relationship('Building', backref='reviews')
+
+    def __repr__(self):
+        return f"<Review review_id={self.review_id} created_on={self.created_on}>"
