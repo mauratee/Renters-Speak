@@ -17,6 +17,9 @@ class User(db.Model):
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(25))
 
+    # reviews = a list of Review objects, available from 
+    # db.Relationship from Review class
+
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}>"
 
@@ -48,6 +51,12 @@ class Building(db.Model):
     landlord_id = db.Column(db.Integer, # Foreign key from Building to landlord_id
                             db.ForeignKey('landlords.landlord_id')
                             )
+    
+    # reviews = a list of Review objects, available from 
+    # db.Relationship from Review class
+
+    def __repr__(self):
+        return f"<Building building_id={self.building_id} building_address={self.building_address}>"
 
 
 class Review(db.Model):
