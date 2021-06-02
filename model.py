@@ -67,3 +67,8 @@ class Review(db.Model):
     building_id = db.Column(db.Integer, # Foreign key from Review to building_id
                             db.ForeignKey('buildings.building_id')
                             )
+    
+    # Add relationship to User class
+    user = db.relationship('User', backref='reviews') 
+    # Add relationship to Building class
+    building = db.relationship('Building', backref='reviews') 
