@@ -14,8 +14,8 @@ class User(db.Model):
     user_id = db.Column(db.Integer,
                         autoincrement=True,
                         primary_key=True)
-    email = db.Column(db.String, unique=True)
-    password = db.Column(db.String)
+    email = db.Column(db.String(50), unique=True)
+    password = db.Column(db.String(25))
 
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}>"
@@ -46,7 +46,7 @@ class Building(db.Model):
                             primary_key=True)
     building_address = db.Column(db.String)
     landlord_id = db.Column(db.Integer, # Foreign key from Building to landlord_id
-                            db.ForeignKEy('landlords.landlord_id')
+                            db.ForeignKey('landlords.landlord_id')
                             )
 
 
@@ -58,4 +58,12 @@ class Review(db.Model):
     review_id = db.Column(db.Integer,
                             autoincrement=True,
                             primary_key=True)
-    
+    review_body = db.Column(db.Text)
+    created_on = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
+    user_id = db.Column(db.Integer, # Foreign key from Review to user_id
+                        db.ForeignKey('users.user_id')
+                        )
+    building_id = db.Column(db.Integer, # Foreign key from Review to building_id
+                            db.ForeignKey('buildings.building_id')
+                            )
