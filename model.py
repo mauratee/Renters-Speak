@@ -13,8 +13,7 @@ class User(db.Model):
     
     user_id = db.Column(db.Integer,
                         autoincrement=True,
-                        primary_key=True,
-                        )
+                        primary_key=True)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
 
@@ -29,8 +28,7 @@ class Landlord(db.Model):
 
     landlord_id = db.Column(db.Integer,
                             autoincrement=True,
-                            primary_key=True,
-                            )
+                            primary_key=True)
     landlord_name = db.Column(db.String)
     office_address = db.Column(db.String)
 
@@ -45,8 +43,19 @@ class Building(db.Model):
 
     building_id = db.Column(db.Integer,
                             autoincrement=True,
-                            primary_key=True,
-                            )
+                            primary_key=True)
     building_address = db.Column(db.String)
-    # Add foreign key to landlord_id
+    landlord_id = db.Column(db.Integer, # Foreign key from Building to landlord_id
+                            db.ForeignKEy('landlords.landlord_id')
+                            )
 
+
+class Review(db.Model):
+    """A review written by a user"""
+
+    __tablename__ = "reviews"
+
+    review_id = db.Column(db.Integer,
+                            autoincrement=True,
+                            primary_key=True)
+    
