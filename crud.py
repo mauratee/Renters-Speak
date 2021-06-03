@@ -51,9 +51,15 @@ def create_review(review_body, created_on, updated_at, user_id, building_id):
 
 
 def get_reviews():
-    """Allow user to view all reviews in reviews table"""
+    """View all reviews in reviews table"""
 
     return Review.query.all()
+
+
+def get_landlords():
+    """View all landlords in landlords table"""
+
+    return Landlord.query.all()
 
 
 

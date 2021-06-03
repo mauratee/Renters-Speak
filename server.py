@@ -26,6 +26,13 @@ def all_reviews():
     return render_template('all_reviews.html', reviews=reviews)
 
 
+@app.route('/landlords')
+def all_lndlords():
+    """Show all reviews by calling get_landlords function"""
+    landlords = crud.get_landlords()
+
+    return render_template('all_landlords.html', landlords=landlords)
+
 
 if __name__ == '__main__':
     connect_to_db(app)

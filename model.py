@@ -35,7 +35,7 @@ class Landlord(db.Model):
     landlord_name = db.Column(db.String)
     office_address = db.Column(db.String)
 
-    # buildingss = a list of Building objects, available from 
+    # buildings = a list of Building objects, available from 
     # db.Relationship from Building class
 
     def __repr__(self):

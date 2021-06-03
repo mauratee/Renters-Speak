@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Renters Speak{% endblock %}
+
+{% block body %}
+  <h1>Renters Speak: All Landlords</h1>
+
+    <ul>
+        {% for landlord in landlords%}
+            <ul>
+                <h2>{{landlord.landlord_name}}</h2>
+                <h4>Landlord Office Address:</h4>
+                {{landlord.office_address}}
+                <br>
+                <h4>Buildings Owned by Landlord:</h4>
+                {% if landlord.buildings %}
+                    {% for building in landlord.buildings %}
+                        <li>{{building.building_address}}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No Buildings Owned</li>
+                {% endif %}
+                <br>
+                <h4>Reviews of Landlord:</h4>
+                {% if landlord.buildings %}
+                    {% for building in landlord.buildings %}
+                        {% if building.reviews %}
+                            {% for review in building.reviews %}
+                                <li>{{review.review_body}}</li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <li>No Reviews</li>
+                {% endif %}
+                <br>
+            </ul>
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}
