@@ -43,7 +43,9 @@ class Landlord(db.Model):
 
 
 class Building(db.Model):
-    """A building"""
+    """A building
+    
+    fields: buiding_id,"""
 
     __tablename__ = "buildings"
 
@@ -57,7 +59,7 @@ class Building(db.Model):
     
     # reviews = a list of Review objects, available from 
     # db.Relationship from Review class
-
+    
     # Add relationship to Landlord class
     landlord = db.relationship('Landlord', backref='buildings')
 

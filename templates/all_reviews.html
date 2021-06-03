@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Renters Speak{% endblock %}
+
+{% block body %}
+  <h1>Renters Speak: All Reviews</h1>
+
+    <ul>
+        {% for review in reviews %}
+        <h2>Review Information:</h2>
+            <li>
+                Review text:
+                <br>
+                {{review.review_body}}
+                <br>
+            </li>
+            <li>
+                Referring to this building:
+                <br>
+                {{review.building.building_address}}
+                <br>
+            </li>
+            <li>
+                Referring to this landlord:
+                <br>
+                {{review.building.landlord.landlord_name}}
+            </li>
+            <li>
+                Written by:
+                <br>
+                {{review.user.email}}
+                <br>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}

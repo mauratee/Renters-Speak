@@ -20,8 +20,11 @@ def render_homepage():
 
 @app.route('/reviews')
 def all_reviews():
+    """Show all reviews by calling get_reviews function"""
+    reviews = crud.get_reviews()
 
-    return render_template('all_reviews.html')
+    return render_template('all_reviews.html', reviews=reviews)
+
 
 
 if __name__ == '__main__':
