@@ -56,28 +56,31 @@ for n in range(5):
     buildings_in_db.append(building)
 
 
-# # Create 10 test reviews
-# # test_review=Review(review_body="This is a test review.",
-# #                   created_on=datetime.datetime(2020, 5, 23), 
-# #                   updated_at=datetime.datetime(2020, 5, 23), 
-# #                   user_id=test_user.user_id, 
-# #                   building_id=test_building.building_id)
+# Create 10 test reviews
 
-# for n in range(10):
-#     review_body = f'This is test review number {n}.'
-#     create_yr = randint(2017, 2020)
-#     create_mth = randint(1, 12)
-#     creat_day = randint(1, 28)
-#     created_on = datetime.datetime(create_yr, create_mth, create_day)
-#     updated_at = datetime.now()
-#     user_to_write = choice(users_in_db)
-#     building_to_write = choice(buildings_in_db)
-#     review = Review(review_body=review_body, created_on=created_on, 
-#                     updated_at=updated_at, user_id=user_to_write.user_id,
-#                     building_id=building_to_write.building_id
-#                     )
-#     db.session.add(review)
-#     db.session.commit()
+# Example review creation from terminal:
+# test_review=Review(review_body="This is a test review.",
+#                   created_on=datetime.datetime(2020, 5, 23), 
+#                   updated_at=datetime.datetime(2020, 5, 23), 
+#                   user_id=test_user.user_id, 
+#                   building_id=test_building.building_id)
 
+for n in range(10):
+    review_body = f'This is test review number {n}.'
 
+    create_yr = randint(2017, 2020)
+    create_mth = randint(1, 12)
+    create_day = randint(1, 28)
+    created_on = datetime(create_yr, create_mth, create_day)
+    
+    updated_at = datetime.now()
+
+    user_to_write = choice(users_in_db)
+    user_id=user_to_write.user_id
+
+    building_to_write = choice(buildings_in_db)
+    building_id=building_to_write.building_id
+
+    review = crud.create_review(review_body, created_on, 
+                    updated_at, user_id, building_id)
 

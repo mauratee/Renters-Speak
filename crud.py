@@ -35,3 +35,16 @@ def create_building(building_address, landlord_id):
     db.session.commit()
 
     return building
+
+
+def create_review(review_body, created_on, updated_at, user_id, building_id):
+    """Create and return a new review."""
+
+    review = Review(review_body=review_body, created_on=created_on, 
+                    updated_at=updated_at, user_id=user_id,
+                    building_id=building_id)
+    
+    db.session.add(review)
+    db.session.commit()
+
+    return review
