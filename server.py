@@ -18,6 +18,12 @@ def render_homepage():
     return render_template('homepage.html')
 
 
+@app.route('/reviews')
+def all_reviews():
+
+    return render_template('all_reviews.html')
+
+
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)
