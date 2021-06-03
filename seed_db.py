@@ -5,14 +5,16 @@ import json
 from random import choice, randint
 from datetime import datetime
 
-# import crud
-import model
-# import server
+# import crud <-- un-comment after crud.py complete
+import model 
+from model import db, User, Landlord, Building, Review, connect_to_db # <--delete if running seed_db.py works
+import server
 
 os.system('dropdb testdb')
 os.system('createdb testdb')
+
 model.connect_to_db(server.app)
-# model.db.create_all() <--can un-comment later but ggod to get in the habit
+# model.db.create_all() <-- can un-comment later but ggod to get in the habit
 # of entering this into bash/terminal
 
 
