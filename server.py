@@ -36,10 +36,15 @@ def all_landlords():
 
 @app.route('/buildings')
 def all_buildings():
-    """Shhow all buildings by calling get_buildings function"""
+    """Show all buildings by calling get_buildings function"""
     buildings = crud.get_buildings()
 
     return render_template('all_buildings.html', buildings=buildings)
+
+
+@app.route('/users', methods=['POST'])
+def register_user():
+    """Create a new user"""
 
 
 
