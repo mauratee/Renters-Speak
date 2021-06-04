@@ -12,6 +12,7 @@ In terminal, enter `python3 server.py`<br>
 You should then see:<br>
     "Connected to the db!<br>
     * Serving Flask app 'server' (lazy loading)"<br>
+    
 Next, in a web browser, navigate to `http://localhost:5000/`<br>
 You should then see the Renters Speak homepage!
 
