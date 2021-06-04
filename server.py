@@ -45,7 +45,19 @@ def all_buildings():
 @app.route('/users', methods=['POST'])
 def register_user():
     """Create a new user"""
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+    user = crud.get_user_by_email(email)
+
+    if user:
+        flash("""Can't create account. Account with this email already
+               exists. Please try again.""")
+    else:
+        crud.create_user(email, password)
+        flash("Account created successfully! Please log in.")
     
+    return redirect("/")
 
 
 
