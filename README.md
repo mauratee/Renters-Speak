@@ -1,4 +1,4 @@
-INSTRUCTIONS TO RUN RENTERS SPEAK WEB APP:s
+INSTRUCTIONS TO RUN RENTERS SPEAK WEB APP:
 
 Run `source secrets.sh` to terminal to execute contents of `secrets.sh`
 
@@ -13,6 +13,6 @@ in terminal, enter `python3 server.py`
 you should then see:
     Connected to the db!
     * Serving Flask app 'server' (lazy loading)
- next, in a web browser, navigate to `http://localhost:5000/`
- you should then see the Renters Speak homepage!
+next, in a web browser, navigate to `http://localhost:5000/`
+you should then see the Renters Speak homepage!
 
