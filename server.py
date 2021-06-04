@@ -45,6 +45,7 @@ def all_buildings():
 @app.route('/users', methods=['POST'])
 def register_user():
     """Create a new user"""
+    
 
 
 

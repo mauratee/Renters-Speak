@@ -67,6 +67,20 @@ def get_buildings():
 
     return Building.query.all()
 
+def get_users():
+    """Query users table and return all users"""
+
+    return User.query.all()
+
+
+def get_user_by_email(email):
+    """Takes in email address and checkes if email exists in "users" database.
+        If user exists, return user_id. If user does not exist, return None."""
+    
+    # if email in users,
+    #   return user_id
+    # else
+    #   return None
 
 
 if __name__ == '__main__':
