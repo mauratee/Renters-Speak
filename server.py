@@ -66,6 +66,16 @@ def login():
     email = request.form.get("email")
     password = request.form.get("password")
 
+    user = crud.get_user_by_email(email)
+    # another crud function that checks both user email and password against db
+
+    if user:
+        flash("Please enter password that matches this email address.")
+    else:
+        flash("Email and password match. You are now logged in!")
+
+    return redirect('/reviews')
+
 
 
 

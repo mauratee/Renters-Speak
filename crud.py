@@ -80,6 +80,21 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
 
+def get_user_by_email_and_password(email, password):
+    """Takes in email and password and checkes if email exists in "users" database.
+        If email exists, check if password matches password in database for that user. 
+        If email does not exist in database, return None.  If email exists, but password
+        does not match, return None."""
+    
+    user = User.query.filter(User.email == email).first()
+
+    if user:
+        if user.password == password:
+            return user
+    else:
+        return None
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
