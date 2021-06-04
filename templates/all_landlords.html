@@ -5,16 +5,16 @@
   <h1>Renters Speak: All Landlords</h1>
 
     <ul>
-        {% for landlord in landlords%}
+        {% for landlord in landlords %}
             <ul>
-                <h2>{{landlord.landlord_name}}</h2>
+                <h2>{{ landlord.landlord_name }}</h2>
                 <h4>Landlord Office Address:</h4>
-                {{landlord.office_address}}
+                {{ landlord.office_address }}
                 <br>
                 <h4>Buildings Owned by Landlord:</h4>
                 {% if landlord.buildings %}
                     {% for building in landlord.buildings %}
-                        <li>{{building.building_address}}</li>
+                        <li>{{ building.building_address }}</li>
                     {% endfor %}
                 {% else %}
                     <li>No Buildings Owned</li>
@@ -25,7 +25,7 @@
                     {% for building in landlord.buildings %}
                         {% if building.reviews %}
                             {% for review in building.reviews %}
-                                <li>{{review.review_body}}</li>
+                                <li>{{ review.review_body }}</li>
                             {% endfor %}
                         {% endif %}
                     {% endfor %}

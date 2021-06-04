@@ -62,6 +62,11 @@ def get_landlords():
     return Landlord.query.all()
 
 
+def get_buildings():
+    """View all landlords in landlords table"""
+
+    return Building.query.all()
+
 
 
 if __name__ == '__main__':

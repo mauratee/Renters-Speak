@@ -27,11 +27,20 @@ def all_reviews():
 
 
 @app.route('/landlords')
-def all_lndlords():
+def all_landlords():
     """Show all reviews by calling get_landlords function"""
     landlords = crud.get_landlords()
 
     return render_template('all_landlords.html', landlords=landlords)
+
+
+@app.route('/buildings')
+def all_buildings():
+    """Shhow all buildings by calling get_buildings function"""
+    buildings = crud.get_buildings()
+
+    return render_template('all_buildings.html', buildings=buildings)
+
 
 
 if __name__ == '__main__':
