@@ -59,6 +59,15 @@ def register_user():
     
     return redirect("/")
 
+@app.route('/login', methods=['POST'])
+def login():
+    """Allow existing users to log in"""
+
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+
+
 
 
 if __name__ == '__main__':
