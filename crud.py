@@ -77,10 +77,7 @@ def get_user_by_email(email):
     """Takes in email address and checkes if email exists in "users" database.
         If user exists, return user_id. If user does not exist, return None."""
     
-    # if email in users,
-    #   return user_id
-    # else
-    #   return None
+    return User.query.filter(User.email == email).first()
 
 
 if __name__ == '__main__':
