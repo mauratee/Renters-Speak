@@ -1,6 +1,8 @@
 INSTRUCTIONS TO RUN RENTERS SPEAK WEB APP:
 
-Run `source secrets.sh` to terminal to execute contents of `secrets.sh`
+Use git clone or other method to copy entire contents of this repository to your local machine
+
+Run `source secrets.sh` in terminal to execute contents of `secrets.sh`
 
 Enter `python3 seed_db.py`in terminal to seed database `testdb` with test data <br>
 
@@ -12,7 +14,7 @@ In terminal, enter `python3 server.py`<br>
 You should then see:<br>
     "Connected to the db!<br>
     * Serving Flask app 'server' (lazy loading)"<br>
-    
+
 Next, in a web browser, navigate to `http://localhost:5000/`<br>
 You should then see the Renters Speak homepage!
 
