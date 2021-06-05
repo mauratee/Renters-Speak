@@ -59,6 +59,7 @@ def register_user():
     
     return redirect("/")
 
+
 @app.route('/login', methods=['POST'])
 def login():
     """Allow existing users to log in"""
@@ -76,7 +77,12 @@ def login():
     return redirect('/')
 
 
+@app.route('/write_review', methods=['POST'])
+def write_review():
+    """If user logged in, allow submission from write review form on homepage.html
+         to be added to reviews database"""
 
+    return redirect('/reviews')
 
 
 if __name__ == '__main__':
