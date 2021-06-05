@@ -2,6 +2,8 @@ INSTRUCTIONS TO RUN RENTERS SPEAK WEB APP:
 
 Use git clone or other method to copy entire contents of this repository to your local machine
 
+Install dependencies from `requirements.txt` (`pip3 install` or other)
+
 Run `source secrets.sh` in terminal to execute contents of `secrets.sh`
 
 Enter `python3 seed_db.py`in terminal to seed database `testdb` with test data <br>
