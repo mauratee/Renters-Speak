@@ -10,11 +10,14 @@
     {% block head %}{% endblock %}
   </head>
   <body>
-    {% for msg in get_flashed_messages() %}
-      <p class="flash-msg">
-        {{ msg }}
-      </p>
-    {% endfor %}
+    <ul>
+    <!-- Allow each page access to stored session flash messages -->
+      {% for msg in get_flashed_messages() %}
+        <p class="flash-msg">
+         {{ msg }}
+        </p>
+      {% endfor %}
+    </ul>
 
     {% block body %}{% endblock %}
 

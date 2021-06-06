@@ -81,6 +81,8 @@ def login():
 def write_review():
     """If user logged in, allow submission from write review form on homepage.html
          to be added to reviews database"""
+    
+    
 
     return redirect('/reviews')
 
