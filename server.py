@@ -70,7 +70,8 @@ def login():
     user = crud.get_user_by_email_and_password(email, password)
 
     if user:
-        flash("Email and password match. You are now logged in!")
+        session["user_email"] = user.email
+        flash(f"Welcome back, {user.email}! You are now logged in.")
     else:
         flash("Please enter correct email and password or register for new account.")
 
@@ -82,7 +83,7 @@ def write_review():
     """If user logged in, allow submission from write review form on homepage.html
          to be added to reviews database"""
     
-    
+
 
     return redirect('/reviews')
 
