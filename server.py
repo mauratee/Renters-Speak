@@ -83,6 +83,12 @@ def write_review():
     """If user logged in, allow submission from write review form on homepage.html
          to be added to reviews database"""
     
+    logged_in_email = session.get("user_email")
+    reviewed_landlord = request.form.get("landlord")
+    reviewed_building = request.form.get("building")
+    written_review = request.form.get("review_body")
+
+    
 
 
     return redirect('/reviews')
