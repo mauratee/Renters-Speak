@@ -67,14 +67,22 @@ def get_buildings():
 
     return Building.query.all()
 
+
 def get_users():
     """Query users table and return all users"""
 
     return User.query.all()
 
+def get_building_by_id(building_id):
+    """Takes in building id as argument and checks if building exists in "buildings"
+        database. If building exists, returns building object. If building does not
+        exist, returns None."""
+    
+    return Building.query.filter(Building.building_id == building_id).first()
+
 
 def get_user_by_email(email):
-    """Takes in email address and checkes if email exists in "users" database.
+    """Takes in email address and checks if email exists in "users" database.
         If user exists, return user object. If user does not exist, return None."""
     
     return User.query.filter(User.email == email).first()
