@@ -81,6 +81,14 @@ def get_building_by_id(building_id):
     return Building.query.filter(Building.building_id == building_id).first()
 
 
+def get_landlord_by_id(landlord_id):
+    """Takes in landlord id as argument and checks if landlord exists in "landlords"
+        database. If landlord exists, returns landlord object. If landlord does not
+        exist, returns None."""
+    
+    return Landlord.query.filter(Landlord.landlord_id == landlord_id).first()
+
+
 def get_user_by_email(email):
     """Takes in email address and checks if email exists in "users" database.
         If user exists, return user object. If user does not exist, return None."""
