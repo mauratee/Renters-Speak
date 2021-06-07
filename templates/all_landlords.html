@@ -7,7 +7,9 @@
     <ul>
         {% for landlord in landlords %}
             <ul>
-                <h2>{{ landlord.landlord_name }}</h2>
+                <a href="/landlords/{{ landlord.landlord_id }}">
+                    <h2>{{ landlord.landlord_name }}</h2>
+                </a>
                 <h4>Landlord Office Address:</h4>
                 {{ landlord.office_address }}
                 <br>
