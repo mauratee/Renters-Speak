@@ -101,9 +101,9 @@ def write_review():
         flash("You must log in to review a landlord.")
     else:
         user = crud.get_user_by_email(logged_in_email)
-        building = crud.
-        created_on = 
-        updated_at = 
+        # building = 
+        # created_on = 
+        # updated_at = 
         review_body = written_review
 
 
