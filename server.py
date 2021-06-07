@@ -80,6 +80,15 @@ def show_user(user_id):
 
     return render_template('user_details.html', user=user)
 
+    
+@app.route('/reviews/<review_id>')
+def show_review(review_id):
+    """Show details of a particular review"""
+
+    review = crud.get_review_by_id(review_id)
+
+    return render_template('review_details.html', review=review)
+
 
 @app.route('/users', methods=['POST'])
 def register_user():
