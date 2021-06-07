@@ -42,6 +42,15 @@ def all_buildings():
     return render_template('all_buildings.html', buildings=buildings)
 
 
+@app.route('/buildings/<building_id>')
+def show_building(building_id):
+    """Show details of a particular building"""
+
+    building = crud.get_building_by_id(building_id)
+
+    return render_template('building_details.html', building=building)
+
+
 @app.route('/all_users')
 def all_users():
     """Show all users by calling get_users function."""
