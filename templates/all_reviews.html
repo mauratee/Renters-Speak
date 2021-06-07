@@ -6,7 +6,7 @@
 
   {% if session.get('user_email') %}
   <h2>Write a Review (for Logged in Users)</h2>
-  <form action="/write_review" method="POST">
+  <form id="write_review" action="/write_review" method="POST">
     <p>
       Which Landlord are you Reviewing?: <input type="text" name="landlord" size="50">
     </p>
@@ -22,6 +22,11 @@
       <input type="submit">
     </p>  
   </form>
+    <script>
+       document.getElementById("write_review").addEventListener('submit', () => {
+        const created_on = Date.now()
+       });
+    </script>
   {% endif %}
   <br>
     <ul>

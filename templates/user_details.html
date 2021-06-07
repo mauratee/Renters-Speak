@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.email }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ user.email }}</h1>
+<p>
+    <h4>User ID: {{ user.user_id }}</h4>
+</p>
+<p>
+    <h4>Reviews written by {{ user.email }}:</h4>
+        {% if user.reviews %}
+            {% for review in user.reviews %}
+                <li>Building Reviewed: {{ review.building.building_address }}</li>
+                <li>Landlord Reviewed: {{ review.building.landlord.landlord_name }}</li>
+                <li>Review Text: {{ review.review_body }}</li>
+                <br>
+            {% endfor %}
+        {% else %}
+            <li>No Reviews by this User </li>
+        {% endif %}
+    <br>
+</p>
+{% endblock %}
