@@ -1,6 +1,6 @@
 """ Models for landlord review site"""
 
-import datetime
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -76,8 +76,8 @@ class Review(db.Model):
                             autoincrement=True,
                             primary_key=True)
     review_body = db.Column(db.Text)
-    created_on = db.Column(db.DateTime)
-    updated_at = db.Column(db.DateTime)
+    created_on = db.Column(db.DateTime, default=datetime.now)
+    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     user_id = db.Column(db.Integer, # Foreign key from Review to user_id
                         db.ForeignKey('users.user_id')
                         )
