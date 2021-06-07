@@ -42,6 +42,15 @@ def all_buildings():
     return render_template('all_buildings.html', buildings=buildings)
 
 
+@app.route('/all_users')
+def all_users():
+    """Show all users by calling get_users function."""
+
+    users = crud.get_users()
+
+    return render_template('all_users.html', users=users)
+
+
 @app.route('/users', methods=['POST'])
 def register_user():
     """Create a new user"""
@@ -88,7 +97,15 @@ def write_review():
     reviewed_building = request.form.get("building")
     written_review = request.form.get("review_body")
 
-    
+    if logged_in_email is None:
+        flash("You must log in to review a landlord.")
+    else:
+        user = crud.get_user_by_email(logged_in_email)
+        building = crud.
+        created_on = 
+        updated_at = 
+        review_body = written_review
+
 
 
     return redirect('/reviews')
