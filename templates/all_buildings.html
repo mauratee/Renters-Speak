@@ -7,7 +7,9 @@
     <ul>
         {% for building in buildings %}
             <ul>
-                <h2>{{ building.building_address }}</h2>
+                <a href="/buildings/{{ building.building_id }}">
+                    <h2>{{ building.building_address }}</h2>
+                </a>
                 <h4>Landlord of {{ building.building_address }}:</h4>
                 Landlord Name: {{ building.landlord.landlord_name }}
                 <br>
