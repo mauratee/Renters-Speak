@@ -37,12 +37,11 @@ def create_building(building_address, landlord_id):
     return building
 
 
-def create_review(review_body, created_on, updated_at, user_id, building_id):
+def create_review(review_body, user, building):
     """Create and return a new review."""
 
-    review = Review(review_body=review_body, created_on=created_on, 
-                    updated_at=updated_at, user_id=user_id,
-                    building_id=building_id)
+    review = Review(review_body=review_body, user=user,
+                    building=building)
     
     db.session.add(review)
     db.session.commit()
@@ -81,12 +80,28 @@ def get_building_by_id(building_id):
     return Building.query.filter(Building.building_id == building_id).first()
 
 
+def get_building_by_address(address):
+    """Takes in building address as argument and checks if building exists in "buildings"
+        database. If building exists, returns building object. If building does not
+        exist, returns None."""
+    
+    return Building.query.filter(Building.building_address == address).first()
+
+
 def get_landlord_by_id(landlord_id):
     """Takes in landlord id as argument and checks if landlord exists in "landlords"
         database. If landlord exists, returns landlord object. If landlord does not
         exist, returns None."""
     
     return Landlord.query.filter(Landlord.landlord_id == landlord_id).first()
+
+
+def get_landlord_by_name(landlord_name):
+    """Takes in landlord name as argument and checks if landlord exists in "landlords"
+        database. If landlord exists, returns landlord object. If landlord does not
+        exist, returns None."""
+    
+    return Landlord.query.filter(Landlord.landlord_name == landlord_name).first()
 
 
 def get_user_by_id(user_id):

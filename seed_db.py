@@ -68,12 +68,12 @@ for n in range(5):
 for n in range(10):
     review_body = f'This is test review number {n}.'
 
-    create_yr = randint(2017, 2020)
-    create_mth = randint(1, 12)
-    create_day = randint(1, 28)
-    created_on = datetime(create_yr, create_mth, create_day)
+    # create_yr = randint(2017, 2020)
+    # create_mth = randint(1, 12)
+    # create_day = randint(1, 28)
+    # created_on = datetime(create_yr, create_mth, create_day)
     
-    updated_at = datetime.now()
+    # updated_at = datetime.now()
 
     user_to_write = choice(users_in_db)
     user_id=user_to_write.user_id
@@ -81,6 +81,5 @@ for n in range(10):
     building_to_write = choice(buildings_in_db)
     building_id=building_to_write.building_id
 
-    review = crud.create_review(review_body, created_on, 
-                    updated_at, user_id, building_id)
+    review = crud.create_review(review_body, user, building)
 

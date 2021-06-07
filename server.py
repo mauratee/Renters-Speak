@@ -126,18 +126,24 @@ def write_review():
     reviewed_landlord = request.form.get("landlord")
     reviewed_building = request.form.get("building")
     written_review = request.form.get("review_body")
+    landlord_office = request.form.get("landlord_office")
 
     if logged_in_email is None:
         flash("You must log in to review a landlord.")
     else:
         user = crud.get_user_by_email(logged_in_email)
-        building = reviewed_building
+        building = crud.get_building_by_address(reviewed_building)
         landlord = reviewed_landlord
-        # created_on = 
-        # updated_at = 
+        landlord = crud.get_landlord_by_name(reviewed_landlord)
         review_body = written_review
 
+        if not building and not landlord:
+            landlord = crud.create_landlord(reviewed_landlord, landlord_office)
+            building = crud.create_building(reviewed_building, landlord.landlord_id)
 
+        crud.create_review(review_body, user, building)
+
+        flash(f"You wrote a review for {landlord.landlord_name} who owns {building.building_address}.")
 
     return redirect('/reviews')
 
