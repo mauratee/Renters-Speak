@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Renters Speak{% endblock %}
+
+{% block body %}
+  <h1>Renters Speak: All Users</h1>
+
+    <ul>
+        {% for user in users %}
+            <ul>
+                <h2>{{ user.email }}</h2>
+                User ID: {{ user.user_id }}
+                <br>
+                <h4>Reviews written by {{ user.email }}:</h4>
+                {% if user.reviews %}
+                    {% for review in user.reviews %}
+                        <li>Building Reviewed: {{ review.buiilding }}</li>
+                        <li>Landlord Reviewed: {{ review.building.landlord }}</li>
+                        <li>Review Text: {{ review.review_body }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No Reviews by this User </li>
+                {% endif %}
+                <br>
+            </ul>
+        {% endfor %}
+    </ul>
+{% endblock %}
