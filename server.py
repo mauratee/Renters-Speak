@@ -60,7 +60,7 @@ def show_landlord(landlord_id):
 
     landlord = crud.get_landlord_by_id(landlord_id)
 
-    return render_templare('landlord_details.html', landlord=landlord)
+    return render_template('landlord_details.html', landlord=landlord)
 
 
 @app.route('/all_users')

@@ -21,7 +21,7 @@
     <br>
 </p>
     <h4>Reviews of Landlord:</h4>
-        % if landlord.buildings %}
+        {% if landlord.buildings %}
             {% for building in landlord.buildings %}
                 {% if building.reviews %}
                     {% for review in building.reviews %}
