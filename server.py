@@ -21,6 +21,7 @@ def render_homepage():
 @app.route('/reviews')
 def all_reviews():
     """Show all reviews by calling get_reviews function"""
+    
     reviews = crud.get_reviews()
 
     return render_template('all_reviews.html', reviews=reviews)
@@ -29,6 +30,7 @@ def all_reviews():
 @app.route('/landlords')
 def all_landlords():
     """Show all reviews by calling get_landlords function"""
+    
     landlords = crud.get_landlords()
 
     return render_template('all_landlords.html', landlords=landlords)
@@ -37,6 +39,7 @@ def all_landlords():
 @app.route('/buildings')
 def all_buildings():
     """Show all buildings by calling get_buildings function"""
+    
     buildings = crud.get_buildings()
 
     return render_template('all_buildings.html', buildings=buildings)

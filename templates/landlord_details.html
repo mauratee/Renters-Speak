@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ landlord.landlord_name }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ landlord.landlord_name }}</h1>
+
+<p>
+    <h4>Landlord Office Address:</h4>
+        {{ landlord.office_address }}
+</p>
+<p>
+    <h4>Buildings Owned by Landlord:</h4>
+        {% if landlord.buildings %}
+            {% for building in landlord.buildings %}
+                <li>{{ building.building_address }}</li>
+            {% endfor %}
+        {% else %}
+            <li>No Buildings Owned</li>
+        {% endif %}
+    <br>
+</p>
+    <h4>Reviews of Landlord:</h4>
+        % if landlord.buildings %}
+            {% for building in landlord.buildings %}
+                {% if building.reviews %}
+                    {% for review in building.reviews %}
+                        <li>Review Text: {{ review.review_body }}</li>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <li>No Reviews</li>
+        {% endif %}
+    <br>
+</p>
+{% endblock %}
