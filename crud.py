@@ -89,6 +89,13 @@ def get_landlord_by_id(landlord_id):
     return Landlord.query.filter(Landlord.landlord_id == landlord_id).first()
 
 
+def get_user_by_id(user_id):
+    """Takes in user id and checks if user exists in "users" database.
+        If user exists, return user object. If user does not exist, return None."""
+
+    return User.query.filter(User.user_id == user_id).first()
+
+
 def get_user_by_email(email):
     """Takes in email address and checks if email exists in "users" database.
         If user exists, return user object. If user does not exist, return None."""
