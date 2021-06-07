@@ -45,6 +45,15 @@ def all_buildings():
     return render_template('all_buildings.html', buildings=buildings)
 
 
+@app.route('/all_users')
+def all_users():
+    """Show all users by calling get_users function."""
+
+    users = crud.get_users()
+
+    return render_template('all_users.html', users=users)
+
+
 @app.route('/buildings/<building_id>')
 def show_building(building_id):
     """Show details of a particular building"""
@@ -63,13 +72,13 @@ def show_landlord(landlord_id):
     return render_template('landlord_details.html', landlord=landlord)
 
 
-@app.route('/all_users')
-def all_users():
-    """Show all users by calling get_users function."""
+@app.route('/users/<user_id>')
+def show_user(user_id):
+    """Show details of a particular user"""
 
-    users = crud.get_users()
+    user = crud.get_user_by_id(user_id)
 
-    return render_template('all_users.html', users=users)
+    return render_template('user_details.html', user=user)
 
 
 @app.route('/users', methods=['POST'])
