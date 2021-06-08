@@ -136,7 +136,7 @@ def logout():
     
     if session:
         session.pop("user_id")
-        session.pop(user_email)
+        session.pop("user_email")
         print("*"*15)
         print(session)
         flash(f"You are now logged out.")
@@ -144,8 +144,6 @@ def logout():
         flash("You are not currently logged in.")
     
     return redirect('/')
-
-
 
 
 @app.route('/write_review', methods=['POST'])
@@ -161,7 +159,12 @@ def write_review():
 
     if logged_in_email is None:
         flash("You must log in to review a landlord.")
-    # elif no landlord name, or landlord building entered
+    elif not reviewed_landlord:
+        flash("Error: you didn't enter the Landlord for your review.")
+    elif not reviewed_building:
+        flash("Error: you didn't enter the Building for your review.")
+    elif not written_review:
+        flash("Error: you didn't enter the Review Text for your review.")
     else:
         user = crud.get_user_by_email(logged_in_email)
         building = crud.get_building_by_address(reviewed_building)
