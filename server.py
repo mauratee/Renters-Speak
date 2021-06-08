@@ -132,9 +132,9 @@ def logout():
     """Allow currently logged in user to log out"""
 
     print("~"*10)
-    user = session.keys()
-    print(user)
-    # flash(user)
+    user = session["user_id"]
+    user_email = session["user_email"]
+    flash(f"You are now logged out, {user_email}.")
     
     return redirect('/')
 
