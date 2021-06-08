@@ -16,11 +16,23 @@ class FlaskTestsBasic(TestCase):
         # Show Flask errors that happen during tests
         app.config['TESTING'] = True
 
+
     def test_index(self):
-        """Test homepage"""
+        """Test homepage."""
 
         result = self.client.get("/")
         self.assertIn(b"Navigation", result.data)
+    
+
+    def test_login_route(self):
+        """Check that the login route renders properly."""
+
+        with self.client as c:
+            result = c.post("/login",
+                            data={"email": "email@gmail.com", "password": "password123"},
+                            follow_redirects=True)
+            self.assertEqual(session["user_email"], "email@gmail.com")
+            self.assertIn(result.data)
 
 
 

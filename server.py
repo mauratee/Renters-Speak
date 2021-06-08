@@ -108,7 +108,9 @@ def register_user():
     return redirect("/")
 
 
-@app.route('/login', methods=['POST'])
+####### Routes for Login/Logout
+
+@app.route("/login", methods=["POST"])
 def login():
     """Allow existing users to log in"""
 
@@ -124,7 +126,7 @@ def login():
     else:
         flash("Please enter correct email and password or register for new account.")
 
-    return redirect('/')
+    return redirect("/")
 
 
 @app.route('/logout')
