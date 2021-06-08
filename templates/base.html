@@ -21,6 +21,11 @@
 
     {% block body %}{% endblock %}
 
-    {% block after_body %}{% endblock %}
+    {% block after_body %}
+      Click to log out of your account:
+      <button action="/logout" name="logout">
+        Log Out
+      </button>
+    {% endblock %}
   </body>
 </html>

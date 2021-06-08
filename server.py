@@ -80,7 +80,7 @@ def show_user(user_id):
 
     return render_template('user_details.html', user=user)
 
-    
+
 @app.route('/reviews/<review_id>')
 def show_review(review_id):
     """Show details of a particular review"""
@@ -126,6 +126,13 @@ def login():
     return redirect('/')
 
 
+@app.route('/logout', methods=['POST'])
+def logout():
+    """Allow currently logged in user to log out"""
+
+    
+
+
 @app.route('/write_review', methods=['POST'])
 def write_review():
     """If user logged in, allow submission from write review form on homepage.html
@@ -139,6 +146,7 @@ def write_review():
 
     if logged_in_email is None:
         flash("You must log in to review a landlord.")
+    # elif no landlord name, or landlord building entered
     else:
         user = crud.get_user_by_email(logged_in_email)
         building = crud.get_building_by_address(reviewed_building)
