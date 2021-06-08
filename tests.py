@@ -16,6 +16,12 @@ class FlaskTestsBasic(TestCase):
         # Show Flask errors that happen during tests
         app.config['TESTING'] = True
 
+    def test_index(self):
+        """Test homepage"""
+
+        result = self.client.get("/")
+        self.assertIn(b"Navigation", result.data)
+
 
 
 if __name__ == '__main__':
