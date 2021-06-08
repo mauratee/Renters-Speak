@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Review # {{ review.review_id }} - Details{% endblock %}
+
+{% block body %}
+<h1>Review Details for Review # {{ review.review_id }}</h1>
+
+<p>
+    Review text:
+    <br>
+    {{review.review_body}}
+</p>
+<p>
+    Referring to this building:
+    <br>
+    {{review.building.building_address}}
+</p>
+<p>
+    Referring to this landlord:
+    <br>
+    {{review.building.landlord.landlord_name}}
+</p>
+<p>
+    Written by:
+    <br>
+    {{review.user.email}}
+</p>
+<p>
+    Written on:
+    {{ review.created_on }}
+</p>
+{% endblock %}

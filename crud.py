@@ -72,6 +72,15 @@ def get_users():
 
     return User.query.all()
 
+
+def get_review_by_id(review_id):
+    """Takes in review id as argument and checks if review exists in "reviews"
+        database. If review exists, returns review object. If review does not
+        exist, returns None."""
+
+    return Review.query.filter(Review.review_id == review_id).first()
+
+
 def get_building_by_id(building_id):
     """Takes in building id as argument and checks if building exists in "buildings"
         database. If building exists, returns building object. If building does not

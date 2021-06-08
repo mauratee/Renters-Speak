@@ -29,7 +29,9 @@
   <br>
     <ul>
         {% for review in reviews %}
-        <h2>Review Information:</h2>
+        <a href="/reviews/{{ review.review_id }}">
+            <h2>Review Information for Review # {{ review.review_id }}:</h2>
+        </a>
             <li>
                 Review text:
                 <br>
