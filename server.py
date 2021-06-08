@@ -152,6 +152,7 @@ def write_review():
          to be added to reviews database"""
     
     logged_in_email = session.get("user_email")
+
     reviewed_landlord = request.form.get("landlord")
     reviewed_building = request.form.get("building")
     written_review = request.form.get("review_body")
@@ -168,15 +169,13 @@ def write_review():
     else:
         user = crud.get_user_by_email(logged_in_email)
         building = crud.get_building_by_address(reviewed_building)
-        landlord = reviewed_landlord
         landlord = crud.get_landlord_by_name(reviewed_landlord)
-        review_body = written_review
 
         if not building and not landlord:
             landlord = crud.create_landlord(reviewed_landlord, landlord_office)
             building = crud.create_building(reviewed_building, landlord.landlord_id)
 
-        crud.create_review(review_body, user, building)
+        crud.create_review(written_review, user, building)
 
         flash(f"You wrote a review for {landlord.landlord_name} who owns {building.building_address}.")
 
