@@ -171,6 +171,9 @@ def write_review():
         building = crud.get_building_by_address(reviewed_building)
         landlord = crud.get_landlord_by_name(reviewed_landlord)
 
+        # Check if reviewed building and reviewed landlord in database.
+        # If both not in database, create landlord and building entries
+        # in respective databases
         if not building and not landlord:
             landlord = crud.create_landlord(reviewed_landlord, landlord_office)
             building = crud.create_building(reviewed_building, landlord.landlord_id)
