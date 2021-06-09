@@ -5,42 +5,59 @@
   <h1>Renters Speak</h1>
 
   <h2>Navigation</h2>
-  <ul>
-    <li><a href="/reviews">View all reviews</a></li>
-    <li><a href="/landlords">View all landlords</a></li>
-    <li><a href="/buildings">View all buildings</a></li>
-    <li><a href="/all_users">View all users</a></li>
-  </ul>
+    <ul>
+      <li><a href="/reviews">View all reviews</a></li>
+      <li><a href="/landlords">View all landlords</a></li>
+      <li><a href="/buildings">View all buildings</a></li>
+      <li><a href="/all_users">View all users</a></li>
+    </ul>
 
-    <br>
+  <br>
+
+  <h2>Search for Reviews by Address:</h2>
+    <form action="/search_by_address">
+      <p>
+        Enter an address to search:<br>
+        <input type="text" name="search_address">
+      </p>
+      <p>
+        <input type="submit">
+      </p>
+    </form>
+
+  <br>
+
+  <h2>Search for Reviews by Landlord:</h2>
+
+  <br>
 
   <h2>Create an Account</h2>
-  <form action="/users" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
-    <p>
-      Password <input type="text" name="password">
-    </p>
-    <p>
-      <input type="submit">
-    </p>
-  </form>
+    <form action="/users" method="POST">
+      <p>
+        Email <input type="text" name="email">
+      </p>
+      <p>
+        Password <input type="text" name="password">
+      </p>
+      <p>
+        <input type="submit">
+      </p>
+    </form>
 
   <br>
 
   <h2>Login for Existing Users</h2>
-  <form action="/login" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
-    <p>
-      Password <input type="text" name="password">
-    </p>
-    <p>
-      <input type="submit">
-    </p>
-  </form>
+    <form action="/login" method="POST">
+      <p>
+        Email <input type="text" name="email">
+      </p>
+      <p>
+        Password <input type="text" name="password">
+      </p>
+      <p>
+        <input type="submit">
+      </p>
+    </form>
 
   <br>
 

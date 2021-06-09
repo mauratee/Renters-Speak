@@ -118,13 +118,14 @@ def login():
     password = request.form.get("password")
 
     user = crud.get_user_by_email_and_password(email, password)
-
+ 
     if user:
         session["user_email"] = user.email
         session["user_id"] = user.user_id
         flash(f"Welcome back, {user.email}! You are now logged in.")
     else:
         flash("Please enter correct email and password or register for new account.")
+
 
     return redirect("/")
 
