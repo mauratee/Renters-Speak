@@ -202,8 +202,8 @@ def write_review():
 
 @app.route("/search_by_landlord")
 def search_by_landlord():
-    # Takes in string from html form, transforms in some way to try to match database entries
-    # if string matches database, return database entry
+    """Takes in user input from html form, passes to crud function to check
+    if exists in database. If exists, return ddetails page for that landlord."""
 
     searched_landlord = request.form.get("search_landlord")
 
