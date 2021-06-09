@@ -18,6 +18,8 @@ def render_homepage():
     return render_template('homepage.html')
 
 
+####### Routes for Viewing All Entries for each DB Class
+
 @app.route('/reviews')
 def all_reviews():
     """Show all reviews by calling get_reviews function"""
@@ -45,7 +47,7 @@ def all_buildings():
     return render_template('all_buildings.html', buildings=buildings)
 
 
-@app.route('/all_users')
+@app.route('/users')
 def all_users():
     """Show all users by calling get_users function."""
 
@@ -53,6 +55,8 @@ def all_users():
 
     return render_template('all_users.html', users=users)
 
+
+####### Routes for Viewing Individual Entry for each DB Class
 
 @app.route('/buildings/<building_id>')
 def show_building(building_id):
@@ -132,7 +136,7 @@ def login():
     return redirect("/")
 
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
     """Allow currently logged in user to log out"""
 
@@ -190,6 +194,22 @@ def write_review():
         flash(f"You wrote a review for {landlord.landlord_name} who owns {building.building_address}.")
 
     return redirect('/reviews')
+
+
+####### Routes for Search
+
+@app.route("/search_by_address")
+
+@app.route("/search_by_landlord")
+def search_by_landlord():
+    # Takes in string from html form, transforms in some way to try to match database entries
+    # if string matches database, return database entry
+
+
+
+    # return redirect("/landlords/<landlord_id>") <-- not sure which makes sense
+    return render_template('landlord_details.html', landlord=landlord)
+
 
 
 if __name__ == '__main__':
