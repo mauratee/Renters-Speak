@@ -199,13 +199,17 @@ def write_review():
 ####### Routes for Search
 
 @app.route("/search_by_address")
+def search_by_building():
+    """Takes in user input from html form and passes to crud function to
+        check if entry exists in databse. If exists, return details page
+        for that building."""
 
 
 
 @app.route("/search_by_landlord")
 def search_by_landlord():
     """Takes in user input from html form, passes to crud function to check
-    if exists in database. If exists, return ddetails page for that landlord."""
+    if exists in database. If exists, return details page for that landlord."""
 
     searched_landlord = request.args.get("search_landlord")
 
