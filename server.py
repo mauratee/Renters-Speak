@@ -200,21 +200,25 @@ def write_review():
 
 @app.route("/search_by_address")
 
+
+
 @app.route("/search_by_landlord")
 def search_by_landlord():
     """Takes in user input from html form, passes to crud function to check
     if exists in database. If exists, return ddetails page for that landlord."""
 
-    searched_landlord = request.form.get("search_landlord")
+    searched_landlord = request.args.get("search_landlord")
 
     if searched_landlord is None:
         flash("You must enter a landlord to search.")
+        return redirect('/')
     else:
         landlord = crud.get_landlord_by_name(searched_landlord)
-    
-        if not landlord:
-            flash("No reviews exist for that landlord.")
 
+        if landlord is None:
+            flash("No reviews exist for that landlord.")
+            return redirect('/')
+        
         return render_template('landlord_details.html', landlord=landlord)
 
 
