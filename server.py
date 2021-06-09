@@ -204,11 +204,18 @@ def write_review():
 def search_by_landlord():
     # Takes in string from html form, transforms in some way to try to match database entries
     # if string matches database, return database entry
-    Employee.query.filter(Employee.name.like('%Jane%'))       # LIKE
 
+    searched_landlord = request.form.get("search_landlord")
 
-    # return redirect("/landlords/<landlord_id>") <-- not sure which makes sense
-    return render_template('landlord_details.html', landlord=landlord)
+    if searched_landlord is None:
+        flash("You must enter a landlord to search.")
+    else:
+        landlord = crud.get_landlord_by_name(searched_landlord)
+    
+        if not landlord:
+            flash("No reviews exist for that landlord.")
+
+        return render_template('landlord_details.html', landlord=landlord)
 
 
 
