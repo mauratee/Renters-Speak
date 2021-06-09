@@ -111,7 +111,10 @@ def get_landlord_by_name(landlord_name):
         database. If landlord exists, returns landlord object. If landlord does not
         exist, returns None."""
     
-    return Landlord.query.filter(Landlord.landlord_name == landlord_name).first()
+    # Creates f string based on argument, adding % to format for .like Query
+    landlord_name = (f"%{landlord_name}%")
+
+    return Landlord.query.filter(Landlord.landlord_name.like(landlord_name)).first()
 
 
 def get_user_by_id(user_id):

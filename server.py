@@ -204,7 +204,7 @@ def write_review():
 def search_by_landlord():
     # Takes in string from html form, transforms in some way to try to match database entries
     # if string matches database, return database entry
-
+    Employee.query.filter(Employee.name.like('%Jane%'))       # LIKE
 
 
     # return redirect("/landlords/<landlord_id>") <-- not sure which makes sense
