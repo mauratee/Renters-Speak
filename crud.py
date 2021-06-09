@@ -94,8 +94,11 @@ def get_building_by_address(address):
     """Takes in building address as argument and checks if building exists in "buildings"
         database. If building exists, returns building object. If building does not
         exist, returns None."""
+
+    # Creates f string based on argument, adding % to format for .like Query
+    building_address = (f"%{address}%")
     
-    return Building.query.filter(Building.building_address == address).first()
+    return Building.query.filter(Building.building_address.like(building_address)).first()
 
 
 def get_landlord_by_id(landlord_id):

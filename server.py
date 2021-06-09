@@ -204,6 +204,19 @@ def search_by_building():
         check if entry exists in databse. If exists, return details page
         for that building."""
 
+    searched_building = request.args.get("search_address")
+
+    if searched_building is None:
+        flash("You must enter an address to search.")
+        return redirect('/')
+    else:
+        building = crud.get_building_by_address(searched_building)
+
+        if building is None:
+            flash("No reviews exist for that address.")
+            return redirect('/')
+        
+        return render_template('building_details.html', building=building)
 
 
 @app.route("/search_by_landlord")
