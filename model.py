@@ -107,8 +107,6 @@ def connect_to_db(flask_app, db_uri='postgresql:///testdb', echo=True):
 
 if __name__ == '__main__':
     from server import app
-    # from flask import Flask
-    # app = Flask(__name__) <-- can delete if seed_db.py runs!
 
     # Call connect_to_db(app, echo=False) if your program output gets
     # too annoying; this will tell SQLAlchemy not to print out every
