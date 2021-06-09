@@ -90,7 +90,9 @@ def show_review(review_id):
     return render_template('review_details.html', review=review)
 
 
-@app.route('/users', methods=['POST'])
+####### Routes for User Creation
+
+@app.route('/new_user', methods=['POST'])
 def register_user():
     """Create a new user"""
     email = request.form.get("email")
@@ -148,6 +150,8 @@ def logout():
     
     return redirect('/')
 
+
+####### Routes for Reviews
 
 @app.route('/write_review', methods=['POST'])
 def write_review():
