@@ -53,6 +53,19 @@ class FlaskTestsBasic(TestCase):
             self.assertEqual("user_email" in session.keys(), False)
             # self.assertEqual(session["user_email"], "email@gmail.com") <-- doesn't work because user is not created and added to db first.
 
+class FlaskTestsLogInLogOut(TestCase):
+    """Test user log in and log out."""
+
+    def setUp(self):
+        """Stuff to do before every test: get Flask test client, show errors, 
+            set up secret key"""
+
+        self.client = app.test_client()
+        app.config['TESTING'] = True
+        app.config['SECRET_KEY'] = 'key'
+
+
+# class FlaskTestsDatabase(TestCase):
 
 
 if __name__ == '__main__':

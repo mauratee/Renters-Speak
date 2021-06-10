@@ -99,14 +99,9 @@ def show_review(review_id):
 @app.route("/new_user", methods=['POST'])
 def register_user():
     """Create a new user"""
-    print("*"*20)
-    print("you are in the /new_user route")
-    print("*"*20)
+   
     email = request.form.get("email")
     password = request.form.get("password")
-    print("~"*20)
-    print(email)
-    print(password)
 
     user = crud.get_user_by_email(email)
 
@@ -146,14 +141,16 @@ def login():
 def logout():
     """Allow currently logged in user to log out"""
 
-    print("~"*10)
-    print(session)
+    # print("~"*10)
+    # print("you are in the /logout route, session hasn't been altered")
+    # print(f"session = {session}")
     
     if session:
-        session.pop("user_id")
-        session.pop("user_email")
-        print("*"*15)
-        print(session)
+        del session["user_id"]
+        del session["user_email"]
+        # print("*"*15)
+        # print("you are in the /logout route, inside the 'if' conditional")
+        # print(f"session = {session}")
         flash(f"You are now logged out.")
     else:
         flash("You are not currently logged in.")
@@ -225,16 +222,13 @@ def search_by_building():
         return render_template('building_details.html', building=building)
 
 
-@app.route("/search_by_landlord", methods=['GET'])
+@app.route("/search_by_landlord")
 def search_by_landlord():
     """Takes in user input from html form, passes to crud function to check
     if exists in database. If exists, return details page for that landlord."""
 
-    print("*"*20)
-    print("you are in the /search_by_landlord route")
-    print("*"*20)
     searched_landlord = request.args.get("search_landlord")
-    print(f"searched_landlord = {searched_landlord}")
+    # print(f"searched_landlord = {searched_landlord}")
 
     if searched_landlord is None:
         flash("You must enter a landlord to search.")
