@@ -96,11 +96,17 @@ def show_review(review_id):
 
 ####### Routes for User Creation
 
-@app.route('/new_user', methods=['POST'])
+@app.route("/new_user", methods=['POST'])
 def register_user():
     """Create a new user"""
+    print("*"*20)
+    print("you are in the /new_user route")
+    print("*"*20)
     email = request.form.get("email")
     password = request.form.get("password")
+    print("~"*20)
+    print(email)
+    print(password)
 
     user = crud.get_user_by_email(email)
 
@@ -224,6 +230,9 @@ def search_by_landlord():
     """Takes in user input from html form, passes to crud function to check
     if exists in database. If exists, return details page for that landlord."""
 
+    print("*"*20)
+    print("you are in the /search_by_landlord route")
+    print("*"*20)
     searched_landlord = request.args.get("search_landlord")
 
     if searched_landlord is None:
