@@ -19,14 +19,12 @@ class FlaskTestsBasic(TestCase):
         # Set up secret key in order to use "session"
         app.config['SECRET_KEY'] = 'key'
 
-
     def test_index(self):
         """Test homepage."""
 
         result = self.client.get("/")
         self.assertIn(b"Navigation", result.data)
     
-
     def test_new_user_route(self):
         """Check that a new user can be created and stored in 'users' database."""
 
@@ -39,19 +37,7 @@ class FlaskTestsBasic(TestCase):
             db_query = User.query.filter(User.email == "newuser@gmail.com").first()
 
             self.assertEqual("newuser@gmail.com", db_query.email)
-    
 
-    def test_login_route(self):
-        """Check that the login route renders properly."""
-
-        with self.client as c:
-
-            result = c.post("/login",
-                            data={"email": "email@gmail.com", "password": "password123"},
-                            follow_redirects=True)
-
-            self.assertEqual("user_email" in session.keys(), False)
-            # self.assertEqual(session["user_email"], "email@gmail.com") <-- doesn't work because user is not created and added to db first.
 
 class FlaskTestsLogInLogOut(TestCase):
     """Test user log in and log out."""
@@ -63,6 +49,42 @@ class FlaskTestsLogInLogOut(TestCase):
         self.client = app.test_client()
         app.config['TESTING'] = True
         app.config['SECRET_KEY'] = 'key'
+        
+        # Create new user in database
+        user = User(email="email@gmail.com", password="password123")
+        db.session.add(user)
+        db.session.commit()
+    
+    def tearDown(self):
+        """Stuff to do at end of every test."""
+
+        db.session.remove()
+        db.drop_all()
+        db.engine.dispose()
+
+    def test_login_route(self):
+        """Check that the login route adds user to session for user already in DB."""
+
+        with self.client as c:
+
+            result = c.post("/login",
+                            data={"email": "email@gmail.com", "password": "password123"},
+                            follow_redirects=True)
+
+            self.assertEqual(session["user_email"], "email@gmail.com")
+
+    def test_logout_route(self):
+        """Check that logout route removes user from sesssion for logged in user
+            who is already in DB."""
+
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess["user_email"] = "email@gmail.com"
+
+            result = self.client.get("/logout", follow_redirects=True)
+
+            self.assertNotIn(b"user_email", session)
+            # self.assertIn(b'Logged Out', result.data)
 
 
 # class FlaskTestsDatabase(TestCase):
