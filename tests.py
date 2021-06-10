@@ -27,6 +27,20 @@ class FlaskTestsBasic(TestCase):
         self.assertIn(b"Navigation", result.data)
     
 
+    def test_new_user_route(self):
+        """Check that a new user can be created and stored in 'users' database."""
+
+        with self.client as c:
+
+            result = c.post("/new_user",
+                            data={"email": "newuser@gmail.com", "password": "pwd543"},
+                            follow_redirects=True)
+            # Database query to "Users" that returns user object that matches "newuser@gmail.com"
+            db_query = User.query.filter(User.email == "newuser@gmail.com").first()
+
+            self.assertEqual("newuser@gmail.com", db_query.email)
+    
+
     def test_login_route(self):
         """Check that the login route renders properly."""
 
