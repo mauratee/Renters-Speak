@@ -1,4 +1,7 @@
-INSTRUCTIONS TO RUN RENTERS SPEAK WEB APP:
+## About this Project
+
+
+## Instructions to Run Renters Speak Web App:
 
 Use git clone or other method to copy entire contents of this repository to your local machine
 
@@ -11,7 +14,7 @@ Enter `python3 seed_db.py`in terminal to seed database `testdb` with test data <
 To view and query test database using SQL queries, enter `psql testdb` from terminal and enter (`\q` to exit)<br>
 To query `testdb`using SQLAlchemy queries,  run `model.py` in interactive mode and use `quit()` to exit
 
-TO RUN SERVER:<br>
+# To Run Server:
 Activate virtual environment by entering `source env/bin/activate` in terminal<br>
     Your command prompt should then show `(env)` at the beginning of the line<br>
 
