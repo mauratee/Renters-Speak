@@ -12,6 +12,9 @@ To view and query test database using SQL queries, enter `psql testdb` from term
 To query `testdb`using SQLAlchemy queries,  run `model.py` in interactive mode and use `quit()` to exit
 
 TO RUN SERVER:<br>
+Activate virtual environment by entering `source env/bin/activate` in terminal<br>
+    Your command prompt should then show `(env)` at the beginning of the line<br>
+
 In terminal, enter `python3 server.py`<br>
 You should then see:<br>
     "Connected to the db!<br>
