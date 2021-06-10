@@ -1,3 +1,11 @@
+"""
+Routes covered by this file:
+/
+/new_user
+/login
+/logout
+"""
+
 from unittest import TestCase
 from server import app, session # import app and session from server
 from model import db, User, Landlord, Building, Review, connect_to_db
