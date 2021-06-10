@@ -50,9 +50,6 @@ class FlaskTestsLogInLogOut(TestCase):
         self.client = app.test_client()
         app.config['TESTING'] = True
         app.config['SECRET_KEY'] = 'key'
-        
-        # Create tables
-        db.create_all()
 
         # Create new user in database
         user = User(email="email@gmail.com", password="password123")
@@ -90,7 +87,6 @@ class FlaskTestsLogInLogOut(TestCase):
             result = self.client.get("/logout", follow_redirects=True)
 
             self.assertNotIn(b"user_email", session)
-            # self.assertIn(b'Logged Out', result.data)
 
 
 # class FlaskTestsDatabase(TestCase):
