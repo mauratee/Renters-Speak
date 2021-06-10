@@ -10,7 +10,6 @@ from unittest import TestCase
 from server import app, session # import app and session from server
 from model import db, User, Landlord, Building, Review, connect_to_db
 import os
-# from seed_db import create_test_users
 
 
 class FlaskTestsBasic(TestCase):

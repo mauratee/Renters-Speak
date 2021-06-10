@@ -54,7 +54,7 @@ class Building(db.Model):
                             primary_key=True)
     building_address = db.Column(db.String)
     landlord_id = db.Column(db.Integer, # Foreign key from Building to landlord_id
-                            db.ForeignKey('landlords.landlord_id')
+                            db.ForeignKey('landlords.landlord_id'), nullable=False
                             )
     
     # reviews = a list of Review objects, available from 
