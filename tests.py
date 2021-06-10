@@ -131,6 +131,14 @@ class FlaskTestsLoggedOut(TestCase):
         app.config['SECRET_KEY'] = 'key'
         self.client = app.test_client()
 
+    def test_no_review_form(self):
+        """Check that the write review form does not show up in the all_reviews 
+            page for users that are not logged in."""
+
+        result = self.client.get("/reviews")
+        self.assertNotIn(b"Write a Review", result.data)
+
+
 
 if __name__ == '__main__':
     import unittest
