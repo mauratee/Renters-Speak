@@ -66,7 +66,8 @@ class FlaskTestsLogInLogOut(TestCase):
         # Remove user from database that was created in setUp
         user = User.query.filter(User.email == "email@gmail.com").first()
         db.session.delete(user)
-
+        db.session.commit()
+        
     def test_login_route(self):
         """Check that the login route adds user to session for user already in DB."""
 
