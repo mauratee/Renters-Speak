@@ -99,6 +99,28 @@ class FlaskTestsLogInLogOut(TestCase):
 # class FlaskTestsDatabase(TestCase):
 
 
+class FlaskTestsLoggedIn(TestCase):
+    """Flask tests with user logged in to session."""
+    
+    def setUp(self):
+        """Stuff to do before every test."""
+
+        app.config['TESTING'] = True
+        app.config['SECRET_KEY'] = 'key'
+        self.client = app.test_client()
+
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess['user_email'] = "user4@test.com"
+    
+    def test_write_review_form(self):
+        """Check that the write review form shows up in the all_reviews page
+            for users that are logged in."""
+
+        result = self.client.get("/reviews")
+        self.assertIn(b"Write a Review", result.data)
+
+
 if __name__ == '__main__':
     import unittest
     # Connect to app from server

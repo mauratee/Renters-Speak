@@ -4,7 +4,7 @@
 {% block body %}
   <h1>Renters Speak: All Reviews</h1>
 
-  {% if session.get('user_email') %}
+  {% if session.get("user_email") %}
   <h2>Write a Review (for Logged in Users)</h2>
   <form id="write_review" action="/write_review" method="POST">
     <p>
