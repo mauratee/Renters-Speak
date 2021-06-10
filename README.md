@@ -4,10 +4,14 @@
 This project uses:
 <li>Python 3</li>
 <li>HTML</li>
+<li>Jinja 2</li>
+<li>Flask</li>
+<li>SQLAlchemy</li>
+<li>Flask-SQLAlchemy</li>
 
 ## Instructions to Run Renters Speak Web App:
 
-Use git clone or other method to copy entire contents of this repository to your local machine
+Use `git clone` or other method to copy entire contents of this repository to your local machine
 
 Install dependencies from `requirements.txt` (`pip3 install` or other)
 
