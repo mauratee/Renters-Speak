@@ -5,9 +5,8 @@ import json
 from random import choice, randint
 from datetime import datetime
 
-import crud # <-- un-comment after crud.py complete
-import model 
-# from model import db, User, Landlord, Building, Review, connect_to_db # <--delete if running seed_db.py works
+import crud 
+import model
 import server
 
 os.system('dropdb testdb')

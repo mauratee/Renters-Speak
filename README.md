@@ -25,3 +25,7 @@ You should then see the Renters Speak homepage!
 
 To exit and stop running server, enter `CTRL + c` or `CMD + c`
 
+TO RUN TESTS:<br>
+In terminal, enter `python3 tests.py`<br>
+Output will tell you how many test ran and how many failed of the tests that ran.
+

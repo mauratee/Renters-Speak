@@ -2,6 +2,7 @@ from unittest import TestCase
 from server import app, session # import app and session from server
 from model import db, User, Landlord, Building, Review, connect_to_db
 import os
+# from seed_db import create_test_users
 
 
 class FlaskTestsBasic(TestCase):
@@ -50,17 +51,21 @@ class FlaskTestsLogInLogOut(TestCase):
         app.config['TESTING'] = True
         app.config['SECRET_KEY'] = 'key'
         
+        # Create tables
+        db.create_all()
+
         # Create new user in database
         user = User(email="email@gmail.com", password="password123")
+        
         db.session.add(user)
         db.session.commit()
     
     def tearDown(self):
         """Stuff to do at end of every test."""
 
-        db.session.remove()
-        db.drop_all()
-        db.engine.dispose()
+        # Remove user from database that was created in setUp
+        user = User.query.filter(User.email == "email@gmail.com").first()
+        db.session.delete(user)
 
     def test_login_route(self):
         """Check that the login route adds user to session for user already in DB."""

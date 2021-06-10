@@ -140,17 +140,10 @@ def login():
 @app.route("/logout")
 def logout():
     """Allow currently logged in user to log out"""
-
-    # print("~"*10)
-    # print("you are in the /logout route, session hasn't been altered")
-    # print(f"session = {session}")
     
-    if session:
+    if "user_id" in session and "user_email" in session:
         del session["user_id"]
         del session["user_email"]
-        # print("*"*15)
-        # print("you are in the /logout route, inside the 'if' conditional")
-        # print(f"session = {session}")
         flash(f"You are now logged out.")
     else:
         flash("You are not currently logged in.")
