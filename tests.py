@@ -121,6 +121,17 @@ class FlaskTestsLoggedIn(TestCase):
         self.assertIn(b"Write a Review", result.data)
 
 
+class FlaskTestsLoggedOut(TestCase):
+    """Flask tests with no user logged in to session."""
+
+    def setUp(self):
+        """Stuff to do before every test."""
+
+        app.config['TESTING'] = True
+        app.config['SECRET_KEY'] = 'key'
+        self.client = app.test_client()
+
+
 if __name__ == '__main__':
     import unittest
     # Connect to app from server
