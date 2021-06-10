@@ -225,7 +225,7 @@ def search_by_building():
         return render_template('building_details.html', building=building)
 
 
-@app.route("/search_by_landlord")
+@app.route("/search_by_landlord", methods=['GET'])
 def search_by_landlord():
     """Takes in user input from html form, passes to crud function to check
     if exists in database. If exists, return details page for that landlord."""
@@ -234,6 +234,7 @@ def search_by_landlord():
     print("you are in the /search_by_landlord route")
     print("*"*20)
     searched_landlord = request.args.get("search_landlord")
+    print(f"searched_landlord = {searched_landlord}")
 
     if searched_landlord is None:
         flash("You must enter a landlord to search.")
