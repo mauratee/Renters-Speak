@@ -3,12 +3,14 @@
 
 ## Technologies Used:
 This project uses:
+<ul>
 <li>Python 3</li>
 <li>HTML</li>
 <li>Jinja 2</li>
 <li>Flask</li>
 <li>SQLAlchemy</li>
 <li>Flask-SQLAlchemy</li>
+</ul>
 
 ## Instructions to Run Renters Speak Web App:
 
