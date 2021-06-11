@@ -46,6 +46,26 @@ class FlaskTestsBasic(TestCase):
 
             self.assertEqual("newuser@gmail.com", db_query.email)
 
+class FlaskTestsNewUSer(TestCase):
+    """Test new user creation route."""
+
+    def setUp(self):
+        """Stuff to do before every test: get Flask test client, show errors, 
+            set up secret key"""
+
+        self.client = app.test_client()
+        app.config['TESTING'] = True
+        app.config['SECRET_KEY'] = 'key'
+
+    def tearDown(self):
+        """Stuff to do at end of every test."""
+
+        # Remove user from database that was created in test_new_user_route
+        user = User.query.filter(User.email == "newuser@gmail.com").first()
+        db.session.delete(user)
+        db.session.commit()
+
+
 
 class FlaskTestsLogInLogOut(TestCase):
     """Test user log in and log out."""
