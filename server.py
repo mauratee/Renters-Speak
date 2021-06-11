@@ -105,10 +105,13 @@ def register_user():
     password = request.form.get("password")
 
     user = crud.get_user_by_email(email)
+    username = crud.get_user_by_username(username)
 
     if user:
         flash("""Can't create account. Account with this email already
                exists. Please try again.""")
+    # else username, flash can't create account message
+    # else user and username, flash can't create account message
     else:
         crud.create_user(email, username, password)
         flash("Account created successfully! Please log in.")

@@ -4,6 +4,8 @@ import datetime
 from model import db, User, Landlord, Building, Review, connect_to_db
 
 
+####### Functions for Database Entry Creation
+
 def create_user(email, username, password):
     """Create and return a new user."""
 
@@ -49,6 +51,8 @@ def create_review(review_body, user, building):
     return review
 
 
+####### Functions to Get All Entries in Database
+
 def get_reviews():
     """View all reviews in reviews table"""
 
@@ -72,6 +76,8 @@ def get_users():
 
     return User.query.all()
 
+
+####### Functions to Get a Specifc Entry in Database (if it exists!)
 
 def get_review_by_id(review_id):
     """Takes in review id as argument and checks if review exists in "reviews"
@@ -131,6 +137,14 @@ def get_user_by_email(email):
         If user exists, return user object. If user does not exist, return None."""
     
     return User.query.filter(User.email == email).first()
+
+
+def get_user_by_username(username):
+    """Takes in username and checks if username exists in "users" database.
+        If username exists, return associated user object. If username does 
+        not exist, return None."""
+
+    return User.query.filter(User.username == username).first()
 
 
 def get_user_by_email_and_password(email, password):
