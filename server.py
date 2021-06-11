@@ -110,8 +110,9 @@ def register_user():
     if user:
         flash("""Can't create account. Account with this email already
                exists. Please try again.""")
-    # else username, flash can't create account message
-    # else user and username, flash can't create account message
+    elif username:
+        flash ("""Account with this username already exists. Please enter 
+        another username and try again.""")
     else:
         crud.create_user(email, username, password)
         flash("Account created successfully! Please log in.")
