@@ -22,6 +22,7 @@ users_in_db = []
 
 for n in range(10):
     email = f'user{n}@test.com'  # A unique email
+    username = f'user_{n}'  # A unique username
     password = 'testpwd'
 
     user = crud.create_user(email, password)
