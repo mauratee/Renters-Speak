@@ -39,8 +39,8 @@ class FlaskTestsBasic(TestCase):
         with self.client as c:
 
             result = c.post("/new_user",
-                            data={"email": "newuser@gmail.com", "password": "pwd543"},
-                            follow_redirects=True)
+                            data={"email": "newuser@gmail.com", "username": "test_user",
+                            "password": "pwd543"}, follow_redirects=True)
             # Database query to "Users" that returns user object that matches "newuser@gmail.com"
             db_query = User.query.filter(User.email == "newuser@gmail.com").first()
 
