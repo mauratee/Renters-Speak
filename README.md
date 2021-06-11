@@ -3,7 +3,7 @@
 
 ## Technologies Used:
 This project uses:
-<ul list-style-type="square">
+<ul list-style-type: square;>
 <li>Python 3</li>
 <li>HTML</li>
 <li>Jinja 2</li>
