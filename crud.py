@@ -4,10 +4,10 @@ import datetime
 from model import db, User, Landlord, Building, Review, connect_to_db
 
 
-def create_user(email, password):
+def create_user(email, username, password):
     """Create and return a new user."""
 
-    user = User(email=email, password=password)
+    user = User(email=email, username=username, password=password)
 
     db.session.add(user)
     db.session.commit()
