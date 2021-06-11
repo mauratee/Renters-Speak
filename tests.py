@@ -32,19 +32,7 @@ class FlaskTestsBasic(TestCase):
 
         result = self.client.get("/")
         self.assertIn(b"Navigation", result.data)
-    
-    def test_new_user_route(self):
-        """Check that a new user can be created and stored in 'users' database."""
-
-        with self.client as c:
-
-            result = c.post("/new_user",
-                            data={"email": "newuser@gmail.com", "username": "test_user",
-                            "password": "pwd543"}, follow_redirects=True)
-            # Database query to "Users" that returns user object that matches "newuser@gmail.com"
-            db_query = User.query.filter(User.email == "newuser@gmail.com").first()
-
-            self.assertEqual("newuser@gmail.com", db_query.email)
+        
 
 class FlaskTestsNewUSer(TestCase):
     """Test new user creation route."""
@@ -62,9 +50,22 @@ class FlaskTestsNewUSer(TestCase):
 
         # Remove user from database that was created in test_new_user_route
         user = User.query.filter(User.email == "newuser@gmail.com").first()
-        db.session.delete(user)
-        db.session.commit()
+        if user:
+            db.session.delete(user)
+            db.session.commit()
 
+    def test_new_user_route(self):
+        """Check that a new user can be created and stored in 'users' database."""
+
+        with self.client as c:
+
+            result = c.post("/new_user",
+                            data={"email": "newuser@gmail.com", "username": "test_user",
+                            "password": "pwd543"}, follow_redirects=True)
+            # Database query to "Users" that returns user object that matches "newuser@gmail.com"
+            db_query = User.query.filter(User.email == "newuser@gmail.com").first()
+
+            self.assertEqual("newuser@gmail.com", db_query.email)
 
 
 class FlaskTestsLogInLogOut(TestCase):
@@ -79,7 +80,7 @@ class FlaskTestsLogInLogOut(TestCase):
         app.config['SECRET_KEY'] = 'key'
 
         # Create new user in database
-        user = User(email="email@gmail.com", password="password123")
+        user = User(email="email@gmail.com", username="user_name", password="password123")
         
         db.session.add(user)
         db.session.commit()
