@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ user.email }} - Details{% endblock %}
+{% block title %}{{ user.username }} - Details{% endblock %}
 
 {% block body %}
-<h1>{{ user.email }}</h1>
+<h1>User Details for: {{ user.username }}</h1>
 <p>
-    <h4>User ID: {{ user.user_id }}</h4>
+    <h4>User Info:</h4>
+    <ul>
+        <li>
+            Username: {{ user.username }}
+        </li>
+        <li>
+            User ID: {{ user.user_id }}
+        </li>
+    </ul>
 </p>
 <p>
     <h4>Reviews written by {{ user.email }}:</h4>

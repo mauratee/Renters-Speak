@@ -25,7 +25,7 @@ for n in range(10):
     username = f'user_{n}'  # A unique username
     password = 'testpwd'
 
-    user = crud.create_user(email, password)
+    user = crud.create_user(email, username, password)
 
     users_in_db.append(user)
 
