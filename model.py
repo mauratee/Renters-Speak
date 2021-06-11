@@ -14,8 +14,9 @@ class User(db.Model):
     user_id = db.Column(db.Integer,
                         autoincrement=True,
                         primary_key=True)
-    email = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(25))
+    email = db.Column(db.String(50), unique=True, nullable=False)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(25), nullable=False)
 
     # reviews = a list of Review objects, available from 
     # db.Relationship from Review class

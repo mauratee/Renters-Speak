@@ -1,4 +1,5 @@
 # About this Project
+<!-- After being a renter for my whole adult life -->
 
 ## Technologies Used:
 This project uses:
@@ -38,5 +39,5 @@ To exit and stop running server, enter `CTRL + c` or `CMD + c`
 
 ### To Run Tests:
 In terminal, enter `python3 tests.py`<br>
-Output will tell you how many tests ran and how many failed of the tests that ran.
+The output will tell you how many tests ran and how many failed of the tests that ran.
 
