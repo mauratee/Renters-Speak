@@ -22,7 +22,7 @@ class User(db.Model):
     # db.Relationship from Review class
 
     def __repr__(self):
-        return f"<User user_id={self.user_id} email={self.email}>"
+        return f"<User user_id={self.user_id} email={self.email}, username={self.username}>"
 
 
 class Landlord(db.Model):
