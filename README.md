@@ -43,3 +43,6 @@ To exit and stop running server, enter `CTRL + c` or `CMD + c`
 In terminal, enter `python3 tests.py`<br>
 The output will tell you how many tests ran and how many failed of the tests that ran.
 
+### Acknowledgements
+Thanks to the New York Housing Data Coalition, the programmers of NYCDB, and my teachers, classmates and mentors at the Hackbright Academy Engineering Fellowship.
+
