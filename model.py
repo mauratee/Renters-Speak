@@ -98,17 +98,17 @@ class Review(db.Model):
 class HpdViolation(db.Model):
     __tablename__ = "hpd_violations"
 
-    violation_id = db.Column("ViolationID", db.Integer, primary_key=True)
-    house_number = db.Column("HouseNumber", db.Text)
-    street_name = db.Column("StreetName", db.Text)
-    post_code = db.Column("Postcode", db.String)
-    apt_num = db.Column("Apartment", db.Text)
-    violation_class = db.Column("Class", db.String)
-    inspection_date = db.Column("InspectionDate", db.Date)
+    violationid = db.Column(db.Integer, primary_key=True)
+    housenumber = db.Column(db.Text)
+    streetname = db.Column(db.Text)
+    postcode = db.Column(db.String)
+    # aptnum = db.Column(db.Text)
+    # violationclass = db.Column(db.String)
+    inspectiondate = db.Column(db.Date)
 
     def __repr__(self):
-        return f"""<HpdViolation violation_id={self.violation_id}, inspection_date={self.inspection_date}, 
-                  address={self.house_number} {self.street_name}, {self.post_code}>"""
+        return f"""<HpdViolation violationid={self.violationid}, inspectiondate={self.inspectiondate}, 
+                  address={self.housenumber} {self.streetname}, {self.postcode}>"""
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///testdb', echo=True):
