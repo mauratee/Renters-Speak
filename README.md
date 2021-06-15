@@ -16,7 +16,7 @@ This project uses:
 
 Use `git clone` or other method to copy entire contents of this repository to your local machine
 
-Install dependencies from `requirements.txt` (`pip3 install` or other)
+Install dependencies from `requirements.txt` (`pip3 install`, `python3 -m pip install` or other)
 
 Run `source secrets.sh` in terminal to execute contents of `secrets.sh`
 

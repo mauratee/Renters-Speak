@@ -95,6 +95,22 @@ class Review(db.Model):
         return f"<Review review_id={self.review_id} created_on={self.created_on}>"
 
 
+class HpdViolation(db.Model):
+    __tablename__ = "hbd_violations"
+
+    violation_id = db.Column("ViolationID", db.Integer, primary_key=True)
+    house_number = db.Column("HouseNumber", db.Text)
+    street_name = db.Column("StreetName", db.Text)
+    post_code = db.Column("Postcode", db.String)
+    apt_num = db.Column("Apartment", db.Text)
+    violation_class = db.Column("Class", db.String)
+    inspection_date = db.Column("InspectionDate", db.Date)
+
+    def __repr__(self):
+        return f"""<hbd_violations violation_id={self.violation_id}, inspection_date={self.inspection_date}, 
+                  address={self.house_number} {self.street_name}, {self.post_code}>"""
+
+
 def connect_to_db(flask_app, db_uri='postgresql:///testdb', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
