@@ -96,7 +96,7 @@ class Review(db.Model):
 
 
 class HpdViolation(db.Model):
-    __tablename__ = "hbd_violations"
+    __tablename__ = "hpd_violations"
 
     violation_id = db.Column("ViolationID", db.Integer, primary_key=True)
     house_number = db.Column("HouseNumber", db.Text)
@@ -107,7 +107,7 @@ class HpdViolation(db.Model):
     inspection_date = db.Column("InspectionDate", db.Date)
 
     def __repr__(self):
-        return f"""<hbd_violations violation_id={self.violation_id}, inspection_date={self.inspection_date}, 
+        return f"""<HpdViolation violation_id={self.violation_id}, inspection_date={self.inspection_date}, 
                   address={self.house_number} {self.street_name}, {self.post_code}>"""
 
 
