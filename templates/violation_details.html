@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %}Violation Details for {{violation_list.housenumber}} {{violation_list.streetname}}, 
-{{violation_list.borough}}, NY {{violation_list.postcode}}{% endblock %}
+{% block title %}Violation Details for {{ violation_list[0].housenumber }} {{ violation_list[0].streetname }}, 
+{{ violation_list[0].borough }}, NY {{ violation_list[0].postcode }}{% endblock %}
 
 {% block body %}
-<h1>Violation Details for {{violation_list.housenumber}} {{violation_list.streetname}}, 
-    {{violation_list.borough}}, NY {{violation_list.postcode}}</h1>
+<h1>Violation Details for {{ violation_list[0].housenumber }} {{ violation_list[0].streetname }}, 
+    {{ violation_list[0].borough }}, NY {{ violation_list[0].postcode }}
+</h1>
 
-<!-- <p>
-    <h4>Landlord of {{ building.building_address }}:</h4>
-    Landlord Name: {{ building.landlord.landlord_name }}
-    <br>
-    Landlord Office Address: {{ building.landlord.office_address }}
-    <br>
-</p>
-<p>
-    <h4>Reviews of {{ building.building_address }}:</h4>
-        {% if building.reviews %}
-            {% for review in building.reviews %}
-                <li>Review Text: {{ review.review_body }}</li>
-                {% endfor %}
-        {% else %}
-            <li>No Reviews </li>
-        {% endif %}
-</p> -->
+<ul>
+    {% for violation in violation_list %}
+    <ul>
+        <h2>Information for Violation #{{ violation.violationid }}</h2>
+        <br>
+        Violation Date: {{ violation.inspectiondate }}
+        <br>
+        <h4>Description of Violation:</h4>
+        {{ violation.novdescription }}
+    </ul>
+    {% endfor %}
+</ul>
+
+
 {% endblock %}
