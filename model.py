@@ -99,13 +99,14 @@ class HPDViolation(db.Model):
     __tablename__ = "hpd_violations"
 
     violationid = db.Column(db.Integer, primary_key=True)
+    borough = db.Column(db.Text)
     housenumber = db.Column(db.Text)
     streetname = db.Column(db.Text)
     postcode = db.Column(db.String)
     apartment = db.Column(db.Text)
-    novdescription = db.Column(db.Text)
-    # class = db.Column(db.String)
-    inspectiondate = db.Column(db.Date)
+    novdescription = db.Column(db.Text) # Description of the violation
+    # class = db.Column(db.String) # Python reserved keyword
+    inspectiondate = db.Column(db.Date) # Date the violation was observed
 
     def __repr__(self):
         return f"""<HPDViolation violationid={self.violationid}, inspectiondate={self.inspectiondate}, 

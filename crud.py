@@ -1,7 +1,7 @@
 """CRUD operations for landlord review site"""
 
 import datetime
-from model import db, User, Landlord, Building, Review, connect_to_db
+from model import db, User, Landlord, Building, Review, , HPDViolation, connect_to_db
 
 
 ####### Functions for Database Entry Creation
@@ -161,7 +161,16 @@ def get_user_by_email_and_password(email, password):
     else:
         return None
 
-def get_violation_by_address()
+
+def get_violation_by_address(housenumber, streetname, postcode):
+    """Takes in house number, streetname and postcode and returns all entries in
+        HPDViolation class that match all parameters"""
+
+    return HPDViolation.query.filter(HPDViolation.housenumber == housenumber,
+                                    HPDViolation.streetnamme ==streetname,
+                                    HPDViolation.postcode == postcode).all()
+
+
 
 
 if __name__ == '__main__':
