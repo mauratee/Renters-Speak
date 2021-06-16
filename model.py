@@ -95,19 +95,20 @@ class Review(db.Model):
         return f"<Review review_id={self.review_id} created_on={self.created_on}>"
 
 
-class HpdViolation(db.Model):
+class HPDViolation(db.Model):
     __tablename__ = "hpd_violations"
 
     violationid = db.Column(db.Integer, primary_key=True)
     housenumber = db.Column(db.Text)
     streetname = db.Column(db.Text)
     postcode = db.Column(db.String)
-    # aptnum = db.Column(db.Text)
-    # violationclass = db.Column(db.String)
+    apartment = db.Column(db.Text)
+    novdescription = db.Column(db.Text)
+    # class = db.Column(db.String)
     inspectiondate = db.Column(db.Date)
 
     def __repr__(self):
-        return f"""<HpdViolation violationid={self.violationid}, inspectiondate={self.inspectiondate}, 
+        return f"""<HPDViolation violationid={self.violationid}, inspectiondate={self.inspectiondate}, 
                   address={self.housenumber} {self.streetname}, {self.postcode}>"""
 
 

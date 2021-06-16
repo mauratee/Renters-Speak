@@ -161,6 +161,8 @@ def get_user_by_email_and_password(email, password):
     else:
         return None
 
+def get_violation_by_address()
+
 
 if __name__ == '__main__':
     from server import app
