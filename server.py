@@ -236,9 +236,20 @@ def search_by_landlord():
 
         if landlord is None:
             flash("No reviews exist for that landlord.")
-            return redirect('/')
+            return redirect("/")
         
-        return render_template('landlord_details.html', landlord=landlord)
+        return render_template("landlord_details.html", landlord=landlord)
+
+
+@app.route("/search_hpdviolations_by_address")
+def search_violations_by_address():
+    """Takes in user input from html form, breaks into house number, street name,
+        and postal code and then queries hpd_violations database. If address exists
+        in database, return associated violation objects."""
+
+    # searched_address = request.args.get("")
+
+    return render_template("violation_details.html", violation=violation)
 
 
 
