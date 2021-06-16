@@ -202,7 +202,7 @@ def write_review():
 @app.route("/search_by_address")
 def search_by_building():
     """Takes in user input from html form and passes to crud function to
-        check if entry exists in databse. If exists, return details page
+        check if entry exists in database. If exists, return details page
         for that building."""
 
     searched_building = request.args.get("search_address")
