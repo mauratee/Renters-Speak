@@ -248,11 +248,10 @@ def search_violations_by_address():
         in database, return associated violation objects."""
 
     searched_housenumber = request.args.get("search_hpd_by_housenumber")
-    searched_streetname = request.args.get("search_hpd_by_streetname")
-        # Change to all caps
+    searched_streetname = request.args.get("search_hpd_by_streetname").upper()
     searched_postalcode = request.args.get("search_hpd_by_postalcode")
 
-    if searched_address is None or searched_streetname is None or searched_postalcode is None:
+    if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
         flash("You must enter a complete address to search.")
         return redirect('/')
     else:
