@@ -257,11 +257,14 @@ def search_violations_by_address():
     else:
         violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
+        length_violation_list = len(violation_list)
+
         if violation_list is None:
             flash("No violations exist for that address since October 2012.")
             return redirect("/")
         
-        return render_template("violation_details.html", violation_list=violation_list)
+        return render_template("violation_details.html", violation_list=violation_list,
+                                length_violation_list=length_violation_list)
 
 
 

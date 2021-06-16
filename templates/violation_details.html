@@ -8,16 +8,22 @@
     {{ violation_list[0].borough }}, NY {{ violation_list[0].postcode }}
 </h1>
 
+    <br>
+    <h3>{{ length_violation_list }} Violation(s) at this address since October 2012</h3>
+    <br>
+
 <ul>
     {% for violation in violation_list %}
     <ul>
-        <h2>Information for Violation #{{ violation.violationid }}</h2>
+        <h3>Information for Violation #{{ violation.violationid }}</h3>
         <br>
         Violation Date: {{ violation.inspectiondate }}
         <br>
         <h4>Description of Violation:</h4>
         {{ violation.novdescription }}
     </ul>
+    <br>
+    <br>
     {% endfor %}
 </ul>
 
