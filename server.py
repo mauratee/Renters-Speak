@@ -249,6 +249,17 @@ def search_violations_by_address():
 
     # searched_address = request.args.get("")
 
+    # if searched_address is None:
+        # flash("You must enter an address to search.")
+        # return redirect('/')
+    # else:
+        # break data into house number, street name, and postal code
+        # send data to get_violation_by_address function in crud.py
+        # if address in hpd_violations
+            # return violation objects
+        # else:
+            # flash message: No violations exist for this address
+
     return render_template("violation_details.html", violation=violation)
 
 
