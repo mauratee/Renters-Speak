@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Violation Details for {{violation.housenumber}} {{violation.streetname}}, 
-{{violation.borough}}, NY {{violation.postcode}}{% endblock %}
+{% block title %}Violation Details for {{violation_list.housenumber}} {{violation_list.streetname}}, 
+{{violation_list.borough}}, NY {{violation_list.postcode}}{% endblock %}
 
 {% block body %}
-<h1>Violation Details for {{violation.housenumber}} {{violation.streetname}}, 
-    {{violation.borough}}, NY {{violation.postcode}}</h1>
+<h1>Violation Details for {{violation_list.housenumber}} {{violation_list.streetname}}, 
+    {{violation_list.borough}}, NY {{violation_list.postcode}}</h1>
 
 <!-- <p>
     <h4>Landlord of {{ building.building_address }}:</h4>

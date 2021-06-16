@@ -247,20 +247,22 @@ def search_violations_by_address():
         and postal code and then queries hpd_violations database. If address exists
         in database, return associated violation objects."""
 
-    # searched_address = request.args.get("")
+    searched_housenumber = request.args.get("search_hpd_by_housenumber")
+    searched_streetname = request.args.get("search_hpd_by_streetname")
+        # Change to all caps
+    searched_postalcode = request.args.get("search_hpd_by_postalcode")
 
-    # if searched_address is None:
-        # flash("You must enter an address to search.")
-        # return redirect('/')
-    # else:
-        # break data into house number, street name, and postal code
-        # send data to get_violation_by_address function in crud.py
-        # if address in hpd_violations
-            # return violation objects
-        # else:
-            # flash message: No violations exist for this address
-
-    return render_template("violation_details.html", violation=violation)
+    if searched_address is None or searched_streetname is None or searched_postalcode is None:
+        flash("You must enter a complete address to search.")
+        return redirect('/')
+    else:
+        violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
+                                                 searched_postalcode)
+        if violation_list is None:
+            flash("No violations exist for that address since October 2012.")
+            return redirect("/")
+        
+        return render_template("violation_details.html", violation_list=violation_list)
 
 
 
