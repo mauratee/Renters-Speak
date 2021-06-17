@@ -53,7 +53,7 @@ class Building(db.Model):
     building_id = db.Column(db.Integer,
                             autoincrement=True,
                             primary_key=True)
-    building_address = db.Column(db.String)
+    # building_address = db.Column(db.String)
     building_housenumber = db.Column(db.Text)
     building_streetname = db.Column(db.Text)
     building_postcode = db.Column(db.String)

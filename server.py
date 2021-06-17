@@ -213,7 +213,7 @@ def search_by_building():
         flash("You must enter a complete address to search.")
         return redirect('/')
     else:
-        building = crud.get_building_by_address(searched_building)
+        building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
 
         if building is None:
             flash("No reviews exist for that address.")
@@ -250,7 +250,7 @@ def search_violations_by_address():
         in database, return associated violation objects."""
 
     searched_housenumber = request.args.get("search_hpd_by_housenumber")
-    searched_streetname = request.args.get("search_hpd_by_streetname").upper()
+    searched_streetname = request.args.get("search_hpd_by_streetname")
     searched_postalcode = request.args.get("search_hpd_by_postalcode")
 
     if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:

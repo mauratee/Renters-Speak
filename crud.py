@@ -170,6 +170,9 @@ def get_violation_by_address(housenumber, streetname, postcode):
     """Takes in house number, streetname and postcode and returns all entries in
         HPDViolation class that match all parameters"""
 
+    # Transform string to match data format in DB
+    streetname = streetname.upper()
+
     return HPDViolation.query.filter(HPDViolation.housenumber == housenumber,
                                     HPDViolation.streetname ==streetname,
                                     HPDViolation.postcode == postcode).all()
