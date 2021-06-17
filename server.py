@@ -205,7 +205,9 @@ def search_by_building():
         check if entry exists in database. If exists, return details page
         for that building."""
 
-    searched_building = request.args.get("search_address")
+    searched_housenumber = request.args.get("search_review_by_housenumber")
+    searched_streetname = request.args.get("search_review_by_streetname").upper()
+    searched_postalcode = request.args.get("search_review_by_postalcode")
 
     if searched_building is None:
         flash("You must enter an address to search.")
@@ -260,7 +262,7 @@ def search_violations_by_address():
         length_violation_list = len(violation_list)
 
         if violation_list is None:
-            flash("No violations exist for that address since October 2012.")
+            flash("No violations exist for that address.")
             return redirect("/")
         
         return render_template("violation_details.html", violation_list=violation_list,
