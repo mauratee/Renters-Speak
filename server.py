@@ -206,11 +206,11 @@ def search_by_building():
         for that building."""
 
     searched_housenumber = request.args.get("search_review_by_housenumber")
-    searched_streetname = request.args.get("search_review_by_streetname").upper()
+    searched_streetname = request.args.get("search_review_by_streetname") # .upper() <-- matches violations search
     searched_postalcode = request.args.get("search_review_by_postalcode")
 
-    if searched_building is None:
-        flash("You must enter an address to search.")
+    if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
+        flash("You must enter a complete address to search.")
         return redirect('/')
     else:
         building = crud.get_building_by_address(searched_building)
