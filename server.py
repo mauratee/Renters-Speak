@@ -216,19 +216,25 @@ def search_by_building_and_violation():
         building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
         violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
+        print("~"*20)
+        print(building)
+        print(violation_list)
+        print("~"*20)
 
 
-        if building is None and violation_list is None:
+        if building is None and not violation_list:
             flash("No reviews or violations exist for that address.")
             return redirect('/')
+
         elif building is None and violation_list:
             length_violation_list = len(violation_list)
             return render_template("violation_details.html", violation_list=violation_list,
                                 length_violation_list=length_violation_list)
-        elif violation_list is None and building:
+
+        elif not violation_list and building:
             return render_template('building_details.html', building=building)
         
-        
+
         length_violation_list = len(violation_list)
         return render_template('building_details.html', building=building, 
                                 violation_list=violation_list, length_violation_list=length_violation_list)
