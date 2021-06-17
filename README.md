@@ -39,6 +39,16 @@ You should then see the Renters Speak homepage!
 
 To exit and stop running server, enter `CTRL + c` or `CMD + c`
 
+To Seed Database:
+in shell:
+    `dropdb testdb`
+    `createdb testdb`
+    `nycdb -U hackbright -D testdb --load hpd_violations`# creates SQL table in testdb
+    hpd_violations rows should load, will take about 20 mins
+run model.py interactively: `python3 -i model.py`
+    `db.create_all()` # creates all other tables in testdb
+
+
 ### To Run Tests:
 In terminal, enter `python3 tests.py`<br>
 The output will tell you how many tests ran and how many failed of the tests that ran.
