@@ -206,7 +206,7 @@ def search_by_building():
         for that building."""
 
     searched_housenumber = request.args.get("search_review_by_housenumber")
-    searched_streetname = request.args.get("search_review_by_streetname") # .upper() <-- matches violations search
+    searched_streetname = request.args.get("search_review_by_streetname")
     searched_postalcode = request.args.get("search_review_by_postalcode")
 
     if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
@@ -214,12 +214,23 @@ def search_by_building():
         return redirect('/')
     else:
         building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
+        violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
+                                                 searched_postalcode)
+        # length_violation_list = len(violation_list) <-- move to inside loops where violation_list exists
 
-        if building is None:
-            flash("No reviews exist for that address.")
+        if building is None and violation_list is None:
+            flash("No reviews or violations exist for that address.")
             return redirect('/')
+        elif building is None and violation_list:
+            length_violation_list = len(violation_list)
+            return render_template("violation_details.html", violation_list=violation_list,
+                                length_violation_list=length_violation_list)
+        elif violation_list is None and building:
+            return render_template('building_details.html', building=building)
         
-        return render_template('building_details.html', building=building)
+        length_violation_list = len(violation_list)
+        return render_template('building_details.html', building=building, 
+                                violation_list=violation_list, length_violation_list=length_violation_list)
 
 
 @app.route("/search_by_landlord")
