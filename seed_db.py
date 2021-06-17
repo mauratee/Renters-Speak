@@ -46,12 +46,14 @@ for n in range(10):
 # Create 5 test buildings
 buildings_in_db = []
 for n in range(5):
-    street_num = randint(10, 2500)
-    building_address = f'{street_num} Renters Road'
+    building_housenumber = randint(10, 2500)
+    building_streetname = "Renters Road"
+    building_postcode = randint(10100, 99999)
     landlord_to_own = choice(landlords_in_db)
     landlord_id=landlord_to_own.landlord_id
 
-    building = crud.create_building(building_address, landlord_id)
+    building = crud.create_building(building_housenumber, building_streetname, 
+                                    building_postcode, landlord_id)
 
     buildings_in_db.append(building)
 
@@ -65,8 +67,8 @@ for n in range(5):
 #                   user_id=test_user.user_id, 
 #                   building_id=test_building.building_id)
 
-for n in range(10):
-    review_body = f'This is test review number {n}.'
+for n in range(25):
+    review_body = f'This is review number {n}. This landlolord...'
 
     # create_yr = randint(2017, 2020)
     # create_mth = randint(1, 12)
