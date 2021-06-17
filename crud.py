@@ -96,15 +96,18 @@ def get_building_by_id(building_id):
     return Building.query.filter(Building.building_id == building_id).first()
 
 
-def get_building_by_address(address):
+def get_building_by_address(housenumber, streetname, postcode):
     """Takes in building address as argument and checks if building exists in "buildings"
         database. If building exists, returns building object. If building does not
         exist, returns None."""
 
     # Creates f string based on argument, adding % to format for .like Query
-    building_address = (f"%{address}%")
+    # building_address = (f"%{address}%")
     
-    return Building.query.filter(Building.building_address.like(building_address)).first()
+    # return Building.query.filter(Building.building_address.like(building_address)).first()
+    return Building.query.filter(Building.building_housenumber == housenumber,
+                                    Building.building_streetname ==streetname,
+                                    Building.building_postcode == postcode).first()
 
 
 def get_landlord_by_id(landlord_id):

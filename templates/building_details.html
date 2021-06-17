@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ building.building_address }} - Details{% endblock %}
+{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details{% endblock %}
 
 {% block body %}
-<h1>{{ building.building_address }}</h1>
+<h1>{{ building.building_housenumber }} {{ building.building_streetname }}</h1>
 
 <p>
-    <h4>Landlord of {{ building.building_address }}:</h4>
+    <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
     Landlord Name: {{ building.landlord.landlord_name }}
     <br>
     Landlord Office Address: {{ building.landlord.office_address }}
     <br>
 </p>
 <p>
-    <h4>Reviews of {{ building.building_address }}:</h4>
+    <h4>Reviews of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
         {% if building.reviews %}
             {% for review in building.reviews %}
                 <li>Review Text: {{ review.review_body }}</li>

@@ -45,7 +45,7 @@ for n in range(10):
 
 # Create 5 test buildings
 buildings_in_db = []
-for n in range(5):
+for n in range(10):
     building_housenumber = randint(10, 2500)
     building_streetname = "Renters Road"
     building_postcode = randint(10100, 99999)
