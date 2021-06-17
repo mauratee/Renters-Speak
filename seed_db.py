@@ -68,7 +68,7 @@ for n in range(5):
 #                   building_id=test_building.building_id)
 
 for n in range(25):
-    review_body = f'This is review number {n}. This landlolord...'
+    review_body = f'This is review number {n}. This landlord...'
 
     # create_yr = randint(2017, 2020)
     # create_mth = randint(1, 12)
@@ -83,5 +83,5 @@ for n in range(25):
     building_to_write = choice(buildings_in_db)
     building_id=building_to_write.building_id
 
-    review = crud.create_review(review_body, user, building)
+    review = crud.create_review(review_body, user, building_to_write)
 

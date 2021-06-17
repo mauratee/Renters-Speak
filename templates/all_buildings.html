@@ -8,14 +8,14 @@
         {% for building in buildings %}
             <ul>
                 <a href="/buildings/{{ building.building_id }}">
-                    <h2>{{ building.building_address }}</h2>
+                    <h2>{{ building.building_housenumber }} {{ building.building_streetname }}</h2>
                 </a>
-                <h4>Landlord of {{ building.building_address }}:</h4>
+                <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
                 Landlord Name: {{ building.landlord.landlord_name }}
                 <br>
                 Landlord Office Address: {{ building.landlord.office_address }}
                 <br>
-                <h4>Reviews of {{ building.building_address }}:</h4>
+                <h4>Reviews of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
                 {% if building.reviews %}
                     {% for review in building.reviews %}
                         <li>{{ review.review_body }}</li>
