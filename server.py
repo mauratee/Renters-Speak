@@ -200,7 +200,7 @@ def write_review():
 ####### Routes for Search
 
 @app.route("/search_by_address")
-def search_by_building():
+def search_by_building_and_violation():
     """Takes in user input from html form and passes to crud function to
         check if entry exists in database. If exists, return details page
         for that building."""
@@ -216,7 +216,7 @@ def search_by_building():
         building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
         violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
-        # length_violation_list = len(violation_list) <-- move to inside loops where violation_list exists
+
 
         if building is None and violation_list is None:
             flash("No reviews or violations exist for that address.")
@@ -227,6 +227,7 @@ def search_by_building():
                                 length_violation_list=length_violation_list)
         elif violation_list is None and building:
             return render_template('building_details.html', building=building)
+        
         
         length_violation_list = len(violation_list)
         return render_template('building_details.html', building=building, 
