@@ -54,6 +54,9 @@ class Building(db.Model):
                             autoincrement=True,
                             primary_key=True)
     building_address = db.Column(db.String)
+    building_housenumber = db.Column(db.Text)
+    building_streetname = db.Column(db.Text)
+    building_postcode = db.Column(db.String)
     landlord_id = db.Column(db.Integer, # Foreign key from Building to landlord_id
                             db.ForeignKey('landlords.landlord_id'), nullable=False
                             )
@@ -65,7 +68,7 @@ class Building(db.Model):
     landlord = db.relationship('Landlord', backref='buildings')
 
     def __repr__(self):
-        return f"<Building building_id={self.building_id} building_address={self.building_address}>"
+        return f"<Building building_id={self.building_id} building_address={self.building_housenumber} {self.building_streetname}>"
 
 
 class Review(db.Model):

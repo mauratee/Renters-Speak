@@ -28,10 +28,11 @@ def create_landlord(landlord_name, office_address):
     return landlord
 
 
-def create_building(building_address, landlord_id):
+def create_building(building_housenumber, building_streetname, building_postcode, landlord_id):
     """Create and return a new building."""
 
-    building = Building(building_address=building_address, landlord_id=landlord_id)
+    building = Building(building_housenumber=building_housenumber, building_streetname=building_streetname,
+                        building_postcode=building_postcode, landlord_id=landlord_id)
 
     db.session.add(building)
     db.session.commit()
