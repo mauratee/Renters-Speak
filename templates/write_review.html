@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Write a Review{% endblock %}
+
+{% block body %}
+
+{% if session.get("user_email") %}
+
+  <h2>Write a Review (for Logged in Users)</h2>
+  <form id="write_review" action="/write_review" method="POST">
+    <p>
+      Which Landlord are you Reviewing?: <input type="text" name="landlord" size="50">
+    </p>
+    <p>
+      Which Building are you Reviewing?: <input type="text" name="building" size ="50">
+    </p>
+    <p>
+      What is the Landlord's Office Address?: <input type="text" name="landlord_office" size="50">
+    </p>
+    <p>
+      Enter your review text: <br>
+      <textarea name="review_body" rows="4" cols="50">
+      </textarea>
+    </p>
+    <p>
+      <input type="submit">
+    </p>  
+  </form>
+  
+  {% endif %}
+
+{% endblock %}

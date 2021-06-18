@@ -12,10 +12,18 @@ app.secret_key = os.environ['secret_key']
 app.jinja_env.undefined = StrictUndefined
 
 
+####### Routes for Rendering HTML Pages
+
 @app.route('/')
 def render_homepage():
 
     return render_template('homepage.html')
+
+
+@app.route('/user_login')
+def render_login():
+
+    return render_template('login.html')
 
 
 ####### Routes for Viewing All Entries for each DB Class
@@ -139,7 +147,7 @@ def login():
         flash("Please enter correct email and password or register for new account.")
 
 
-    return redirect("/")
+    return redirect("/write_review.html")
 
 
 @app.route("/logout")
