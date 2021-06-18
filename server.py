@@ -232,7 +232,8 @@ def search_by_building_and_violation():
                                 length_violation_list=length_violation_list)
 
         elif not violation_list and building:
-            return render_template('building_details.html', building=building)
+            return render_template('building_details.html', building=building, 
+                                    violation_list=violation_list)
         
 
         length_violation_list = len(violation_list)

@@ -44,9 +44,11 @@ in shell:
     `dropdb testdb`
     `createdb testdb`
     `nycdb -U hackbright -D testdb --load hpd_violations`# creates SQL table in testdb
-    hpd_violations rows should load, will take about 20 mins
+    hpd_violations rows should load, will take about 20-50 mins
 run model.py interactively: `python3 -i model.py`
     `db.create_all()` # creates all other tables in testdb
+in shell:
+    `python3 seed_db.py` # Commented out lines to dropdb, createdb and db.create_all()
 
 
 ### To Run Tests:

@@ -9,12 +9,12 @@ import crud
 import model
 import server
 
-os.system('dropdb testdb')
-os.system('createdb testdb')
+# os.system('dropdb testdb')
+# os.system('createdb testdb')
 
 model.connect_to_db(server.app)
-model.db.create_all() # <-- can un-comment later but good to get in the habit
-# of entering this into bash/terminal
+# model.db.create_all() # <-- can un-comment later but good to get in the habit
+# # of entering this into bash/terminal
 
 
 # Create 10 test users
