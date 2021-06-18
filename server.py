@@ -216,10 +216,6 @@ def search_by_building_and_violation():
         building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
         violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
-        print("~"*20)
-        print(building)
-        print(violation_list)
-        print("~"*20)
 
 
         if building is None and not violation_list:
