@@ -4,10 +4,8 @@
 
 {% block body %}
 
-<div class="alert alert-success" role="alert">
-    A simple success alert—check it out!
-  </div>
 <div>
+
     <h2>Login for Existing Users</h2>
         <form action="/login" method="POST">
         <p>
@@ -19,8 +17,9 @@
         </p>
 
         <p>
-            <input type="submit">
+            <input type="submit", id="login_button">
         </p>
         </form>
+
 </div>
 {% endblock %}

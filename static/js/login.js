@@ -1,11 +1,17 @@
 "use strict";
 
-alert("JS is connected")
+// alert("JS is connected")
 
 // var myModal = document.getElementById('myModal')
 // var myInput = document.getElementById('myInput')
 
 var myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
+
+const button = document.querySelector("login_button");
+
+        button.addEventListener('click', () => {
+          alert('Success, you are logged in!');
+        });
 
 
 // myModal.addEventListener('shown.bs.modal', function () {
