@@ -25,6 +25,11 @@ def render_login():
 
     return render_template('login.html')
 
+@app.route('/write_review')
+def render_write_reviews():
+
+    return render_template('write_review.html')
+
 
 ####### Routes for Viewing All Entries for each DB Class
 
@@ -147,7 +152,7 @@ def login():
         flash("Please enter correct email and password or register for new account.")
 
 
-    return redirect("/write_review.html")
+    return redirect("/write_review")
 
 
 @app.route("/logout")

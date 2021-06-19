@@ -3,18 +3,24 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-<h2>Login for Existing Users</h2>
-    <form action="/login" method="POST">
-      <p>
-        Email <input type="text" name="email">
-      </p>
 
-      <p>
-        Password <input type="password" name="password">
-      </p>
+<div class="alert alert-success" role="alert">
+    A simple success alert—check it out!
+  </div>
+<div>
+    <h2>Login for Existing Users</h2>
+        <form action="/login" method="POST">
+        <p>
+            Email <input type="text" name="email">
+        </p>
 
-      <p>
-        <input type="submit">
-      </p>
-    </form>
+        <p>
+            Password <input type="password" name="password">
+        </p>
+
+        <p>
+            <input type="submit">
+        </p>
+        </form>
+</div>
 {% endblock %}

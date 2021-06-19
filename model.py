@@ -108,7 +108,7 @@ class HPDViolation(db.Model):
     postcode = db.Column(db.String)
     apartment = db.Column(db.Text)
     novdescription = db.Column(db.Text) # Description of the violation
-    # class = db.Column(db.String) # Python reserved keyword
+    violation_class = db.Column('class', db.String) # Python reserved keyword
     inspectiondate = db.Column(db.Date) # Date the violation was observed
 
     def __repr__(self):

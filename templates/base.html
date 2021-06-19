@@ -3,10 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
     crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<!-- Add Jquery cdn -->
+    <script src="/static/js/login.js"></script>
 
     <title>
       {% block title %}{% endblock %}
@@ -23,8 +28,27 @@
       <!-- Allow each page access to stored session flash messages -->
        {% for msg in get_flashed_messages() %}
           <p class="flash-msg">
-           {{ msg }}
+           hey, this worked
           </p>
+
+          <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>{{ msg }}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         {% endfor %}
       </ul>
     
