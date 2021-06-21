@@ -4,32 +4,6 @@
 
 {% block body %}
 
-{% if session.get("msg") %}
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Success!</h4>
-        </div>
-        <div class="modal-body">
-          <p>{{ session["msg"] }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-{% endif %}
-
-
 {% if session.get("user_email") %}
 
   <h2>Write a Review (for Logged in Users)</h2>
@@ -49,7 +23,8 @@
       </textarea>
     </p>
     <p>
-      <input type="submit">
+      <button type="submit" id="write_review_button" class="btn btn-primary">
+        Submit Review</button>
     </p>  
   </form>
   

@@ -153,7 +153,7 @@ def login():
     if user:
         session["user_email"] = user.email
         session["user_id"] = user.user_id
-        flash(f"Welcome back, {user.username}. You are now logged in.")
+        flash(f"Welcome back, {user.username}. You are now logged in.", "success")
         return "None"
     else:
         return "Please enter correct email and password or register for a new account."
@@ -190,13 +190,14 @@ def write_review():
     landlord_office = request.form.get("landlord_office")
 
     if logged_in_email is None:
-        flash("You must log in to review a landlord.")
+        flash(u"You must log in to review a landlord.", "error")
+        return redirect('/user_login')
     elif not reviewed_landlord:
-        flash("Error: you didn't enter the Landlord for your review.")
+        flash(u"You didn't enter the Landlord for your review.", "error")
     elif not reviewed_building:
-        flash("Error: you didn't enter the Building for your review.")
+        flash(u"You didn't enter the Building for your review.", "error")
     elif not written_review:
-        flash("Error: you didn't enter the Review Text for your review.")
+        flash(u"You didn't enter the Review Text for your review.", "error")
     else:
         user = crud.get_user_by_email(logged_in_email)
         building = crud.get_building_by_address(reviewed_building)
@@ -211,7 +212,8 @@ def write_review():
 
         crud.create_review(written_review, user, building)
 
-        flash(f"You wrote a review for {landlord.landlord_name} who owns {building.building_address}.")
+        flash(u"""You wrote a review for {landlord.landlord_name} who owns 
+              {building.building_address}.""", "success")
 
     return redirect('/reviews')
 

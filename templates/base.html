@@ -38,6 +38,7 @@
 
      <ul>
 
+      <!-- Display error category of stored session flash messages -->
        {% with errors = get_flashed_messages(category_filter=["error"]) %}
        {%  if errors %}
         {% for msg in errors %}
@@ -73,12 +74,13 @@
        {% endif %}
        {% endwith %}
 
+        <!-- Display success category of stored session flash messages -->
        {% with success = get_flashed_messages(category_filter=["success"]) %}
        {%  if success %}
         {% for msg in success %}
-       <p class="flash-msg"></p>
+       <div class="flash-success">
 
-        <!-- Error Modal box -->
+        <!-- Success Modal box -->
         <div class="modal" tabindex="-1" id="successModal">
           <div class="modal-dialog" >
             <div class="modal-content">
@@ -96,12 +98,13 @@
           </div>
         </div>
           {% endfor %}
+          </p>
 
         <script>
-        // Create variable for error modal
+        // Create variable for success modal
         var successModal = new bootstrap.Modal(document.getElementById('successModal'))
         successModal.show()
-        // console.log(errorModal)
+        // console.log(successModal)
         </script>
 
        {% endif %}
@@ -110,13 +113,15 @@
 
 
       <!-- Display uncategorized stored session flash messages -->
-       {% for msg in get_flashed_messages() %}
+       {% with uncategorized = get_flashed_messages(category_filter=[""]) %}
+       {%  if uncategorized %}
+        {% for msg in uncategorized %}
           <p class="flash-msg">
            <!-- flask is flashing -->
           </p>
 
           <!-- Login Modal box -->
-          <div class="modal" tabindex="-1" id="loginModal">
+          <div class="modal" tabindex="-1" id="myModal">
             <div class="modal-dialog" >
               <div class="modal-content">
                 <div class="modal-header">
@@ -135,18 +140,18 @@
         
         {% endfor %}
       </ul>
-    
-      {% if get_flashed_messages() %}
       
       <script>
         // Create modal variable for login success
-      var loginModal = new bootstrap.Modal(document.getElementById('loginModal'))
-      loginModal.show()
+      var myModal = new bootstrap.Modal(document.getElementById('myModal'))
+      myModal.show()
 
       // console.log(myModal)
       </script>
 
       {% endif %}
+      {% endwith %}
+
 
       {% block body %}
       
