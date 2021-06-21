@@ -30,6 +30,11 @@ def render_write_reviews():
 
     return render_template('write_review.html')
 
+@app.route('/new_user')
+def render_new_user():
+
+    return render_template('new_user.html')
+
 
 ####### Routes for Viewing All Entries for each DB Class
 

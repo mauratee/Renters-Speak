@@ -43,7 +43,7 @@
            <!-- flask is flashing -->
           </p>
 
-          <div class="modal" tabindex="-1" id="myModal">
+          <div class="modal" tabindex="-1" id="loginModal">
             <div class="modal-dialog" >
               <div class="modal-content">
                 <div class="modal-header">
@@ -67,9 +67,9 @@
       {% if get_flashed_messages() %}
       
       <script>
-        // Create modal variable in write_review.html
-      var myModal = new bootstrap.Modal(document.getElementById('myModal'))
-      myModal.show()
+        // Create modal variable for login success
+      var loginModal = new bootstrap.Modal(document.getElementById('loginModal'))
+      loginModal.show()
 
       // console.log(myModal)
       </script>

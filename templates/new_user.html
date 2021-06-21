@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+
+<div>
+
+    <h2>Create an Account</h2>
+    <form action="/new_user" method="POST">
+      <p>
+        Email <input type="text" name="email">
+      </p>
+
+      <p>
+        Username <input type="text" name="username">
+      </p>
+
+      <p>
+        Password <input type="password" name="password">
+      </p>
+
+      <p>
+        <input type="submit">
+      </p>
+    </form>
+
+</div>
+
+    
+{% endblock %}
