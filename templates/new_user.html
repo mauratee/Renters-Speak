@@ -7,22 +7,33 @@
 <div>
 
     <h2>Create an Account</h2>
-    <form action="/new_user" method="POST">
-      <p>
-        Email <input type="text" name="email">
-      </p>
 
-      <p>
-        Username <input type="text" name="username">
-      </p>
+    <form id="new-user-form">
 
-      <p>
-        Password <input type="password" name="password">
-      </p>
+        <div class="form-group">
+    
+            Email 
+            <input class="form-control" type="text" name="email" id="email-field"
+            placeholder="email@email.com">
+        </div>
 
-      <p>
-        <input type="submit">
-      </p>
+        <div class="form-group">
+            Username 
+            <input class="form-control" type="text" name="username" id="username-field"
+            placeholder="username">
+        </div>
+
+        <div class="form-group">
+            Password 
+            <input class="form-control" type="text" name="username" id="password-field"
+            placeholder="password">
+        </div>
+
+        <br>
+        <div class="form-group">
+            <button type="submit" id="new_user_button" class="btn btn-primary">
+                Login</button>
+        </div>
     </form>
 
 </div>
