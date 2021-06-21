@@ -23,6 +23,12 @@ loginForm.addEventListener("submit", (evt) => {
 //           alert('Success, you are logged in!');
 //         });
 
+// $("login-button").on("click", (evt) => {
+    //     evt.preventDefault();
+    
+    //     alert("Success, you are logged in!")
+    // });
+
 // $('#delivery-form').on('submit', (evt) => {
 //     evt.preventDefault();
           
@@ -31,12 +37,6 @@ loginForm.addEventListener("submit", (evt) => {
 //         city: $('#city-field').val(),
 //         address: $('#adr-field').val()
 //         };
-
-// $("login-button").on("click", (evt) => {
-//     evt.preventDefault();
-
-//     alert("Success, you are logged in!")
-// });
           
 //     // Send formData to the server (becomes a query string)
 //     $.get('/delivery-info.json', formData, (res) => {
