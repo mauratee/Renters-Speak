@@ -12,6 +12,11 @@
 
       <!-- Bootstrap Icons -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+      <!-- Bootstrap JavaScript with Popper (a Bootstrap dependency for popovers) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
+      crossorigin="anonymous"></script>
       
       <!-- Add Jquery cdn -->
       <script
@@ -35,14 +40,14 @@
       <!-- Allow each page access to stored session flash messages -->
        {% for msg in get_flashed_messages() %}
           <p class="flash-msg">
-           hey, this worked
+           <!-- flask is flashing -->
           </p>
 
-          <div class="modal" tabindex="-1">
-            <div class="modal-dialog">
+          <div class="modal" tabindex="-1" id="myModal">
+            <div class="modal-dialog" >
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
+                  <h5 class="modal-title">Success!</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -50,38 +55,50 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
-          
+        
+        
         {% endfor %}
       </ul>
     
+      {% if get_flashed_messages() %}
+      
+      <script>
+        // Create modal variable in write_review.html
+      var myModal = new bootstrap.Modal(document.getElementById('myModal'))
+      myModal.show()
+
+      // console.log(myModal)
+      </script>
+
+      {% endif %}
+
       {% block body %}
+      
 
       {% endblock %}
 
 
       {% block after_body %}
+      <br>
+      <hr>
 
         <form action="/logout">
           Click to log out of your account:
-            <button type="submit" name="logout">
+            <button type="submit" name="logout" class="btn btn-secondary">
             Log Out
             </button>
         </form>
 
       {% endblock %}
 
-      <!-- Bootstrap JavaScript with Popper (a Bootstrap dependency for popovers) -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
-      crossorigin="anonymous"></script>
 
-      <!-- Add my JS file -->
-      <!-- <script src="/static/js/login.js"></script> -->
+
+    <!-- Add my JS file -->
+    <script src="/static/js/login.js"></script>
 
     </div> 
   </body>

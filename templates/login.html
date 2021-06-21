@@ -4,15 +4,14 @@
 
 {% block body %}
 
-
 <div>
 
-    <h2>Login for Existing Users</h2>
+    <h2>Login to your Account:</h2>
 
-    <form id="login=form">
+    <form id="login-form">
 
         <div class="form-group">
-        <!-- <form action="/login" method="POST"> -->
+        
             Email
             <input class="form-control" type="text" name="email" id="email-field"
              placeholder="email">
@@ -20,15 +19,19 @@
         
         <div class="form-group">
             Password 
-            <input class="form=control" type="password" name="password"
+            <input class="form-control" type="password" name="password"
             id="password-field" placeholder="password">
         </div>
-
+        <br>
         <div class="form-group">
             <button type="submit", id="login_button" class="btn btn-primary">
                 Login</button>
         </div>
-
+        <br>
+        <br>
+        <div>
+            <a href="/new_user">New user? Register for an account here</a>
+        </div>
     </form>
 
 </div>

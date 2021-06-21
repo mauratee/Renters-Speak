@@ -3,14 +3,40 @@
 
 alert("JS is connected");
 
-
-const loginForm = document.querySelector("form");
-
-loginForm.addEventListener("submit", (evt) => {
+// Selects from login-form in login.html
+$("#login-form").on("submit", (evt) => {
     evt.preventDefault();
 
-    alert("Success, you are logged in!")
+    // Get user input from login form
+    const formData = {
+        email: $("#email-field").val(),
+        password: $("#password-field").val()
+    };
+
+    // Send formData to the server
+    $.post("/login", formData, (res) => {
+        // Display response from the server if user not logged in
+        if (res === "Please enter correct email and password or register for a new account.") {
+            alert(res)
+        }
+        // If user logged in, redirect to another page
+        else {
+            window.location.replace("/write_review")}   
+    });
 });
+
+
+
+
+
+
+// const loginForm = document.querySelector("form");
+
+// loginForm.addEventListener("submit", (evt) => {
+//     evt.preventDefault();
+
+//     alert("Success, you are logged in!")
+// });
 
 // var myModal = document.getElementById('myModal')
 // var myInput = document.getElementById('myInput')

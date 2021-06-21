@@ -1,7 +1,7 @@
 """Server for landlord review app."""
 
 from flask import (Flask, render_template, request, flash, session,
-                    redirect)
+                    redirect, jsonify)
 from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
@@ -147,12 +147,13 @@ def login():
     if user:
         session["user_email"] = user.email
         session["user_id"] = user.user_id
-        flash(f"Welcome back, {user.email}! You are now logged in.")
+        flash(f"Welcome back, {user.username}. You are now logged in.")
+        return None
     else:
-        flash("Please enter correct email and password or register for new account.")
+        return "Please enter correct email and password or register for a new account."
 
 
-    return redirect("/write_review")
+    # return redirect("/write_review")
 
 
 @app.route("/logout")
