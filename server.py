@@ -126,16 +126,17 @@ def register_user():
     get_username = crud.get_user_by_username(username)
 
     if user:
-        flash("""Can't create account. Account with this email already
-               exists. Please try again.""")
+        flash(u"""Can't create account. Account with this email already
+               exists. Please try again.""", "error")
+        return redirect("/new_user")
     elif get_username:
-        flash ("""Account with this username already exists. Please enter 
-        another username and try again.""")
+        flash (u"""Account with this username already exists. Please enter 
+        another username and try again.""", "error")
+        return redirect("/new_user")
     else:
         crud.create_user(email, username, password)
-        flash("Account created successfully! Please log in.")
-    
-    return redirect("/")
+        flash(u"Account created! Please log in.", "success")
+        return redirect("/user_login")
 
 
 ####### Routes for Login/Logout
@@ -153,12 +154,9 @@ def login():
         session["user_email"] = user.email
         session["user_id"] = user.user_id
         flash(f"Welcome back, {user.username}. You are now logged in.")
-        return None
+        return "None"
     else:
         return "Please enter correct email and password or register for a new account."
-
-
-    # return redirect("/write_review")
 
 
 @app.route("/logout")
@@ -168,11 +166,13 @@ def logout():
     if "user_id" in session and "user_email" in session:
         del session["user_id"]
         del session["user_email"]
-        flash(f"You are now logged out.")
+        flash(u"You are now logged out.", "success")
+        return redirect('/user_login')
     else:
-        flash("You are not currently logged in.")
+        flash(u"You are not currently logged in.", "error")
+        return redirect('/user_login')
     
-    return redirect('/')
+    
 
 
 ####### Routes for Reviews

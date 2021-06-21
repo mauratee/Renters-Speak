@@ -37,17 +37,90 @@
     <div class="container">
 
      <ul>
-      <!-- Allow each page access to stored session flash messages -->
+
+       {% with errors = get_flashed_messages(category_filter=["error"]) %}
+       {%  if errors %}
+        {% for msg in errors %}
+       <p class="flash-msg"></p>
+
+        <!-- Error Modal box -->
+        <div class="modal" tabindex="-1" id="errorModal">
+          <div class="modal-dialog" >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Error:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>{{ msg }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+
+        <script>
+        // Create variable for error modal
+        var errorModal = new bootstrap.Modal(document.getElementById('errorModal'))
+        errorModal.show()
+        console.log(errorModal)
+        </script>
+
+
+       {% endif %}
+       {% endwith %}
+
+       {% with success = get_flashed_messages(category_filter=["success"]) %}
+       {%  if success %}
+        {% for msg in success %}
+       <p class="flash-msg"></p>
+
+        <!-- Error Modal box -->
+        <div class="modal" tabindex="-1" id="successModal">
+          <div class="modal-dialog" >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Success!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>{{ msg }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+
+        <script>
+        // Create variable for error modal
+        var successModal = new bootstrap.Modal(document.getElementById('successModal'))
+        successModal.show()
+        // console.log(errorModal)
+        </script>
+
+       {% endif %}
+       {% endwith %}
+
+
+
+      <!-- Display uncategorized stored session flash messages -->
        {% for msg in get_flashed_messages() %}
           <p class="flash-msg">
            <!-- flask is flashing -->
           </p>
 
+          <!-- Login Modal box -->
           <div class="modal" tabindex="-1" id="loginModal">
             <div class="modal-dialog" >
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Success!</h5>
+                  <h5 class="modal-title">Alert:</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -59,7 +132,6 @@
               </div>
             </div>
           </div>
-        
         
         {% endfor %}
       </ul>

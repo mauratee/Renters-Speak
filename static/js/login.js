@@ -1,7 +1,7 @@
 "use strict";
 
 
-alert("JS is connected");
+// alert("JS is connected");
 
 // Selects from login-form in login.html
 $("#login-form").on("submit", (evt) => {
@@ -26,6 +26,27 @@ $("#login-form").on("submit", (evt) => {
 });
 
 
+// Selects from new_user-form in new_users.html
+// $("#new_user-form").on("submit", (evt) => {
+//     evt.preventDefault();
+
+//     // Get user input from login form
+//     const formData = {
+//         email: $("#email-field").val(),
+//         password: $("#password-field").val()
+//     };
+
+//     // Send formData to the server
+//     $.post("/login", formData, (res) => {
+//         // Display response from the server if user not logged in
+//         if (res === "Please enter correct email and password or register for a new account.") {
+//             alert(res)
+//         }
+//         // If user logged in, redirect to another page
+//         else {
+//             window.location.replace("/write_review")}   
+//     });
+// });
 
 
 
