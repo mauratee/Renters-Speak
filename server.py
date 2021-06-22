@@ -234,7 +234,9 @@ def write_review():
 
         
         crud.create_review(written_review, user, building)
-        flash(u"""You write a review. Thanks for your review submission!""", "success")
+
+        flash(f"""You wrote a review of {building.housenumber} {building.streetname}.
+                     Thanks for your review submission!""", "success")
 
     return redirect('/reviews')
 

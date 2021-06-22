@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details{% endblock %}
+{% block title %}{{ building.building_housenumber }} {{ building.building_streetname|title }} - Details{% endblock %}
 
 {% block body %}
 <h1>{{ building.building_housenumber }} {{ building.building_streetname }}</h1>
-
+    <br>
+    <br>
+    <div class="violation-group" >
     {% if violation_list %}
-    <h3>{{ length_violation_list }} Violation(s) at this address</h3>
+
+        <h2>{{ length_violation_list }} Violation(s) at this address</h2>
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <button id="show_more_violations" class="btn btn-secondary">
+                    Show More Violations</button>
+            </div>
+            <div class="col-2">
+                <button id="show_fewer_violations" class="btn btn-secondary">
+                    Show Fewer Violations</button>
+            </div>
+        </div>  
+
     {% endif %}
+    </div>
     
 <p>
     <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
