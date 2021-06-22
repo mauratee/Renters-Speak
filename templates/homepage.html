@@ -34,13 +34,13 @@
   <hr>
   <br>
 
-    <h2>NYC Geosearch by Address:</h2>
+    <h2>Search by Address:</h2>
 
     <form id="search-address-form" action="/search_address">
 
       <div class="form-group">
         <br>
-        Enter a New York City Address to Search:
+        Enter a New York City Address to Search for User Reviews and Housing Maintenance Code Violations of Rental Units :
         <br>
         <br>
         <input class="form-control" type="text" name="search_nyc_address" 
@@ -63,11 +63,12 @@
     <form action="/search_by_landlord">
       <p>
         Enter a landlord to search:<br>
-        <input type="text" name="search_landlord" size="50">
+        <input type="text" name="search_landlord" size="50" placeholder="Search for a landlord">
       </p>
 
       <p>
-        <input type="submit">
+        <button type="submit" id="search_landlord_button" class="btn btn-primary">
+          Search</button>
       </p>
     </form>
 
