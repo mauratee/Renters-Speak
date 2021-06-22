@@ -68,7 +68,8 @@ class Building(db.Model):
     landlord = db.relationship('Landlord', backref='buildings')
 
     def __repr__(self):
-        return f"<Building building_id={self.building_id} building_address={self.building_housenumber} {self.building_streetname}>"
+        return f"""<Building building_id={self.building_id} building_housenumber=
+                {self.building_housenumber} building_streetname={self.building_streetname}>"""
 
 
 class Review(db.Model):

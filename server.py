@@ -212,49 +212,29 @@ def write_review():
         properties = features[0]["properties"]
 
         housenumber = properties["housenumber"]
-        print("~"*20)
-        print(f"housenumber= {housenumber}")
         streetname = properties["street"]
-        print("~"*20)
-        print(f"streetname= {streetname}")
         postalcode = properties["postalcode"]
-        print("~"*20)
-        print(f"postalcode= {postalcode}")
 
         building = crud.get_building_by_address(housenumber, 
                                                 streetname, 
                                                 postalcode)
-        print("*"*20)
-        print(f"we are in the else stmt, building = {building}")
         landlord = crud.get_landlord_by_name(reviewed_landlord)
-        print("*"*20)
-        print(f"we are in the else stmt, landlord = {landlord}")
 
         # If both not in database, create landlord and building entries
         # in respective databases
         if not building and not landlord:
             landlord = crud.create_landlord(reviewed_landlord, landlord_office)
-            print("*"*20)
-            print(f"we are in the if not stmt, landlord = {landlord}")
             building = crud.create_building(housenumber, streetname, 
                                             postalcode, landlord.landlord_id)
-            print("*"*20)
-            print(f"we are in the if not stmt, building = {building}")
         elif not building and landlord:
             building = crud.create_building(housenumber, streetname, 
                                             postalcode, landlord.landlord_id)
-            print("*"*20)
-            print(f"we are in the first elif stmt, building = {building}")
-            print("*"*20)
         elif not landlord and building:
             landlord = crud.create_landlord(reviewed_landlord, landlord_office)
 
-        print("~"*20)
-        print(building)
+        
         crud.create_review(written_review, user, building)
-
-        flash(u"""You wrote a review for {landlord.landlord_name} who owns 
-              {building.building_address}.""", "success")
+        flash(u"""You write a review. Thanks for your review submission!""", "success")
 
     return redirect('/reviews')
 
