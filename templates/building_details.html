@@ -11,6 +11,11 @@
 
         <h2>{{ length_violation_list }} Violation(s) at this address</h2>
         <br>
+
+        <div class="violation-list">
+
+        </div>
+
         <div class="row">
             <div class="col-2">
                 <button id="show_more_violations" class="btn btn-secondary">
@@ -19,6 +24,10 @@
             <div class="col-2">
                 <button id="show_fewer_violations" class="btn btn-secondary">
                     Show Fewer Violations</button>
+            </div>
+            <div class="col-4 offset-4">
+                <button id="show_all_violations" class="btn btn-secondary">
+                    Show All {{ length_violation_list }} Violations</button>
             </div>
         </div>  
 
@@ -42,4 +51,8 @@
             <li>No Reviews </li>
         {% endif %}
 </p>
+
+<!-- Connect to JS file -->
+<script src="/static/js/building_details.js"></script>
+
 {% endblock %}
