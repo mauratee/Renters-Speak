@@ -196,21 +196,61 @@ def write_review():
     elif not reviewed_landlord:
         flash(u"You didn't enter the Landlord for your review.", "error")
     elif not reviewed_building:
-        flash(u"You didn't enter the Building for your review.", "error")
+        flash(u"You didn't enter the Address for your review.", "error")
     elif not written_review:
         flash(u"You didn't enter the Review Text for your review.", "error")
     else:
         user = crud.get_user_by_email(logged_in_email)
-        building = crud.get_building_by_address(reviewed_building)
-        landlord = crud.get_landlord_by_name(reviewed_landlord)
 
-        # Check if reviewed building and reviewed landlord in database.
+        # Pass reviewed building address to NYC Geosearch API to return
+        # housenumber, street and postalcode variables
+        url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
+        payload = {"text": reviewed_building}
+        res = requests.get(url, params=payload)
+        data = res.json()
+        features = data["features"]
+        properties = features[0]["properties"]
+
+        housenumber = properties["housenumber"]
+        print("~"*20)
+        print(f"housenumber= {housenumber}")
+        streetname = properties["street"]
+        print("~"*20)
+        print(f"streetname= {streetname}")
+        postalcode = properties["postalcode"]
+        print("~"*20)
+        print(f"postalcode= {postalcode}")
+
+        building = crud.get_building_by_address(housenumber, 
+                                                streetname, 
+                                                postalcode)
+        print("*"*20)
+        print(f"we are in the else stmt, building = {building}")
+        landlord = crud.get_landlord_by_name(reviewed_landlord)
+        print("*"*20)
+        print(f"we are in the else stmt, landlord = {landlord}")
+
         # If both not in database, create landlord and building entries
         # in respective databases
         if not building and not landlord:
             landlord = crud.create_landlord(reviewed_landlord, landlord_office)
-            building = crud.create_building(reviewed_building, landlord.landlord_id)
+            print("*"*20)
+            print(f"we are in the if not stmt, landlord = {landlord}")
+            building = crud.create_building(housenumber, streetname, 
+                                            postalcode, landlord.landlord_id)
+            print("*"*20)
+            print(f"we are in the if not stmt, building = {building}")
+        elif not building and landlord:
+            building = crud.create_building(housenumber, streetname, 
+                                            postalcode, landlord.landlord_id)
+            print("*"*20)
+            print(f"we are in the first elif stmt, building = {building}")
+            print("*"*20)
+        elif not landlord and building:
+            landlord = crud.create_landlord(reviewed_landlord, landlord_office)
 
+        print("~"*20)
+        print(building)
         crud.create_review(written_review, user, building)
 
         flash(u"""You wrote a review for {landlord.landlord_name} who owns 

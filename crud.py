@@ -101,10 +101,6 @@ def get_building_by_address(housenumber, streetname, postcode):
         database. If building exists, returns building object. If building does not
         exist, returns None."""
 
-    # Creates f string based on argument, adding % to format for .like Query
-    # building_address = (f"%{address}%")
-    
-    # return Building.query.filter(Building.building_address.like(building_address)).first()
     return Building.query.filter(Building.building_housenumber == housenumber,
                                     Building.building_streetname ==streetname,
                                     Building.building_postcode == postcode).first()
