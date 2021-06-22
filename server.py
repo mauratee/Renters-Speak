@@ -6,6 +6,7 @@ from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
 import os
+import requests
 
 app = Flask(__name__)
 app.secret_key = os.environ['secret_key']
@@ -220,6 +221,54 @@ def write_review():
 
 ####### Routes for Search
 
+@app.route("/search_address")
+def search_nyc_address():
+    """Takes in user input from html form and makes API call to NYC Geosearch
+        based on user input. Then passes API response to crud function to
+        check if entry exists in database. If exists, return details page
+        for that building."""
+
+    text = request.args.get("search_nyc_address")
+
+    if text is None:
+        flash(u"You must enter an address to search.", "error")
+        return redirect('/')
+
+    url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
+    payload = {"text": text}
+    res = requests.get(url, params=payload)
+    data = res.json()
+    features = data["features"]
+    properties = features[0]["properties"]
+
+    searched_housenumber = properties["housenumber"]
+    searched_streetname = properties["street"]
+    searched_postalcode = properties["postalcode"]
+
+    building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
+    violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
+                                                 searched_postalcode)
+
+    if building is None and not violation_list:
+        flash(u"No reviews or violations exist for that address.", "error")
+        return redirect('/')
+
+    elif building is None and violation_list:
+        length_violation_list = len(violation_list)
+        return render_template("violation_details.html", violation_list=violation_list,
+                                length_violation_list=length_violation_list)
+
+    elif not violation_list and building:
+        return render_template('building_details.html', building=building, 
+                                violation_list=violation_list)
+        
+
+    length_violation_list = len(violation_list)
+    return render_template('building_details.html', building=building, 
+                            violation_list=violation_list, length_violation_list=length_violation_list)
+
+
+
 @app.route("/search_by_address")
 def search_by_building_and_violation():
     """Takes in user input from html form and passes to crud function to
@@ -231,7 +280,7 @@ def search_by_building_and_violation():
     searched_postalcode = request.args.get("search_review_by_postalcode")
 
     if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
-        flash("You must enter a complete address to search.")
+        flash(u"You must enter a complete address to search.", "error")
         return redirect('/')
     else:
         building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
@@ -267,7 +316,7 @@ def search_by_landlord():
     # print(f"searched_landlord = {searched_landlord}")
 
     if searched_landlord is None:
-        flash("You must enter a landlord to search.")
+        flash(u"You must enter a landlord to search.", "error")
         return redirect('/')
     else:
         landlord = crud.get_landlord_by_name(searched_landlord)
@@ -290,7 +339,7 @@ def search_violations_by_address():
     searched_postalcode = request.args.get("search_hpd_by_postalcode")
 
     if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
-        flash("You must enter a complete address to search.")
+        flash(u"You must enter a complete address to search.", "error")
         return redirect('/')
     else:
         violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,

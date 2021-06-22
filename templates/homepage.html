@@ -34,28 +34,30 @@
   <hr>
   <br>
 
-  <h2>Search for Reviews and NYC Housing Violations by Address:</h2>
-    <form action="/search_by_address">
-      <p>
-        Enter an address to search:<br>
+    <h2>NYC Geosearch by Address:</h2>
+
+    <form id="search-address-form" action="/search_address">
+
+      <div class="form-group">
         <br>
-        House Number:  <input type="text" name="search_review_by_housenumber" size="50">
-      </p>
+        Enter a New York City Address to Search:
+        <br>
+        <br>
+        <input class="form-control" type="text" name="search_nyc_address" 
+        id="search_nyc_address" placeholder="Search for an address">
+      </div>
 
-      <p>
-        Street Name:  <input type="text" name="search_review_by_streetname" size="50">
-      </p>
+      <br>
 
-      <p>
-        Postal Code:  <input type="text" name="search_review_by_postalcode">
-      </p>
+      <div class="form-group">
+          <button type="submit" id="search_nyc_button" class="btn btn-primary">
+            Search</button>
+      </div>
 
-      <p>
-        <input type="submit">
-      </p>
-    </form>
-
-  <br>
+      <br>
+      <hr>
+      <br>
+ 
 
   <h2>Search for Reviews by Landlord:</h2>
     <form action="/search_by_landlord">
