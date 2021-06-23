@@ -272,8 +272,15 @@ def search_nyc_address():
                                                  searched_postalcode)
 
     # violation = crud.get_hpdviolation_by_address(building)
+    violations = {}
+    for violation in violation_list:
+        if violation.violation_class in violations:
+            violations[violation.violation_class] +=1
+        else:
+            violations[violation.violation_class] = 1
 
-    data = '{"labels":["does", "this", "work"], "datasets":[{"data":[2, 4, 8]}]}'
+
+    data = '{"labels":["does", "this", "work"], "datasets":[{"data":' + f'{violations}' + '}]}'
 
     print("!!!!!!!!!!!!!!!!!!!!!")
     print(data)
