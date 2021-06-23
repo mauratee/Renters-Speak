@@ -3,9 +3,6 @@
 alert("JS is connected");
 
 // Selects from violation-group in building_details.html
-var violationList = {{ violation_list|safe }}
-console.log(violationList)
-
 $("document").ready(function(){
   $("#show_fewer_violations").click(function(){
     $("#first-two-violations").slideUp();
@@ -14,3 +11,9 @@ $("document").ready(function(){
     $("#first-two-violations").slideDown();
   });
 });
+
+// Selects from write-a-review button in building_details.html
+// and send to write_review.html page
+$("#write-a-review").on("click"), () => {
+    window.location.replace("/write_review")
+};

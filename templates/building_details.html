@@ -1,15 +1,49 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ building.building_housenumber }} {{ building.building_streetname|title }} - Details{% endblock %}
+{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details{% endblock %}
 
 {% block body %}
-<h1>{{ building.building_housenumber }} {{ building.building_streetname }}</h1>
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ building.building_housenumber }} {{ building.building_streetname|title }},
+                {{ building.building_postcode }} </h1>
+        </div>
+    </div>
+        <br>
+
+    <div class="row">
+        <div class="col-12">
+            
+            <h2>Renter Reviews of {{ building.building_housenumber }} {{ building.building_streetname|title }}</h2>
+                <br>
+                <dl class="row">
+                {% if building.reviews %}
+                    {% for review in building.reviews %}
+
+                        <h4>Details for Review</h4>
+
+                        <dt class="col-12">Date of Review</dt>
+                        <dl class="col-12">{{ review.created_on }}</dl>
+                        <dt class="col-12">Written By</dt>
+                        <dl class="col-12">{{ review.user.username }}</dl>
+                        <dt class="col-12">Review Text</dt>
+                        <dl class="col-12">{{ review.review_body }}</dl>
+                        <br>
+                        {% endfor %}
+                {% else %}
+                    <dt class="col-12">No Renter Reviews for this Address </dt>
+                {% endif %}
+                </dl>
+            <button id="write-a-review" class="btn btn-outline-info">Write A Review</button>
+        </div>
+    </div>
     <br>
+    <hr>
     <br>
     <div class="violation-group" >
     {% if violation_list %}
 
-        <h2>{{ length_violation_list }} Violation(s) at this address</h2>
+        <h2>{{ length_violation_list }} NYC Housing Maintenance Code Violation(s) at this address</h2>
         <br>
 
         <div class="violation-list" id="first-two-violations">
@@ -61,16 +95,7 @@
     Landlord Office Address: {{ building.landlord.office_address }}
     <br>
 </p>
-<p>
-    <h4>Reviews of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
-        {% if building.reviews %}
-            {% for review in building.reviews %}
-                <li>Review Text: {{ review.review_body }}</li>
-                {% endfor %}
-        {% else %}
-            <li>No Reviews </li>
-        {% endif %}
-</p>
+
 
 <!-- Connect to JS file -->
 <script src="/static/js/building_details.js"></script>
