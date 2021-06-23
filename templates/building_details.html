@@ -12,25 +12,45 @@
         <h2>{{ length_violation_list }} Violation(s) at this address</h2>
         <br>
 
-        <div class="violation-list">
+        <div class="violation-list" id="first-two-violations">
+            <div>
+            {% for violation in violation_list %}
 
+                    {% if loop.index<= 2 %}
+                        <dl class="row">
+
+                            <h4>Details for Violation #{{ violation.violationid }}</h4>
+            
+                            <dt class="col-12">Violation Date</dt>
+                            <dd class="col-12">{{ violation.inspectiondate }}</dd>
+                            <dt class="col-12">Violation Class</dt> 
+                            <dd class="col-12">{{ violation.violation_class }}</dd>
+                            <dt class="col-12">Description of Violation:</dt>
+                            <dd class="col-12">{{ violation.novdescription }}</dd>
+                            
+                        </dl>
+                    
+                    {% endif %}
+
+            {% endfor %}
+            </div>
         </div>
-
+        <div>
         <div class="row">
             <div class="col-2">
-                <button id="show_more_violations" class="btn btn-secondary">
+                <button id="show_more_violations" class="btn btn-outline-secondary">
                     Show More Violations</button>
             </div>
             <div class="col-2">
-                <button id="show_fewer_violations" class="btn btn-secondary">
+                <button id="show_fewer_violations" class="btn btn-outline-secondary">
                     Show Fewer Violations</button>
             </div>
             <div class="col-4 offset-4">
-                <button id="show_all_violations" class="btn btn-secondary">
+                <button id="show_all_violations" class="btn btn-outline-dark">
                     Show All {{ length_violation_list }} Violations</button>
             </div>
         </div>  
-
+        </div>
     {% endif %}
     </div>
     
