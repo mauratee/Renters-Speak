@@ -46,7 +46,7 @@
         <h2>{{ length_violation_list }} NYC Housing Maintenance Code Violation(s) at this address</h2>
         <br>
 
-        <div class="violation-list" id="first-two-violations">
+        <div class="violation-list" id="first-two-violations"></div>
             <div>
             {% for violation in violation_list %}
 
@@ -65,10 +65,11 @@
                         </dl>
                     
                     {% endif %}
-
+                
             {% endfor %}
             </div>
         </div>
+
         <div>
         <div class="row">
             <div class="col-2">

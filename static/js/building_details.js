@@ -12,6 +12,10 @@ $("document").ready(function(){
   });
 });
 
+// Hides next-violations in building_details
+$("#next-violations").hide();
+
+
 // Selects from write-a-review button in building_details.html
 // and send to write_review.html page
 $("#write-a-review").on("click"), () => {
