@@ -21,3 +21,18 @@ $("#next-violations").hide();
 $("#write-a-review").on("click"), () => {
     window.location.replace("/write_review")
 };
+
+// $.get("/violations_by_class.json", (res) => {
+//   console.log(res);
+// });
+
+console.log($("#violation-class").data("chart"))
+
+// Chart.js test
+const testChart = new Chart(
+    $('#violation-class'),
+    {
+    type: 'bar',
+    data:($("#violation-class").data("chart"))
+    }
+);

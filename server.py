@@ -82,7 +82,7 @@ def show_building(building_id):
     """Show details of a particular building"""
 
     building = crud.get_building_by_id(building_id)
-
+    
     return render_template('building_details.html', building=building)
 
 
@@ -271,6 +271,16 @@ def search_nyc_address():
     violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
 
+    # violation = crud.get_hpdviolation_by_address(building)
+
+    data = '{"labels":["does", "this", "work"], "datasets":[{"data":[2, 4, 8]}]}'
+
+    print("!!!!!!!!!!!!!!!!!!!!!")
+    print(data)
+    #"datasets":[{"data":[2, 4, 8]}]
+
+    
+
     if building is None and not violation_list:
         flash(u"No reviews or violations exist for that address.", "error")
         return redirect('/')
@@ -279,6 +289,7 @@ def search_nyc_address():
         length_violation_list = len(violation_list)
         return render_template("violation_details.html", violation_list=violation_list,
                                 length_violation_list=length_violation_list)
+                                # Add data=data if rendering chart.js in violation_details.html
 
     elif not violation_list and building:
         return render_template('building_details.html', building=building, 
@@ -287,7 +298,8 @@ def search_nyc_address():
 
     length_violation_list = len(violation_list)
     return render_template('building_details.html', building=building, 
-                            violation_list=violation_list, length_violation_list=length_violation_list)
+                            violation_list=violation_list, length_violation_list=length_violation_list, 
+                            data=data)
 
 
 
@@ -374,6 +386,30 @@ def search_violations_by_address():
         
         return render_template("violation_details.html", violation_list=violation_list,
                                 length_violation_list=length_violation_list)
+
+
+####### Routes for Sending Data as JSON from DB
+
+@app.route('/violations_by_class.json')
+def get_violations_by_class_for_address():
+    """Get violations by class for a given address."""
+
+    #address = ??
+
+    violation_object = crud.get_hpdviolation_by_address(address)
+
+    # make another crud function to return violation class for all violations associated with violation_object
+
+    #############################################
+    # # weekly_sales = list of tuples (datetime, int)
+
+    # sales_this_week = []
+    # for date, total in weekly_sales:
+    #     sales_this_week.append({'date': date.isoformat(),
+    #                             'melons_sold': total})
+
+    return jsonify({'data': sales_this_week})
+
 
 
 

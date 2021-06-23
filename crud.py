@@ -174,6 +174,27 @@ def get_violation_by_address(housenumber, streetname, postcode):
                                     HPDViolation.postcode == postcode).all()
 
 
+####### Functions to Query NYC Geosearch API
+
+def get_hpdviolation_by_address(building):
+    """Takes in address and returns HPDViolation object that matches address"""
+
+    # url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
+    # payload = {"text": address}
+    # res = requests.get(url, params=payload)
+    # data = res.json()
+    # features = data["features"]
+    # properties = features[0]["properties"]
+
+    housenumber = building.building_housenumber
+    streetname = building.building_streetname
+    postalcode = building.building_postcode
+
+    return HPDViolation.query.filter(HPDViolation.housenumber == housenumber,
+                                    HPDViolation.streetname ==streetname,
+                                    HPDViolation.postcode == postcode).one()
+
+
 
 
 if __name__ == '__main__':
