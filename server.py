@@ -404,27 +404,33 @@ def search_violations_by_address():
                                 length_violation_list=length_violation_list)
 
 
-####### Routes for Sending Data as JSON from DB
+####### Routes for Autocomplete
 
-@app.route('/violations_by_class.json')
-def get_violations_by_class_for_address():
-    """Get violations by class for a given address."""
+@app.route("/autocomplete")
+def autocomplete(text):
+    """Get list of 10 matching addresses for any give user input."""
 
-    #address = ??
+    # text = request.args.get("search_nyc_address")
 
-    violation_object = crud.get_hpdviolation_by_address(address)
+    url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
+    payload = {"text": text}
+    res = requests.get(url, params=payload)
+    data = res.json()
+    features = data["features"]
+    first_ten = features[0:9]
+    # print("!!!!!!!!!!")
+    # print(f"first_ten = {first_ten}")
 
-    # make another crud function to return violation class for all violations associated with violation_object
+    address_list = []
 
-    #############################################
-    # # weekly_sales = list of tuples (datetime, int)
+    for location in first_ten:
+        address_list.append(location["properties"]["label"])
 
-    # sales_this_week = []
-    # for date, total in weekly_sales:
-    #     sales_this_week.append({'date': date.isoformat(),
-    #                             'melons_sold': total})
+    print("!!!!!!!!!!")
+    print(f"address_list = {address_list}")
+    
 
-    return jsonify({'data': sales_this_week})
+    return address_list
 
 
 

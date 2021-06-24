@@ -174,17 +174,8 @@ def get_violation_by_address(housenumber, streetname, postcode):
                                     HPDViolation.postcode == postcode).all()
 
 
-####### Functions to Query NYC Geosearch API
-
 def get_hpdviolation_by_address(building):
-    """Takes in address and returns HPDViolation object that matches address"""
-
-    # url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
-    # payload = {"text": address}
-    # res = requests.get(url, params=payload)
-    # data = res.json()
-    # features = data["features"]
-    # properties = features[0]["properties"]
+    """Takes in building object and returns HPDViolation object that matches building"""
 
     housenumber = building.building_housenumber
     streetname = building.building_streetname
@@ -193,6 +184,28 @@ def get_hpdviolation_by_address(building):
     return HPDViolation.query.filter(HPDViolation.housenumber == housenumber,
                                     HPDViolation.streetname ==streetname,
                                     HPDViolation.postcode == postcode).one()
+
+
+####### Functions to Query NYC Geosearch API
+
+def get_nyc_geosearch_results(text):
+    """Takes in text and returns list of first 10 address labels that 
+        match text from NYC Geosearch API"""
+
+    url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
+    payload = {"text": text}
+    res = requests.get(url, params=payload)
+    data = res.json()
+    features = data["features"]
+    first_ten = features[0:9]
+    labels_list = []
+
+    for location in first_ten:
+        labels_list.append(location["label"])
+
+    print("!!!!!!!!!!")
+    print(f"labels_list = {labels_list}")
+    return labels_list
 
 
 
