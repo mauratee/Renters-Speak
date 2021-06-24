@@ -28,11 +28,13 @@ $("#write-a-review").on("click"), () => {
 
 console.log($("#violation-class").data("chart"))
 
+Chart.defaults.elements.arc.backgroundColor = ["#5E309c", "#56b1e7", "#5F19e6"]  ;
+
 // Chart.js test
 const testChart = new Chart(
     $('#violation-class'),
     {
-    type: 'bar',
+    type: 'doughnut',
     data:($("#violation-class").data("chart"))
     }
 );

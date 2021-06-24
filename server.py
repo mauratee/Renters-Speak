@@ -271,20 +271,29 @@ def search_nyc_address():
     violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
 
-    # violation = crud.get_hpdviolation_by_address(building)
+    
     violations = {}
     for violation in violation_list:
         if violation.violation_class in violations:
             violations[violation.violation_class] +=1
         else:
             violations[violation.violation_class] = 1
+    
+    violation_counts = list(violations.values())
+    print("~~~~~~~~~~~~~~~~~~~")
+    print(violation_counts)
+    violation_types = list(violations.keys())
+    print("~~~~~~~~~~~~~~~~~~~")
+    print(violation_types)
 
 
-    data = '{"labels":["does", "this", "work"], "datasets":[{"data":' + f'{violations}' + '}]}'
+    # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
+    data = '{"labels":["A", "C", "B"], "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }]}'
 
     print("!!!!!!!!!!!!!!!!!!!!!")
     print(data)
     #"datasets":[{"data":[2, 4, 8]}]
+    # "labels":["does", "this", "work"],
 
     
 
