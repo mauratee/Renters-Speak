@@ -5,9 +5,14 @@ alert("JS is connected");
 // Selects from violation-group in building_details.html
 $("document").ready(function(){
   $("#show_fewer_violations").click(function(){
+
+    console.log("show fewer violations click happened")
     $("#first-two-violations").slideUp();
+    
+    console.log($("#first-two-violations"))
   });
   $("#show_more_violations").click(function(){
+    console.log("show more violations click happened")
     $("#first-two-violations").slideDown();
   });
 });

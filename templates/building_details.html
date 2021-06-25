@@ -64,8 +64,8 @@
         <canvas id="violation-class" height="50" data-chart='{{data}}'></canvas>
         </div>
 
-        <div class="violation-list" id="first-two-violations"></div>
-            <div>
+        <!-- <div class="violation-list" id="first-two-violations">
+
             {% for violation in violation_list %}
 
                     {% if loop.index<= 2 %}
@@ -83,10 +83,30 @@
                         </dl>
                     
                     {% endif %}
+
                 
             {% endfor %}
+
+        </div> -->
+
+        {% for violation in violation_list %}
+            <div class="violation-list" id="first-two-violations">
+                <dl class="row">
+
+                    <h4>Details for Violation #{{ violation.violationid }}</h4>
+
+                    <dt class="col-12">Violation Date</dt>
+                    <dd class="col-12">{{ violation.inspectiondate }}</dd>
+                    <dt class="col-12">Violation Class</dt> 
+                    <dd class="col-12">{{ violation.violation_class }}</dd>
+                    <dt class="col-12">Description of Violation:</dt>
+                    <dd class="col-12">{{ violation.novdescription }}</dd>
+                    
+                </dl>
             </div>
-        </div>
+
+        {% endfor %}
+
 
         <div>
         <div class="row">
@@ -111,13 +131,16 @@
     {% endif %}
     </div>
     
-<p>
-    <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
-    Landlord Name: {{ building.landlord.landlord_name }}
     <br>
-    Landlord Office Address: {{ building.landlord.office_address }}
+    <hr>
     <br>
-</p>
+        <p>
+            <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
+            Landlord Name: {{ building.landlord.landlord_name }}
+            <br>
+            Landlord Office Address: {{ building.landlord.office_address }}
+            <br>
+        </p>
 
 
 <!-- Connect to JS file -->
