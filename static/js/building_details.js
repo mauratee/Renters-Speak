@@ -27,18 +27,18 @@ $("#write-a-review").on("click"), () => {
 $(document).ready(function(){
   $("#violations-info-trigger")
     .mouseenter(function() {
-      $(this).find("span").effect("highlight", {color:"#FFFF00"}, 3000);
+      $(this).find("span").effect("highlight", {color:"#FFFF00"}, 1000);
     })
     .mouseleave(function() {
       $(this).find("span").removeClass("highlight");
     });
 });
 
+document.getElementById("violations-info").style.display = "none"; 
 
 $(document).ready(function(){
-  $("#violations-info-trigger").click(function(){
-    $("#violations-info").hidden = false;
-    $("#violations-info").show("slow");
+  $("#violations-info-trigger").on("click", function(){
+    $("#violations-info").slideToggle();
   });
 });
 
