@@ -35,7 +35,7 @@ $(function () {
     $(".violation-list:hidden").slice(0,4).slideDown();
     // If no more violations are hidden in list, flash alert
     if ($(".violation-list:hidden").length == 0) {
-      $("violation-alert").show();
+      $("#violation-alert").show();
     }
   })
 });
