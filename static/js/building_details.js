@@ -22,6 +22,27 @@ $("#write-a-review").on("click"), () => {
     window.location.replace("/write_review")
 };
 
+
+
+$(document).ready(function(){
+  $("#violations-info-trigger")
+    .mouseenter(function() {
+      $(this).find("span").effect("highlight", {color:"#FFFF00"}, 3000);
+    })
+    .mouseleave(function() {
+      $(this).find("span").removeClass("highlight");
+    });
+});
+
+
+$(document).ready(function(){
+  $("#violations-info-trigger").click(function(){
+    $("#violations-info").hidden = false;
+    $("#violations-info").show("slow");
+  });
+});
+
+
 // $.get("/violations_by_class.json", (res) => {
 //   console.log(res);
 // });

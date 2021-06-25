@@ -43,10 +43,15 @@
     <div class="violation-group" >
     {% if violation_list %}
 
-        <h2>{{ length_violation_list }} NYC Housing Maintenance Code Violation(s) at this address</h2>
+        <h2 id="violations-info-trigger">{{ length_violation_list }} <span>NYC Housing Maintenance Code Violation(s)</span> at this address</h2>
         <br>
-
+        <div id="violations-info" class="panel" hidden>Pursuant to New York City’s Housing Maintenance Code, the Department of Housing Preservation 
+            and Development (HPD) issues violations against conditions, in rental dwelling units and buildings, that have been 
+            verified to violate the New York City Housing Maintenance Code (HMC) or the New York State Multiple Dwelling Law (MDL).</div>
+        
+        <div id="violations-doughnut-chart">
         <canvas id="violation-class" height="50" data-chart='{{data}}'></canvas>
+        </div>
 
         <div class="violation-list" id="first-two-violations"></div>
             <div>
