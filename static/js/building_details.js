@@ -3,22 +3,44 @@
 alert("JS is connected");
 
 // Selects from violation-group in building_details.html
-$("document").ready(function(){
-  $("#show_fewer_violations").click(function(){
+// $("document").ready(function(){
+//   $("#show_fewer_violations").click(function(){
 
-    console.log("show fewer violations click happened")
-    $("#first-two-violations").slideUp();
-    
-    console.log($("#first-two-violations"))
-  });
-  $("#show_more_violations").click(function(){
-    console.log("show more violations click happened")
-    $("#first-two-violations").slideDown();
-  });
+//     console.log("show fewer violations click happened")
+//     $("#first-two-violations").slideUp();
+
+//     console.log($("#first-two-violations"))
+//   });
+//   $("#show_more_violations").click(function(){
+//     console.log("show more violations click happened")
+//     $("#first-two-violations").slideDown();
+//   });
+// });
+
+// Set display of violation-list to none as default
+$(".violation-list").hide()
+
+// document.querySelectorAll('.violation-list').style.display = "none";
+// console.log($("#violation-list"))
+
+document.getElementById("violation-alert").style.display = "none";
+
+
+// Load more violations
+$(function () {
+  // Shows violations a few at a time
+  $(".violation-list").slice(0,4).show();
+  $("#show_more_violations").on("click", function (evt) {
+    evt.preventDefault();
+    $(".violation-list:hidden").slice(0,4).slideDown();
+    // If no more violations are hidden in list, flash alert
+    if ($(".violation-list:hidden").length == 0) {
+      $("violation-alert").show();
+    }
+  })
 });
 
-// Hides next-violations in building_details
-$("#next-violations").hide();
+
 
 
 // Selects from write-a-review button in building_details.html

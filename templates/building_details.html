@@ -40,7 +40,7 @@
     <br>
     <hr>
     <br>
-    <div class="violation-group" >
+    <!-- <div class="violation-group" > -->
     {% if violation_list %}
 
         <h2 id="violations-info-trigger">{{ length_violation_list }} <span>NYC Housing Maintenance Code Violation(s)</span> at this address</h2>
@@ -89,8 +89,9 @@
 
         </div> -->
 
+        <div>
         {% for violation in violation_list %}
-            <div class="violation-list" id="first-two-violations">
+            <div class="violation-list" id="violation-list">
                 <dl class="row">
 
                     <h4>Details for Violation #{{ violation.violationid }}</h4>
@@ -101,12 +102,12 @@
                     <dd class="col-12">{{ violation.violation_class }}</dd>
                     <dt class="col-12">Description of Violation:</dt>
                     <dd class="col-12">{{ violation.novdescription }}</dd>
-                    
+
                 </dl>
             </div>
 
         {% endfor %}
-
+        </div>
 
         <div>
         <div class="row">
@@ -123,6 +124,10 @@
                     Show All {{ length_violation_list }} Violations</button>
             </div>
         </div>  
+        </div>
+
+        <div class="row" id="violation-alert">
+
         </div>
 
         {% else %}
