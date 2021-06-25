@@ -407,13 +407,13 @@ def search_violations_by_address():
 ####### Routes for Autocomplete
 
 @app.route("/autocomplete")
-def autocomplete(text):
-    """Get list of 10 matching addresses for any give user input."""
+def autocomplete():
+    """Get list of 10 matching addresses for any given user input."""
 
-    # text = request.args.get("search_nyc_address")
+    search = request.args.get('q')
 
     url = "https://geosearch.planninglabs.nyc/v1/autocomplete"
-    payload = {"text": text}
+    payload = {"text": search}
     res = requests.get(url, params=payload)
     data = res.json()
     features = data["features"]
@@ -429,8 +429,9 @@ def autocomplete(text):
     print("!!!!!!!!!!")
     print(f"address_list = {address_list}")
     
+    return jsonify(matching_results=address_list)
 
-    return address_list
+    # return address_list
 
 
 
