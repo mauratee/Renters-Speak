@@ -116,6 +116,46 @@ class HPDViolation(db.Model):
         return f"""<HPDViolation violationid={self.violationid}, inspectiondate={self.inspectiondate}, 
                   address={self.housenumber} {self.streetname}, {self.postcode}>"""
 
+class HPDRegistration(db.Model):
+    __tablename__ = "hpd_registrations"
+
+    registrationid = db.Column(db.Integer, primary_key=True)
+    housenumber = db.Column(db.Text)
+    streetname = db.Column(db.Text)
+    postcode = db.Column('zip', db.Text)
+    lastregistrationdate = db.Column(db.Date) # Date on which registration was processed
+    registrationenddate = db.Column(db.Date) # Expiration of registration record
+
+    def __repr__(self):
+        return f"""<HPDRegistration registrationID={self.registrationID}, 
+                    lastregistrationdate={self.lastregistrationdate}, 
+                    address={self.housenumber} {self.streetname}, {self.postcode}>"""
+
+class HPDContact(db.Model):
+    __tablename__ = "hpd_contacts"
+
+    registrationcontactid= db.Column(db.Integer, primary_key=True)
+    registrationType = db.Column('type', db.Text)
+    contactdescription = db.Column(db.Text)
+    corporationname = db.Column(db.Text)
+    firstname = db.Column(db.Text) 
+    lastname = db.Column(db.Text) 
+    businesshousenumber = db.Column(db.Text)
+    businessstreetname = db.Column(db.Text)
+    businessapartment = db.Column(db.Text)
+    businesscity = db.Column(db.Text)
+    businessstate = db.Column(db.Text)
+    businesszip = db.Column(db.Text)
+    registrationID = db.Column(db.Integer, # Foreign key from Review to building_id
+                          db.ForeignKey('hpd_registrations.registrationID')
+                           )
+
+    def __repr__(self):
+        return f"""<HPDContact registrationcontactID={self.registrationcontactID}, 
+                    registrationType={self.registrationType}>"""
+
+
+
 
 def connect_to_db(flask_app, db_uri='postgresql:///testdb', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
