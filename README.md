@@ -43,7 +43,7 @@ To Seed Database:
 in shell:
     `dropdb testdb`
     `createdb testdb`
-    `nycdb -U hackbright -D testdb --load hpd_registrations` <!-- loads hod_registrations and hpd_contacts tables, takes about 2 mins -->
+    `nycdb -U hackbright -D testdb --load hpd_registrations` <!-- loads hpd_registrations and hpd_contacts tables, takes about 2 mins -->
     `nycdb -U hackbright -D testdb --load hpd_violations`<!-- creates SQL table in testdb
     hpd_violations rows should load, will take about 20-50 mins -->
 run model.py interactively: `python3 -i model.py`

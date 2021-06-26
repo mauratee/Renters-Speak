@@ -127,7 +127,7 @@ class HPDRegistration(db.Model):
     registrationenddate = db.Column(db.Date) # Expiration of registration record
 
     def __repr__(self):
-        return f"""<HPDRegistration registrationID={self.registrationID}, 
+        return f"""<HPDRegistration registrationid={self.registrationid}, 
                     lastregistrationdate={self.lastregistrationdate}, 
                     address={self.housenumber} {self.streetname}, {self.postcode}>"""
 
@@ -135,7 +135,7 @@ class HPDContact(db.Model):
     __tablename__ = "hpd_contacts"
 
     registrationcontactid= db.Column(db.Integer, primary_key=True)
-    registrationType = db.Column('type', db.Text)
+    registrationtype = db.Column('type', db.Text)
     contactdescription = db.Column(db.Text)
     corporationname = db.Column(db.Text)
     firstname = db.Column(db.Text) 
@@ -146,13 +146,13 @@ class HPDContact(db.Model):
     businesscity = db.Column(db.Text)
     businessstate = db.Column(db.Text)
     businesszip = db.Column(db.Text)
-    registrationID = db.Column(db.Integer, # Foreign key from Review to building_id
-                          db.ForeignKey('hpd_registrations.registrationID')
+    registrationid = db.Column(db.Integer, # Foreign key from Review to building_id
+                          db.ForeignKey('hpd_registrations.registrationid')
                            )
 
     def __repr__(self):
-        return f"""<HPDContact registrationcontactID={self.registrationcontactID}, 
-                    registrationType={self.registrationType}>"""
+        return f"""<HPDContact registrationcontactid={self.registrationcontactid}, 
+                    registrationtype={self.registrationtype}>"""
 
 
 
