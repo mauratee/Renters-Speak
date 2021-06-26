@@ -50,7 +50,7 @@ $("#write-a-review").on("click"), () => {
 };
 
 
-
+// Add highlight to NYC Housing Code Violations text on mouseover
 $(document).ready(function(){
   $("#violations-info-trigger")
     .mouseenter(function() {
@@ -67,6 +67,17 @@ $(document).ready(function(){
   $("#violations-info-trigger").on("click", function(){
     $("#violations-info").slideToggle();
   });
+});
+
+// Add highlight to Violation Class text on mouseover
+$(document).ready(function(){
+  $("#violations-class-info-trigger")
+    .mouseenter(function() {
+      $(this).effect("highlight", {color:"#FFFF00"}, 1000);
+    })
+    .mouseleave(function() {
+      $(this).removeClass("highlight");
+    });
 });
 
 
