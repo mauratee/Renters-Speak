@@ -73,10 +73,10 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("#violations-class-info-trigger")
     .mouseenter(function() {
-      $(this).effect("highlight", {color:"#FFFF00"}, 1000);
+      $(this).find("span").effect("highlight", {color:"#FFFF00"}, 1000);
     })
     .mouseleave(function() {
-      $(this).removeClass("highlight");
+      $(this).find("span").removeClass("highlight");
     });
 });
 
