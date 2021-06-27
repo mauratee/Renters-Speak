@@ -147,8 +147,7 @@ class HPDContact(db.Model):
     businessstate = db.Column(db.Text)
     businesszip = db.Column(db.Text)
     registrationid = db.Column(db.Integer, # Foreign key from Review to building_id
-                          db.ForeignKey('hpd_registrations.registrationid')
-                           )
+                          db.ForeignKey('hpd_registrations.registrationid'))
 
     def __repr__(self):
         return f"""<HPDContact registrationcontactid={self.registrationcontactid}, 
