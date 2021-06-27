@@ -23,7 +23,7 @@
                         <h4>Details for Review</h4>
 
                         <dt class="col-12">Date of Review</dt>
-                        <dl class="col-12">{{ review.created_on }}</dl>
+                        <dl class="col-12">{{ review.created_on.strftime('%Y-%m-%d') }}</dl>
                         <dt class="col-12">Written By</dt>
                         <dl class="col-12">{{ review.user.username }}</dl>
                         <dt class="col-12">Review Text</dt>
@@ -102,14 +102,14 @@
                     <div>{{ violation.violation_class }}</div><br>
                     <div id="violations-class-info" class="panel"><h5>Summary of the Classes of NYC Housing Violations:</h5>
                         <u>Class A violations (non-hazardous)</u><br>
-                        Must be corrected 90 days from the mailing of the notice of violation.
-                        Certification of Correction is required 14 days after the Correction Date.<br>
+                        Must be corrected within 90 days from the mailing of the notice of violation.
+                        Certification of Correction is required 14 days after the correction date.<br>
                         <u>Class B violations (hazardous)</u><br>
-                        Must be corrected 30 days from the mailing of the notice of violation.
-                        Certification of correction is required five days after the Correction Date.<br>
+                        Must be corrected within 30 days from the mailing of the notice of violation.
+                        Certification of correction is required five days after the correction date.<br>
                         <u>Class C violations (immediately hazardous)</u><br>
-                        Must be corrected twenty four hours from the mailing of the notice of violation.
-                        Certification of correction is required five days after the Correction Date. 
+                        Must be corrected within twenty four hours from the mailing of the notice of violation.
+                        Certification of correction is required five days after the correction date. 
                         <br>
                     <br>    
                     </div>

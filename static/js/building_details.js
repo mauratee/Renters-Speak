@@ -20,9 +20,7 @@ alert("JS is connected");
 // Set display of violation-list to none as default
 $(".violation-list").hide()
 
-// document.querySelectorAll('.violation-list').style.display = "none";
-// console.log($("#violation-list"))
-
+// Set display of violation alert to none, will display when clicked through end of list
 document.getElementById("violation-alert").style.display = "none";
 
 
@@ -71,7 +69,7 @@ $(document).ready(function(){
 
 // Add highlight to Violation Class text on mouseover
 $(document).ready(function(){
-  $("#violations-class-info-trigger")
+  $(".violations-class-info-trigger")
     .mouseenter(function() {
       $(this).find("span").effect("highlight", {color:"#FFFF00"}, 1000);
     })
@@ -81,7 +79,8 @@ $(document).ready(function(){
 });
 
 // Set display attribute of violations-class-info to none
-document.getElementById("violations-class-info").style.display = "none"; 
+$(".violations-class-info").hide();
+
 
 // On click, display violations-class-info
 $(document).ready(function(){
@@ -99,7 +98,7 @@ console.log($("#violation-class").data("chart"))
 
 Chart.defaults.elements.arc.backgroundColor = ["#5E309c", "#56b1e7", "#5F19e6"]  ;
 
-// Chart.js test
+// construct Chart.js doughnut graph for violaiton classes
 const testChart = new Chart(
     $('#violation-class'),
     {
