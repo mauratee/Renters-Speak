@@ -95,12 +95,13 @@
                 <!-- <dl class="row"> -->
 
                     <h4>Details for Violation #{{ violation.violationid }}</h4>
-
-                    <h6>Violation Date</h6>
-                    <div>{{ violation.inspectiondate }}</div>
-                    <h6>Violation Class</h6>
-                    <div>{{ violation.violation_class }}</div>
-                    <div id="violations-class-info" class="panel">Summary of the three classes of NYC Housing Violations.<br>
+                    <br>
+                    <h5>Violation Date</h5><br>
+                    <div>{{ violation.inspectiondate }}</div><br>
+                    <h5 id="violations-class-info-trigger"><span>Violation Class</h5></span><br>
+                    <div>{{ violation.violation_class }}</div><br>
+                    <br>
+                    <div id="violations-class-info" class="panel"><h5>Summary of the three classes of NYC Housing Violations.</h5><br>
                         <br>
                         <strong>Class A violations (non-hazardous)</strong><br>
                         Must be corrected 90 days from the mailing of the NOV.
@@ -113,9 +114,9 @@
                         <strong>Class C violations (immediately hazardous)</strong><br>
                         Must be corrected twenty four hours from the mailing of the NOV.
                         Certification of correction is required five days after this Correction Date. 
-            
+                        <br>
                     </div>
-                    <h6>Description of Violation</h6>
+                    <h5>Description of Violation</h5>
                     <div>{{ violation.novdescription }}</div>
 
                 <!-- </dl> -->

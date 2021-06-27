@@ -80,6 +80,16 @@ $(document).ready(function(){
     });
 });
 
+// Set display attribute of violations-class-info to none
+document.getElementById("violations-class-info").style.display = "none"; 
+
+// On click, display violations-class-info
+$(document).ready(function(){
+  $("#violations-class-info-trigger").on("click", function(){
+    $("#violations-class-info").slideToggle();
+  });
+});
+
 
 // $.get("/violations_by_class.json", (res) => {
 //   console.log(res);
