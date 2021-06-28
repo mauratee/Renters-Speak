@@ -21,6 +21,7 @@ $("#show-more-violations").on("click", function (evt) {
   $(".violation-list:hidden").slice(0,4).slideDown();
   // If no more violations are hidden in list, flash alert
   if ($(".violation-list:hidden").length == 0) {
+    // Alert appears for a short time and then slowly fades out
     $("#violation-alert").show().delay(1000).fadeOut(2000);
   }
 });
@@ -31,6 +32,7 @@ $("#show-fewer-violations").on("click", function (evt) {
   $(".violation-list:visible").slice(0,4).slideUp();
   // If all violations hidden, flash alert
   if ($(".violation-list:visible").length == 0) {
+    // Alert appears for a short time and then slowly fades out
     $("#end-of-list").show().delay(1000).fadeOut(2000);
   }
 })
