@@ -21,7 +21,7 @@ $("#show-more-violations").on("click", function (evt) {
   $(".violation-list:hidden").slice(0,4).slideDown();
   // If no more violations are hidden in list, flash alert
   if ($(".violation-list:hidden").length == 0) {
-    $("#violation-alert").toggle();
+    $("#violation-alert").show().delay(1000).fadeOut(2000);
   }
 });
 
@@ -31,7 +31,7 @@ $("#show-fewer-violations").on("click", function (evt) {
   $(".violation-list:visible").slice(0,4).slideUp();
   // If all violations hidden, flash alert
   if ($(".violation-list:visible").length == 0) {
-    $("#end-of-list").toggle();
+    $("#end-of-list").show().delay(1000).fadeOut(2000);
   }
 })
 
@@ -41,9 +41,11 @@ $("#show-all-violations").on("click", function (evt) {
   evt.preventDefault();
   if ($(".violation-list:hidden").length != 0) {
     $(".violation-list:hidden").slideDown();
+    $("#show-all-violations").text("Hide All Violations")
   }
   else {
     $(".violation-list:visible").slideUp();
+    $("#show-all-violations").text("Show All Violations")
   }
 });
 
