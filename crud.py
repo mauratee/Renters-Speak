@@ -1,7 +1,7 @@
 """CRUD operations for landlord review site"""
 
 import datetime
-from model import db, User, Landlord, Building, Review, HPDViolation, connect_to_db
+from model import db, User, Landlord, Building, Review, HPDViolation, HPDRegistration, HPDContact, connect_to_db
 
 
 ####### Functions for Database Entry Creation
@@ -184,6 +184,18 @@ def get_hpdviolation_by_address(building):
     return HPDViolation.query.filter(HPDViolation.housenumber == housenumber,
                                     HPDViolation.streetname ==streetname,
                                     HPDViolation.postcode == postcode).one()
+
+
+def get_hpdregistration_contact_by_address(housenumber, streetname, postcode):
+    """Takes in house number, streetname and postcode and returns all entries in
+        HPDRegistration class that match all parameters. Uses registrations to query
+        HPDContact class and returns all contact options matching registrationid
+        in registrations."""
+
+
+    return HPDRegistration.query.filter(HPDRegistration.housenumber == housenumber,
+                                    HPDRegistration.streetname ==streetname,
+                                    HPDRegistration.postcode == postcode).all()
 
 
 ####### Functions to Query NYC Geosearch API
