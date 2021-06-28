@@ -37,6 +37,38 @@
             <button id="write-a-review" class="btn btn-outline-info">Write A Review</button>
         </div>
     </div>
+
+    <div id="write-a-review-group">
+        <h2>Write a Review</h2>
+        <br>
+        <form id="write_review" action="/write_review" method="POST">
+
+            <div class="form-group">
+
+                <i class="bi bi-person-fill"></i> Which Landlord are you Reviewing?
+                <input class="form-control" type="text" name="landlord" id="landlord" placeholder="Landlord Name">
+            </div>
+                <br>
+            <div class="form-group">
+
+                <i class="bi bi-building"></i> Which Building are you Reviewing?
+                <input class="form-control" type="text" name="building" id="building" placeholder ="Address">
+            </div>
+                <br>
+            <div classs="md-form">
+                <i class="bi bi-pencil-fill"></i> Enter your review text:
+                <textarea id="review_body" class="md-textarea form-control" name="review_body" rows="4"
+                placeholder="Write your review here"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" id="write_review_button" class="btn btn-primary">
+                Submit Review</button>
+            </div> 
+        </form>
+
+    </div>
+
     <br>
     <hr>
     <br>
@@ -139,7 +171,7 @@
                 <br>
                 Landlord Office Address: {{ building.landlord.office_address }}
                 <br>
-
+                <br>
                     {% if registrations and contact_list %}
                         {% for registration in registrations %}
 
@@ -149,16 +181,25 @@
                             <div>{{ registration.lastregistrationdate }}</div><br>
                         {% endfor %}
                         {% for contact in contact_list %}
+                            <h4>Registration Details for #{{ contact.registrationid }}</h4><br>
                             <h5>Registration Type</h5>
                             <div>{{ contact.registrationtype }}</div><br>
                             <h5>Registration Contact Description</h5>
                             <div>{{ contact.contactdescription }}</div><br>
-                            { if contact.corporationname %}
+                            {% if contact.corporationname %}
                                 <h5>Corporation Name</h5>
                                 <div>{{ contact.corporationname }}</div><br>
                             {% endif %}
-                            <br>
+                            {% if contact.firstname %}
+                                <h5>Contact First Name</h5>
+                                <div>{{ contact.firstname }}</div><br>
+                            {% endif %}
+                            {% if contact.lastname %}
+                                <h5>Contact Last Name</h5>
+                                <div>{{ contact.lastname }}</div><br>
+                            {% endif %}
                         {% endfor %}
+    
                     {% else %}
                         <div>No Registration Details for this Address </div>
                     {% endif %}

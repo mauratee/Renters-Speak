@@ -39,13 +39,22 @@ $(function () {
 });
 
 
-
+// Set display to none for "write-a-review-group"
+document.getElementById("write-a-review-group").style.display = "none"; 
 
 // Selects from write-a-review button in building_details.html
 // and send to write_review.html page
-$("#write-a-review").on("click"), () => {
-    window.location.replace("/write_review")
-};
+$(document).ready(function(){
+  $("#write-a-review").on("click", function(){
+    $("#write-a-review-group").slideToggle();
+  });
+});
+
+// $(document).ready(function(){
+//   $("#violations-info-trigger").on("click", function(){
+//     $("#violations-info").slideToggle();
+//   });
+// });
 
 
 // Add highlight to NYC Housing Code Violations text on mouseover

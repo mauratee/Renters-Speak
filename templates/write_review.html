@@ -6,27 +6,33 @@
 
 {% if session.get("user_email") %}
 
-  <h2>Write a Review (for Logged in Users)</h2>
-  <form id="write_review" action="/write_review" method="POST">
-    <p>
-      Which Landlord are you Reviewing?: <input type="text" name="landlord" size="50">
-    </p>
-    <p>
-      Which Building are you Reviewing?: <input type="text" name="building" size ="50">
-    </p>
-    <p>
-      What is the Landlord's Office Address?: <input type="text" name="landlord_office" size="50">
-    </p>
-    <p>
-      Enter your review text: <br>
-      <textarea name="review_body" rows="4" cols="50">
-      </textarea>
-    </p>
-    <p>
-      <button type="submit" id="write_review_button" class="btn btn-primary">
-        Submit Review</button>
-    </p>  
-  </form>
+  <h2>Write a Review</h2>
+    <br>
+    <form id="write_review" action="/write_review" method="POST">
+
+      <div class="form-group">
+
+        <i class="bi bi-person-fill"></i> Which Landlord are you Reviewing?
+        <input class="form-control" type="text" name="landlord" id="landlord" placeholder="Landlord Name">
+      </div>
+        <br>
+      <div class="form-group">
+
+        <i class="bi bi-building"></i> Which Building are you Reviewing?
+         <input class="form-control" type="text" name="building" id="building" placeholder ="Address">
+      </div>
+        <br>
+      <div classs="md-form">
+        <i class="bi bi-pencil-fill"></i> Enter your review text:
+        <textarea id="review_body" class="md-textarea form-control" name="review_body" rows="4"
+        placeholder="Write your review here"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <button type="submit" id="write_review_button" class="btn btn-primary">
+          Submit Review</button>
+      </div> 
+    </form>
   
   {% endif %}
 
