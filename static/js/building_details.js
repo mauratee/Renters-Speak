@@ -10,26 +10,38 @@ $(".violation-list").hide()
 // Set display of violation alert to none, will display when clicked through end of list
 document.getElementById("violation-alert").style.display = "none";
 
+// Set display of end-of-list alert to none, will display when clicked through end of list
+document.getElementById("end-of-list").style.display = "none";
 
-// Load more violations
-$(function () {
-  // Shows violations a few at a time
-  $(".violation-list").slice(0,4).show();
-  $("#show-more-violations").on("click", function (evt) {
-    evt.preventDefault();
-    $(".violation-list:hidden").slice(0,4).slideDown();
-    // If no more violations are hidden in list, flash alert
-    if ($(".violation-list:hidden").length == 0) {
-      $("#violation-alert").show();
-  
-  $("#show-all-violations").on("click", function (evt) {
-    evt.preventDefault();
-    $(".violation-list:hidden").slideToggle();
-  })
-    }
-  })
+
+// Shows violations a few at a time
+$(".violation-list").slice(0,4).show();
+$("#show-more-violations").on("click", function (evt) {
+  evt.preventDefault();
+  $(".violation-list:hidden").slice(0,4).slideDown();
+  // If no more violations are hidden in list, flash alert
+  if ($(".violation-list:hidden").length == 0) {
+    $("#violation-alert").show();
+  }
 });
 
+$(".violation-list").slice(0,4).show();
+$("#show-fewer-violations").on("click", function (evt) {
+  evt.preventDefault();
+  $(".violation-list:visible").slice(0,4).slideUp();
+  if ($(".violations-list:visible").length ==0) {
+    $("#end-of-list").show();
+  }
+})
+
+// Shows all remaining hidden violations
+$("#show-all-violations").on("click", function (evt) {
+  // console.log("we clicked show all violations");
+  evt.preventDefault();
+  $(".violation-list:hidden").slideDown();
+  $(".violation-list:visible").slideUp();
+  // console.log($(".violation-list:hidden"))
+});
 
 // Set display to none for "write-a-review-group"
 document.getElementById("write-a-review-group").style.display = "none"; 

@@ -98,6 +98,13 @@
         <canvas id="violation-class" height="50" data-chart='{{data}}'></canvas>
         </div>
 
+        </div>
+        <div class="row" id="end-of-list">
+            <p class="text-info"><i class="bi bi-exclamation-circle-fill"></i> No more violations to hide.</p>
+        </div>
+        <br>
+        <br>
+
         <div>
         {% for violation in violation_list %}
             <div class="violation-list" id="violation-list">
@@ -132,8 +139,7 @@
             </div>
 
         {% endfor %}
-        </div>
-
+        
         <div>
             <div class="row">
                 <div class="col-2">
@@ -153,7 +159,7 @@
         <br>
         <br>
         <div class="row" id="violation-alert">
-            <p class="text-info">No more violations to show.</p>
+            <p class="text-info"><i class="bi bi-exclamation-circle-fill"></i> No more violations to show.</p>
         </div>
 
         {% else %}
