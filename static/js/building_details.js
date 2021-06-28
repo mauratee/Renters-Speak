@@ -15,12 +15,17 @@ document.getElementById("violation-alert").style.display = "none";
 $(function () {
   // Shows violations a few at a time
   $(".violation-list").slice(0,4).show();
-  $("#show_more_violations").on("click", function (evt) {
+  $("#show-more-violations").on("click", function (evt) {
     evt.preventDefault();
     $(".violation-list:hidden").slice(0,4).slideDown();
     // If no more violations are hidden in list, flash alert
     if ($(".violation-list:hidden").length == 0) {
       $("#violation-alert").show();
+  
+  $("#show-all-violations").on("click", function (evt) {
+    evt.preventDefault();
+    $(".violation-list:hidden").slideToggle();
+  })
     }
   })
 });
@@ -30,7 +35,7 @@ $(function () {
 document.getElementById("write-a-review-group").style.display = "none"; 
 
 // Selects from write-a-review button in building_details.html
-// and send to write_review.html page
+// and displays write-a-review-group on click
 $(document).ready(function(){
   $("#write-a-review").on("click", function(){
     $("#write-a-review-group").slideToggle();
@@ -72,9 +77,9 @@ $(document).ready(function(){
     });
 });
 
+
 // Set display attribute of violations-class-info to none
 $(".violations-class-info").hide();
-
 
 // On click, display violations-class-info
 $(document).ready(function(){
@@ -84,9 +89,6 @@ $(document).ready(function(){
 });
 
 
-// $.get("/violations_by_class.json", (res) => {
-//   console.log(res);
-// });
 
 console.log($("#violation-class").data("chart"))
 
