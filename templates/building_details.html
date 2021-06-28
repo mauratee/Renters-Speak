@@ -64,31 +64,6 @@
         <canvas id="violation-class" height="50" data-chart='{{data}}'></canvas>
         </div>
 
-        <!-- <div class="violation-list" id="first-two-violations">
-
-            {% for violation in violation_list %}
-
-                    {% if loop.index<= 2 %}
-                        <dl class="row">
-
-                            <h4>Details for Violation #{{ violation.violationid }}</h4>
-            
-                            <dt class="col-12">Violation Date</dt>
-                            <dd class="col-12">{{ violation.inspectiondate }}</dd>
-                            <dt class="col-12">Violation Class</dt> 
-                            <dd class="col-12">{{ violation.violation_class }}</dd>
-                            <dt class="col-12">Description of Violation:</dt>
-                            <dd class="col-12">{{ violation.novdescription }}</dd>
-                            
-                        </dl>
-                    
-                    {% endif %}
-
-                
-            {% endfor %}
-
-        </div> -->
-
         <div>
         {% for violation in violation_list %}
             <div class="violation-list" id="violation-list">
@@ -126,20 +101,20 @@
         </div>
 
         <div>
-        <div class="row">
-            <div class="col-2">
-                <button id="show_more_violations" class="btn btn-outline-secondary">
-                    Show More Violations</button>
-            </div>
-            <div class="col-2">
-                <button id="show_fewer_violations" class="btn btn-outline-secondary">
-                    Show Fewer Violations</button>
-            </div>
-            <div class="col-4 offset-4">
-                <button id="show_all_violations" class="btn btn-outline-dark">
-                    Show All {{ length_violation_list }} Violations</button>
-            </div>
-        </div>  
+            <div class="row">
+                <div class="col-2">
+                    <button id="show_more_violations" class="btn btn-outline-secondary">
+                        Show More Violations</button>
+                </div>
+                <div class="col-2">
+                    <button id="show_fewer_violations" class="btn btn-outline-secondary">
+                        Show Fewer Violations</button>
+                </div>
+                <div class="col-4 offset-4">
+                    <button id="show_all_violations" class="btn btn-outline-dark">
+                        Show All {{ length_violation_list }} Violations</button>
+                </div>
+            </div>  
         </div>
         <br>
         <br>
@@ -151,18 +126,45 @@
         <h2>No NYC Housing Maintenance Code Violation(s) at this address</h2>
 
     {% endif %}
-    </div>
-    
+
     <br>
     <hr>
     <br>
-        <p>
-            <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
-            Landlord Name: {{ building.landlord.landlord_name }}
-            <br>
-            Landlord Office Address: {{ building.landlord.office_address }}
-            <br>
-        </p>
+
+    <div>
+        <div class="row">
+            <div class="col-12">
+                <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
+                Landlord Name: {{ building.landlord.landlord_name }}
+                <br>
+                Landlord Office Address: {{ building.landlord.office_address }}
+                <br>
+
+                    {% if registrations and contact_list %}
+                        {% for registration in registrations %}
+
+                            <h4>Detailed Landlord Information</h4>
+
+                            <h5>Date of Last Registration with the city</h5>
+                            <div>{{ registration.lastregistrationdate }}</div><br>
+                        {% endfor %}
+                        {% for contact in contact_list %}
+                            <h5>Registration Type</h5>
+                            <div>{{ contact.registrationtype }}</div><br>
+                            <h5>Registration Contact Description</h5>
+                            <div>{{ contact.contactdescription }}</div><br>
+                            { if contact.corporationname %}
+                                <h5>Corporation Name</h5>
+                                <div>{{ contact.corporationname }}</div><br>
+                            {% endif %}
+                            <br>
+                        {% endfor %}
+                    {% else %}
+                        <div>No Registration Details for this Address </div>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
 
 
 <!-- Connect to JS file -->

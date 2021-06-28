@@ -270,10 +270,20 @@ def search_nyc_address():
     building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
     violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
                                                  searched_postalcode)
-    registrations = crud.get_hpdregistration_contact_by_address(searched_housenumber, searched_streetname,
+    registrations = crud.get_hpdregistration_by_address(searched_housenumber, searched_streetname,
                                                             searched_postalcode)
+    contacts = []
+    if registrations:
+        for registration in registrations:
+            contact = crud.get_hpdcontact_by_registration(registration.registrationid)
+            contacts.append(contact)
     print("!!!!!!!!!!!!!!!!!!!!!")
-    print(f"registrations = {registrations}")
+    print(f"contacts = {contacts}")
+
+    if contacts:
+        contact_list = contacts[0]
+    print("!!!!!!!!!!!!!!!!!!!!!")
+    print(f"contact_list = {contact_list}")
 
     
     violations = {}
@@ -319,7 +329,7 @@ def search_nyc_address():
     length_violation_list = len(violation_list)
     return render_template('building_details.html', building=building, 
                             violation_list=violation_list, length_violation_list=length_violation_list, 
-                            data=data, registrations=registrations)
+                            data=data, registrations=registrations, contact_list=contact_list)
 
 
 

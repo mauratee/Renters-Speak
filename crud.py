@@ -186,7 +186,7 @@ def get_hpdviolation_by_address(building):
                                     HPDViolation.postcode == postcode).one()
 
 
-def get_hpdregistration_contact_by_address(housenumber, streetname, postcode):
+def get_hpdregistration_by_address(housenumber, streetname, postcode):
     """Takes in house number, streetname and postcode and returns all entries in
         HPDRegistration class that match all parameters. Uses registrations to query
         HPDContact class and returns all contact options matching registrationid
@@ -196,6 +196,16 @@ def get_hpdregistration_contact_by_address(housenumber, streetname, postcode):
     return HPDRegistration.query.filter(HPDRegistration.housenumber == housenumber,
                                     HPDRegistration.streetname ==streetname,
                                     HPDRegistration.postcode == postcode).all()
+
+
+def get_hpdcontact_by_registration(registrationid):
+    """Takes in house number, streetname and postcode and returns all entries in
+        HPDRegistration class that match all parameters. Uses registrations to query
+        HPDContact class and returns all contact options matching registrationid
+        in registrations."""
+
+
+    return HPDContact.query.filter(HPDContact.registrationid == registrationid).all()
 
 
 ####### Functions to Query NYC Geosearch API
