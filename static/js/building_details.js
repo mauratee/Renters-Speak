@@ -2,20 +2,7 @@
 
 alert("JS is connected");
 
-// Selects from violation-group in building_details.html
-// $("document").ready(function(){
-//   $("#show_fewer_violations").click(function(){
 
-//     console.log("show fewer violations click happened")
-//     $("#first-two-violations").slideUp();
-
-//     console.log($("#first-two-violations"))
-//   });
-//   $("#show_more_violations").click(function(){
-//     console.log("show more violations click happened")
-//     $("#first-two-violations").slideDown();
-//   });
-// });
 
 // Set display of violation-list to none as default
 $(".violation-list").hide()
@@ -50,12 +37,6 @@ $(document).ready(function(){
   });
 });
 
-// $(document).ready(function(){
-//   $("#violations-info-trigger").on("click", function(){
-//     $("#violations-info").slideToggle();
-//   });
-// });
-
 
 // Add highlight to NYC Housing Code Violations text on mouseover
 $(document).ready(function(){
@@ -68,13 +49,17 @@ $(document).ready(function(){
     });
 });
 
+
+// Set default display of violations-info to none
 document.getElementById("violations-info").style.display = "none"; 
 
+// Slide toggle to show violations info on click of trigger
 $(document).ready(function(){
   $("#violations-info-trigger").on("click", function(){
     $("#violations-info").slideToggle();
   });
 });
+
 
 // Add highlight to Violation Class text on mouseover
 $(document).ready(function(){
