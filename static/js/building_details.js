@@ -25,11 +25,12 @@ $("#show-more-violations").on("click", function (evt) {
   }
 });
 
-$(".violation-list").slice(0,4).show();
+// Hides violations a few at a time
 $("#show-fewer-violations").on("click", function (evt) {
   evt.preventDefault();
   $(".violation-list:visible").slice(0,4).slideUp();
-  if ($(".violations-list:visible").length ==0) {
+  // If all violations hidden, flash alert
+  if ($(".violation-list:visible").length == 0) {
     $("#end-of-list").show();
   }
 })
@@ -38,9 +39,12 @@ $("#show-fewer-violations").on("click", function (evt) {
 $("#show-all-violations").on("click", function (evt) {
   // console.log("we clicked show all violations");
   evt.preventDefault();
-  $(".violation-list:hidden").slideDown();
-  $(".violation-list:visible").slideUp();
-  // console.log($(".violation-list:hidden"))
+  if ($(".violation-list:hidden").length != 0) {
+    $(".violation-list:hidden").slideDown();
+  }
+  else {
+    $(".violation-list:visible").slideUp();
+  }
 });
 
 // Set display to none for "write-a-review-group"
