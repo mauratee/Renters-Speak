@@ -297,12 +297,13 @@ def search_nyc_address():
     print("~~~~~~~~~~~~~~~~~~~")
     print(violation_counts)
     violation_types = list(violations.keys())
+    violation_types = '['+','.join(['"'+x+'"' for x in violation_types])+']'
     print("~~~~~~~~~~~~~~~~~~~")
     print(violation_types)
 
 
     # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
-    data = '{"labels":["A", "C", "B"], "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }]}'
+    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }]}'
 
     print("!!!!!!!!!!!!!!!!!!!!!")
     print(data)
@@ -333,42 +334,42 @@ def search_nyc_address():
 
 
 
-@app.route("/search_by_address")
-def search_by_building_and_violation():
-    """Takes in user input from html form and passes to crud function to
-        check if entry exists in database. If exists, return details page
-        for that building."""
+# @app.route("/search_by_address")
+# def search_by_building_and_violation():
+#     """Takes in user input from html form and passes to crud function to
+#         check if entry exists in database. If exists, return details page
+#         for that building."""
 
-    searched_housenumber = request.args.get("search_review_by_housenumber")
-    searched_streetname = request.args.get("search_review_by_streetname")
-    searched_postalcode = request.args.get("search_review_by_postalcode")
+#     searched_housenumber = request.args.get("search_review_by_housenumber")
+#     searched_streetname = request.args.get("search_review_by_streetname")
+#     searched_postalcode = request.args.get("search_review_by_postalcode")
 
-    if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
-        flash(u"You must enter a complete address to search.", "error")
-        return redirect('/')
-    else:
-        building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
-        violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
-                                                 searched_postalcode)
+#     if searched_housenumber is None or searched_streetname is None or searched_postalcode is None:
+#         flash(u"You must enter a complete address to search.", "error")
+#         return redirect('/')
+#     else:
+#         building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
+#         violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
+#                                                  searched_postalcode)
 
 
-        if building is None and not violation_list:
-            flash("No reviews or violations exist for that address.")
-            return redirect('/')
+#         if building is None and not violation_list:
+#             flash("No reviews or violations exist for that address.")
+#             return redirect('/')
 
-        elif building is None and violation_list:
-            length_violation_list = len(violation_list)
-            return render_template("violation_details.html", violation_list=violation_list,
-                                length_violation_list=length_violation_list)
+#         elif building is None and violation_list:
+#             length_violation_list = len(violation_list)
+#             return render_template("violation_details.html", violation_list=violation_list,
+#                                 length_violation_list=length_violation_list)
 
-        elif not violation_list and building:
-            return render_template('building_details.html', building=building, 
-                                    violation_list=violation_list)
+#         elif not violation_list and building:
+#             return render_template('building_details.html', building=building, 
+#                                     violation_list=violation_list)
         
 
-        length_violation_list = len(violation_list)
-        return render_template('building_details.html', building=building, 
-                                violation_list=violation_list, length_violation_list=length_violation_list)
+#         length_violation_list = len(violation_list)
+#         return render_template('building_details.html', building=building, 
+#                                 violation_list=violation_list, length_violation_list=length_violation_list)
 
 
 @app.route("/search_by_landlord")
