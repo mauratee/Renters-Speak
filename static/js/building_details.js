@@ -2,8 +2,8 @@
 
 alert("JS is connected");
 
-// Enable home tab
-var triggerTabList = [].slice.call(document.querySelectorAll('#nav-home-tab'))
+// Enable reviews tab
+var triggerTabList = [].slice.call(document.querySelectorAll('#nav-reviews-tab'))
 triggerTabList.forEach(function (triggerEl) {
   var tabTrigger = new bootstrap.Tab(triggerEl)
 
@@ -13,7 +13,8 @@ triggerTabList.forEach(function (triggerEl) {
   })
 })
 
-var triggerTabList = [].slice.call(document.querySelectorAll('#nav-profile-tab'))
+// Enable landlord tab
+var triggerTabList = [].slice.call(document.querySelectorAll('#nav-landlord-tab'))
 triggerTabList.forEach(function (triggerEl) {
   var tabTrigger = new bootstrap.Tab(triggerEl)
 
@@ -23,7 +24,8 @@ triggerTabList.forEach(function (triggerEl) {
   })
 })
 
-var triggerTabList = [].slice.call(document.querySelectorAll('#nav-contact-tab'))
+// Enable violations tab
+var triggerTabList = [].slice.call(document.querySelectorAll('#nav-violations-tab'))
 triggerTabList.forEach(function (triggerEl) {
   var tabTrigger = new bootstrap.Tab(triggerEl)
 

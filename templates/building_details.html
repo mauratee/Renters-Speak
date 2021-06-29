@@ -3,97 +3,154 @@
 {% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details{% endblock %}
 
 {% block body %}
+<br>
+<br>
+<br>
 
-<!-- Test Bootstrap Tabs -->
+<!-- Page title -->
+<div class="row">
+    <div class="col-12">
+        <h1>{{ building.building_housenumber }} {{ building.building_streetname|title }},
+            {{ building.building_postcode }} </h1>
+    </div>
+</div>
+    <br>
+
+<!-- Bootstrap Tab Navigation -->
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
-      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+      <button class="nav-link active" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</button>
+      <button class="nav-link" id="nav-landlord-tab" data-bs-toggle="tab" data-bs-target="#nav-landlord" type="button" role="tab" aria-controls="nav-violations" aria-selected="false">Landlord</button>
+      <button class="nav-link" id="nav-violations-tab" data-bs-toggle="tab" data-bs-target="#nav-violations" type="button" role="tab" aria-controls="nav-violations" aria-selected="false">Violations</button>
     </div>
   </nav>
+  <!-- All content div -->
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">Testing home tab</div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">test profile tab</div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">test contact tab</div>
-  </div>
-  
 
-
-    <div class="row">
-        <div class="col-12">
-            <h1>{{ building.building_housenumber }} {{ building.building_streetname|title }},
-                {{ building.building_postcode }} </h1>
+    <!-- Begin Reviews tab div -->
+    <div class="tab-pane fade show active" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+        
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <br>
+                <h2>Renter Reviews of {{ building.building_housenumber }} {{ building.building_streetname|title }}</h2>
+                    <br>
+                    <dl class="row">
+                    {% if building.reviews %}
+                        {% for review in building.reviews %}
+    
+                            <h4>Details for Review</h4>
+    
+                            <dt class="col-12">Date of Review</dt>
+                            <dl class="col-12">{{ review.created_on.strftime('%Y-%m-%d') }}</dl>
+                            <dt class="col-12">Written By</dt>
+                            <dl class="col-12">{{ review.user.username }}</dl>
+                            <dt class="col-12">Review Text</dt>
+                            <dl class="col-12">{{ review.review_body }}</dl>
+                            <br>
+                            {% endfor %}
+                    {% else %}
+                        <dt class="col-12">No Renter Reviews for this Address </dt>
+                    {% endif %}
+                    </dl>
+                <button id="write-a-review" class="btn btn-outline-info">Write A Review</button>
+            </div>
         </div>
-    </div>
-        <br>
-
-    <div class="row">
-        <div class="col-12">
-            
-            <h2>Renter Reviews of {{ building.building_housenumber }} {{ building.building_streetname|title }}</h2>
-                <br>
-                <dl class="row">
-                {% if building.reviews %}
-                    {% for review in building.reviews %}
-
-                        <h4>Details for Review</h4>
-
-                        <dt class="col-12">Date of Review</dt>
-                        <dl class="col-12">{{ review.created_on.strftime('%Y-%m-%d') }}</dl>
-                        <dt class="col-12">Written By</dt>
-                        <dl class="col-12">{{ review.user.username }}</dl>
-                        <dt class="col-12">Review Text</dt>
-                        <dl class="col-12">{{ review.review_body }}</dl>
-                        <br>
-                        {% endfor %}
-                {% else %}
-                    <dt class="col-12">No Renter Reviews for this Address </dt>
-                {% endif %}
-                </dl>
-            <button id="write-a-review" class="btn btn-outline-info">Write A Review</button>
-        </div>
-    </div>
-
-    <div id="write-a-review-group">
-        <br>
-        <br>
-        <h2>Write a Review</h2>
-        <br>
-        <form id="write_review" action="/write_review" method="POST">
-
-            <div class="form-group">
-
-                <i class="bi bi-person-fill"></i> Which Landlord are you Reviewing?
-                <input class="form-control" type="text" name="landlord" id="landlord" placeholder="Landlord Name">
-            </div>
-                <br>
-            <div class="form-group">
-
-                <i class="bi bi-building"></i> Which Building are you Reviewing?
-                <input class="form-control" type="text" name="building" id="building" placeholder ="Address">
-            </div>
-                <br>
-            <div classs="md-form">
-                <i class="bi bi-pencil-fill"></i> Enter your review text:
-                <textarea id="review_body" class="md-textarea form-control" name="review_body" rows="4"
-                placeholder="Write your review here"></textarea>
-            </div>
+    
+        <div id="write-a-review-group">
             <br>
-            <div class="form-group">
-                <button type="submit" id="write_review_button" class="btn btn-primary">
-                Submit Review</button>
-            </div> 
-        </form>
-
+            <br>
+            <h2>Write a Review</h2>
+            <br>
+            <form id="write_review" action="/write_review" method="POST">
+    
+                <div class="form-group">
+    
+                    <i class="bi bi-person-fill"></i> Which Landlord are you Reviewing?
+                    <input class="form-control" type="text" name="landlord" id="landlord" placeholder="Landlord Name">
+                </div>
+                    <br>
+                <div class="form-group">
+    
+                    <i class="bi bi-building"></i> Which Building are you Reviewing?
+                    <input class="form-control" type="text" name="building" id="building" placeholder ="Address">
+                </div>
+                    <br>
+                <div classs="md-form">
+                    <i class="bi bi-pencil-fill"></i> Enter your review text:
+                    <textarea id="review_body" class="md-textarea form-control" name="review_body" rows="4"
+                    placeholder="Write your review here"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" id="write_review_button" class="btn btn-primary">
+                    Submit Review</button>
+                </div> 
+            </form>
+    
+        </div>
+    
     </div>
+    <!-- End Reviews Tab Div -->
 
-    <br>
-    <hr>
-    <br>
-    <!-- <div class="violation-group" > -->
-    {% if violation_list %}
+    <!-- Begin Landlord Tab Div -->
+    <div class="tab-pane fade" id="nav-landlord" role="tabpanel" aria-labelledby="nav-landlord-tab">
+        
+        <div>
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <br>
+                    <h2>Landlord of {{ building.building_housenumber }} {{ building.building_streetname|title }}:</h2>
+                    Landlord Name: {{ building.landlord.landlord_name }}
+                    <br>
+                    Landlord Office Address: {{ building.landlord.office_address }}
+                    <br>
+                    <br>
+                        {% if registrations and contact_list %}
+                            {% for registration in registrations %}
+    
+                                <h4>Detailed Landlord Information</h4>
+    
+                                <h5>Date of Last Registration with the city</h5>
+                                <div>{{ registration.lastregistrationdate }}</div><br>
+                            {% endfor %}
+                            {% for contact in contact_list %}
+                                <h4>Registration Details for #{{ contact.registrationid }}</h4><br>
+                                <h5>Registration Type</h5>
+                                <div>{{ contact.registrationtype }}</div><br>
+                                <h5>Registration Contact Description</h5>
+                                <div>{{ contact.contactdescription }}</div><br>
+                                {% if contact.corporationname %}
+                                    <h5>Corporation Name</h5>
+                                    <div>{{ contact.corporationname }}</div><br>
+                                {% endif %}
+                                {% if contact.firstname %}
+                                    <h5>Contact First Name</h5>
+                                    <div>{{ contact.firstname }}</div><br>
+                                {% endif %}
+                                {% if contact.lastname %}
+                                    <h5>Contact Last Name</h5>
+                                    <div>{{ contact.lastname }}</div><br>
+                                {% endif %}
+                            {% endfor %}
+        
+                        {% else %}
+                            <div>No Registration Details for this Address </div>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Landlord Tab Div -->
 
+    <!-- Begin Violations Tab Div -->
+    <div class="tab-pane fade" id="nav-violations" role="tabpanel" aria-labelledby="nav-violations-tab">
+        
+        {% if violation_list %}
+        <br>
+        <br>
         <h2 id="violations-info-trigger">{{ length_violation_list }} <span>NYC Housing Maintenance Code Violation(s)</span> at this address</h2>
     
 
@@ -121,41 +178,40 @@
         <br>
         <br>
 
-    <div>
-        {% for violation in violation_list %}
-            <div class="violation-list" id="violation-list">
-                <!-- <dl class="row"> -->
+        <div>
+            {% for violation in violation_list %}
+                <div class="violation-list" id="violation-list">
+                    <!-- <dl class="row"> -->
 
-                    <h4>Details for Violation #{{ violation.violationid }}</h4>
-                    <br>
-                    <h5>Violation Date</h5>
-                    <div>{{ violation.inspectiondate }}</div><br>
-                    <h5 id="violations-class-info-trigger"><span>Violation Class</span></h5>
-                    <div>{{ violation.violation_class }}</div><br>
-                    <div id="violations-class-info" class="panel"><h5>Summary of the Classes of NYC Housing Violations:</h5>
-                        <u>Class A violations (non-hazardous)</u><br>
-                        Must be corrected within 90 days from the mailing of the notice of violation.
-                        Certification of Correction is required 14 days after the correction date.<br>
-                        <u>Class B violations (hazardous)</u><br>
-                        Must be corrected within 30 days from the mailing of the notice of violation.
-                        Certification of correction is required five days after the correction date.<br>
-                        <u>Class C violations (immediately hazardous)</u><br>
-                        Must be corrected within twenty four hours from the mailing of the notice of violation.
-                        Certification of correction is required five days after the correction date. 
+                        <h4>Details for Violation #{{ violation.violationid }}</h4>
                         <br>
-                    <br>    
-                    </div>
-                    <h5>Description of Violation</h5>
-                    <div>{{ violation.novdescription|title }}</div>
-                    <br>
-                    <br>
-                    <br>
+                        <h5>Violation Date</h5>
+                        <div>{{ violation.inspectiondate }}</div><br>
+                        <h5 id="violations-class-info-trigger"><span>Violation Class</span></h5>
+                        <div>{{ violation.violation_class }}</div><br>
+                        <div id="violations-class-info" class="panel"><h5>Summary of the Classes of NYC Housing Violations:</h5>
+                            <u>Class A violations (non-hazardous)</u><br>
+                            Must be corrected within 90 days from the mailing of the notice of violation.
+                            Certification of Correction is required 14 days after the correction date.<br>
+                            <u>Class B violations (hazardous)</u><br>
+                            Must be corrected within 30 days from the mailing of the notice of violation.
+                            Certification of correction is required five days after the correction date.<br>
+                            <u>Class C violations (immediately hazardous)</u><br>
+                            Must be corrected within twenty four hours from the mailing of the notice of violation.
+                            Certification of correction is required five days after the correction date. 
+                            <br>
+                        <br>    
+                        </div>
+                        <h5>Description of Violation</h5>
+                        <div>{{ violation.novdescription|title }}</div>
+                        <br>
+                        <br>
+                        <br>
 
-                <!-- </dl> -->
-            </div>
+                </div>
 
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
     
     
         <div>
@@ -181,58 +237,17 @@
         </div>
 
         {% else %}
-        <h2>No NYC Housing Maintenance Code Violation(s) at this address</h2>
 
-    {% endif %}
+            <h2>No NYC Housing Maintenance Code Violation(s) at this address</h2>
 
-    <br>
-    <hr>
-    <br>
-
-    <div>
-        <div class="row">
-            <div class="col-12">
-                <h4>Landlord of {{ building.building_housenumber }} {{ building.building_streetname }}:</h4>
-                Landlord Name: {{ building.landlord.landlord_name }}
-                <br>
-                Landlord Office Address: {{ building.landlord.office_address }}
-                <br>
-                <br>
-                    {% if registrations and contact_list %}
-                        {% for registration in registrations %}
-
-                            <h4>Detailed Landlord Information</h4>
-
-                            <h5>Date of Last Registration with the city</h5>
-                            <div>{{ registration.lastregistrationdate }}</div><br>
-                        {% endfor %}
-                        {% for contact in contact_list %}
-                            <h4>Registration Details for #{{ contact.registrationid }}</h4><br>
-                            <h5>Registration Type</h5>
-                            <div>{{ contact.registrationtype }}</div><br>
-                            <h5>Registration Contact Description</h5>
-                            <div>{{ contact.contactdescription }}</div><br>
-                            {% if contact.corporationname %}
-                                <h5>Corporation Name</h5>
-                                <div>{{ contact.corporationname }}</div><br>
-                            {% endif %}
-                            {% if contact.firstname %}
-                                <h5>Contact First Name</h5>
-                                <div>{{ contact.firstname }}</div><br>
-                            {% endif %}
-                            {% if contact.lastname %}
-                                <h5>Contact Last Name</h5>
-                                <div>{{ contact.lastname }}</div><br>
-                            {% endif %}
-                        {% endfor %}
+        {% endif %}
     
-                    {% else %}
-                        <div>No Registration Details for this Address </div>
-                    {% endif %}
-            </div>
-        </div>
+    
     </div>
+    <!-- End Violations Tab Div -->
 
+  </div>
+  
 
 <!-- Connect to JS file -->
 <script src="/static/js/building_details.js"></script>
