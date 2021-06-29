@@ -34,27 +34,27 @@
   <hr>
   <br>
 
-    <h2>Search by Address:</h2>
+    <!-- <h2>Search by Address:</h2> -->
+    <div id="home-search-box">
+      <form id="search-address-form" action="/search_address">
 
-    <form id="search-address-form" action="/search_address">
+        <div class="form-group">
+          <br>
+          <h6>Enter a New York City address to search for renter reviews and other information from the city of New York :</h6>
+          <input class="form-control" type="text" name="search_nyc_address" 
+          id="search_nyc_address" placeholder="Search by address"><datalist id="addresses">
 
-      <div class="form-group">
+          </datalist>
+        </div>
+
         <br>
-        Enter a New York City Address to Search for User Reviews and Housing Maintenance Code Violations of Rental Units :
-        <br>
-        <br>
-        <input class="form-control" type="text" name="search_nyc_address" 
-        id="search_nyc_address" placeholder="Search for an address"><datalist id="addresses">
 
-        </datalist>
-      </div>
-
-      <br>
-
-      <div class="form-group">
-          <button type="submit" id="search_nyc_button" class="btn btn-primary">
-            Search</button>
-      </div>
+        <div class="form-group">
+            <button type="submit" id="search_nyc_button" class="btn btn-primary">
+              Search</button>
+        </div>
+      </form>
+    </div>
 
       <br>
       <hr>

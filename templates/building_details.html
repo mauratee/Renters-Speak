@@ -2,8 +2,9 @@
 
 
 {% block head %}
+
     <link rel="stylesheet" href="/static/css/maps.css"/>
-    <script src="/static/js/maps.js"></script>
+    
     
 {% endblock %}
 
@@ -211,7 +212,7 @@
         <div>
             {% for violation in violation_list %}
                 <div class="violation-list" id="violation-list">
-                    <!-- <dl class="row"> -->
+
 
                         <h4>Details for Violation #{{ violation.violationid }}</h4>
                         <br>
@@ -281,6 +282,7 @@
 
 <!-- Connect to JS file -->
 <script src="/static/js/building_details.js"></script>
+<script src="/static/js/maps.js"></script>
 <script
     async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnXgYdTZCVDtJeKFWtrgGHQ_x2kUe7zz8&callback=initMap">
