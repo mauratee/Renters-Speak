@@ -294,10 +294,13 @@ def search_nyc_address():
             violations[violation.violation_class] = 1
     
     violation_counts = list(violations.values())
+
     print("~~~~~~~~~~~~~~~~~~~")
     print(violation_counts)
+
     violation_types = list(violations.keys())
     violation_types = '['+','.join(['"'+x+'"' for x in violation_types])+']'
+
     print("~~~~~~~~~~~~~~~~~~~")
     print(violation_types)
 
@@ -309,7 +312,7 @@ def search_nyc_address():
 
     print("!!!!!!!!!!!!!!!!!!!!!")
     print(data)
-    #"datasets":[{"data":[2, 4, 8]}]
+    # "datasets":[{"data":[2, 4, 8]}]
     # "labels":["does", "this", "work"],
 
     

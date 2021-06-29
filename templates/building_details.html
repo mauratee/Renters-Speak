@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/maps.css"/>
+    <script src="/static/js/maps.js"></script>
+    
+{% endblock %}
+
+
+{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details
+{% endblock %}
+
 
 {% block body %}
 <br>
@@ -9,12 +19,20 @@
 
 <!-- Page title -->
 <div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <h1>{{ building.building_housenumber }} {{ building.building_streetname|title }},
             {{ building.building_postcode }} </h1>
     </div>
 </div>
     <br>
+<!-- Google Map -->
+<div class="row">
+    <div class="col-6">
+        <section class="map">
+            <div id="map"></div>
+        </section>
+    </div>
+</div>
 
 <!-- Bootstrap Tab Navigation -->
 <nav>
@@ -173,6 +191,10 @@
             <canvas id="violation-class" data-chart='{{data}}'></canvas>
         </div>
 
+        <br>
+        <br>
+        <br>
+
         <!-- Chart.js chart object for violations class doughnut chart -->
         <div id="violations-bar-chart">
             <canvas id="violation-date" data-chart='{{bar_data}}'></canvas>
@@ -259,5 +281,9 @@
 
 <!-- Connect to JS file -->
 <script src="/static/js/building_details.js"></script>
+<script
+    async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnXgYdTZCVDtJeKFWtrgGHQ_x2kUe7zz8&callback=initMap">
+</script>
 
 {% endblock %}

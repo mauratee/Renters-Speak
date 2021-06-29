@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
   <head>
-    {% block head %}
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width">
 
@@ -43,11 +42,13 @@
       <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-16x16.png">
       <link rel="manifest" href="/site.webmanifest">
       
-      <title>
-        {% block title %}{% endblock %}
-      </title>
+      {% block head %}
 
-    {% endblock %}
+        <title>
+          {% block title %}{% endblock %}
+        </title>
+
+      {% endblock %}
   </head>
 
   <body>
@@ -192,8 +193,8 @@
 
 
 
-    <!-- Add my JS file
-    <script src="/static/js/login.js"></script> -->
+   <!-- Add my JS file -->
+    <!-- <script src="/static/js/building_details.js"></script> -->
 
     </div> 
   </body>
