@@ -305,6 +305,8 @@ def search_nyc_address():
     # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
     data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }]}'
 
+    bar_data = '{"labels":["does", "this", "work"], "datasets":[{"data":[2, 4, 8], "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }] }'
+
     print("!!!!!!!!!!!!!!!!!!!!!")
     print(data)
     #"datasets":[{"data":[2, 4, 8]}]
@@ -330,7 +332,7 @@ def search_nyc_address():
     length_violation_list = len(violation_list)
     return render_template('building_details.html', building=building, 
                             violation_list=violation_list, length_violation_list=length_violation_list, 
-                            data=data, registrations=registrations, contact_list=contact_list)
+                            data=data, registrations=registrations, contact_list=contact_list, bar_data=bar_data)
 
 
 

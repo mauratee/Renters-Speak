@@ -37,8 +37,6 @@ triggerTabList.forEach(function (triggerEl) {
 
 
 
-
-
 // Set display of violation-list to none as default
 $(".violation-list").hide()
 
@@ -147,13 +145,24 @@ $(document).ready(function(){
 
 console.log($("#violation-class").data("chart"))
 
+console.log($("#violation-date").data("chart"))
+
 Chart.defaults.elements.arc.backgroundColor = ["#5E309c", "#56b1e7", "#5F19e6"]  ;
 
-// construct Chart.js doughnut graph for violaiton classes
+// construct Chart.js doughnut graph for violation classes
 const testChart = new Chart(
     $('#violation-class'),
     {
     type: 'doughnut',
     data:($("#violation-class").data("chart"))
     }
+);
+
+// construct Chart.js doughnut graph for violation classes
+const testChart = new Chart(
+  $('#violation-date'),
+  {
+  type: 'bar',
+  data:($("#violation-date").data("chart"))
+  }
 );

@@ -168,10 +168,18 @@
         <br>
         <br>
         
+        <!-- Chart.js chart object for violations class doughnut chart -->
         <div id="violations-doughnut-chart">
-        <canvas id="violation-class" height="50" data-chart='{{data}}'></canvas>
+            <canvas id="violation-class" data-chart='{{data}}'></canvas>
         </div>
 
+        <!-- Chart.js chart object for violations class doughnut chart -->
+        <div id="violations-bar-chart">
+            <canvas id="violation-date" data-chart='{{bar_data}}'></canvas>
+        </div>
+
+
+        <!-- Begin Violations list -->
         <div class="row" id="end-of-list">
             <p class="text-info"><i class="bi bi-exclamation-circle-fill"></i> No more violations to hide.</p>
         </div>
