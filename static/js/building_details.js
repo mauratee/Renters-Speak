@@ -2,6 +2,39 @@
 
 alert("JS is connected");
 
+// Enable home tab
+var triggerTabList = [].slice.call(document.querySelectorAll('#nav-home-tab'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new bootstrap.Tab(triggerEl)
+
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+  })
+})
+
+var triggerTabList = [].slice.call(document.querySelectorAll('#nav-profile-tab'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new bootstrap.Tab(triggerEl)
+
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+  })
+})
+
+var triggerTabList = [].slice.call(document.querySelectorAll('#nav-contact-tab'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new bootstrap.Tab(triggerEl)
+
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+  })
+})
+
+
+
 
 
 // Set display of violation-list to none as default
