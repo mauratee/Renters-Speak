@@ -154,7 +154,19 @@ const testChart = new Chart(
     $('#violation-class'),
     {
     type: 'doughnut',
-    data:($("#violation-class").data("chart"))
+    data:($("#violation-class").data("chart")),
+    options: {
+      plugins: {
+          title: {
+              display: true,
+              text: 'Violations by Class',
+              padding: {
+                  top: 5,
+                  bottom: 15
+              }
+          }
+      }
+  }
     }
 );
 
@@ -163,6 +175,18 @@ const barChart = new Chart(
   $('#violation-date'),
   {
   type: 'bar',
-  data:($("#violation-date").data("chart"))
+  data:($("#violation-date").data("chart")),
+  options: {
+    plugins: {
+        title: {
+            display: true,
+            text: 'Violations by Year',
+            padding: {
+                top: 5,
+                bottom: 15
+            }
+        }
+    }
+}
   }
 );
