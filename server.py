@@ -261,6 +261,9 @@ def search_nyc_address():
     res = requests.get(url, params=payload)
     data = res.json()
     features = data["features"]
+    coordinates = features[0]["geometry"]["coordinates"]
+    print("!!!!!!*****<<<>>>>>>!!!!!!")
+    print(f"coordinates = {coordinates}")
     properties = features[0]["properties"]
 
     searched_housenumber = properties["housenumber"]

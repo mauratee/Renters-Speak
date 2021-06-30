@@ -1,0 +1,34 @@
+
+    
+body { font-family: 'Inconsolata', monospace;
+    font-weight: 300;
+    margin: 0;
+    font-size: 1rem;
+    /* line-height: 1.5; */
+    color: #383442;
+    text-align: left;
+    background-color: #ffffff;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 300;
+    /* font-family: "Roboto", sans-serif;
+    font-weight:  500; */
+    }
+
+#home-search-box {
+
+    background-color: #f8f8f8;
+    border: 1px solid #727e96;
+    margin: 75px auto 60px;
+    padding: 35px;
+}
+
+
+    /* light gray: #f4f6fc */
+    
+/* "Open Sans", sans-serif; */
+/* "Cousine", monospace; */
+
+
