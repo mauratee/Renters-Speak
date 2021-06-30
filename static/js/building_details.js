@@ -157,12 +157,22 @@ const testChart = new Chart(
     data:($("#violation-class").data("chart")),
     options: {
       plugins: {
+        legend: {
+          labels: {
+              font: {
+                family: "monospace"
+              },
+          }
+        },
           title: {
               display: true,
               text: 'Violations by Class',
+              font: {
+                family: "monospace"
+              },
               padding: {
-                  top: 5,
-                  bottom: 15
+                  top: 15,
+                  bottom: 5
               }
           }
       }
@@ -178,12 +188,18 @@ const barChart = new Chart(
   data:($("#violation-date").data("chart")),
   options: {
     plugins: {
+        legend: {
+          display: false,
+        },
         title: {
             display: true,
             text: 'Violations by Year',
+            font: {
+              family: "monospace"
+            },
             padding: {
-                top: 5,
-                bottom: 15
+                top: 15,
+                bottom: 5
             }
         }
     }

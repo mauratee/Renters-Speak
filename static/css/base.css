@@ -27,14 +27,15 @@ h5, h6 {
 
 canvas {
         border: 1px dotted #817899;
+        background: #f8f8f8
       }
       
-.chart-container {
+/* .chart-container {
         position: relative;
         margin: auto;
         height: 500px;
         width: 500px;
-      }
+      } */
 
 .xtra-bold {font-weight: 800;}
 
