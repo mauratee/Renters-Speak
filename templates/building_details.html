@@ -123,8 +123,9 @@
                     <br>
                     <br>
                     <details>
+                        
+                            <summary><strong>Who's the landlord of this building?</strong></summary>
                     
-                        <summary>Who's the landlord of this building?</summary>
                         <p><br>The city of New York requires property owners of residential buildings to register annually
                             with the <a href=
                             "https://www1.nyc.gov/site/hpd/services-and-information/register-your-property.page" target="_blank">
@@ -132,8 +133,8 @@
                             <br>
                             The legal owner of many buildings may be a corporation or LLC but there are often other names
                             listed in HPD registration paperwork that offer a clearer picture of who the owners actually are.
-                            People listed as "Officer" or "Owner" often have ties to ownership while those listed as "Site Manager"
-                            are often more involved in the management of the building.<br>
+                            People listed as "Officer" or "Owner" often have ties to ownership of the building while those listed 
+                            as "Site Manager" are often more involved in the management of the building.<br>
                             <br>
                             Please also keep in mind that the names listed below are self-reported by the landlord and can 
                             sometimes be misleading.
@@ -141,35 +142,39 @@
 
                     </details>
                     <br>
-                    <br>
                         {% if registrations and contact_list %}
+                            
+                            {% for contact in contact_list %}
+                                
+                                {% if contact.corporationname %}
+                                    <h5>Corporation Info</h5>
+                                    {{ contact.corporationname }}<br>
+                                    {% if contact.businessstreetname %}
+                                        {{ contact.businesshousenumber }} {{ contact.businessstreetname|title }}<br>
+                                        {{ contact.businesscity|title }}, {{ contact.businessstate }} {{ contact.businesszip }}<br>
+                                    {% endif %}
+                                {% endif %}
+
+                            {% endfor %}
+                            <br>
+                            <h5>Other Contact Info</h5>
+
+                            {% for contact in contact_list %}
+                                {% if contact.firstname and contact.lastname %}
+
+                                    <div>{{ contact.firstname|title }} {{ contact.lastname|title }}<br>
+                                        {{ contact.registrationtype }}<br>
+                                    </div><br>
+                                {% endif %}
+                                
+                            {% endfor %}
+                                    
                             {% for registration in registrations %}
     
-                                <h4>Detailed Landlord Information</h4>
-    
-                                <h5>Date of Last Registration with the city</h5>
-                                <div>{{ registration.lastregistrationdate }}</div><br>
+                            <h5>Date of Last Registration with the city</h5>
+                            <div>{{ registration.lastregistrationdate }}</div><br>
                             {% endfor %}
-                            {% for contact in contact_list %}
-                                <h4>Registration Details for #{{ contact.registrationid }}</h4><br>
-                                <h5>Registration Type</h5>
-                                <div>{{ contact.registrationtype }}</div><br>
-                                <h5>Registration Contact Description</h5>
-                                <div>{{ contact.contactdescription }}</div><br>
-                                {% if contact.corporationname %}
-                                    <h5>Corporation Name</h5>
-                                    <div>{{ contact.corporationname }}</div><br>
-                                {% endif %}
-                                {% if contact.firstname %}
-                                    <h5>Contact First Name</h5>
-                                    <div>{{ contact.firstname }}</div><br>
-                                {% endif %}
-                                {% if contact.lastname %}
-                                    <h5>Contact Last Name</h5>
-                                    <div>{{ contact.lastname }}</div><br>
-                                {% endif %}
-                            {% endfor %}
-        
+
                         {% else %}
                             <div>No Registration Details for this Address </div>
                         {% endif %}
@@ -215,13 +220,13 @@
         <div id="violations-bar-chart">
             <canvas id="violation-date" data-chart='{{bar_data}}'></canvas>
         </div>
+        <br>
 
 
         <!-- Begin Violations list -->
         <div class="row" id="end-of-list">
             <p class="text-info"><i class="bi bi-exclamation-circle-fill"></i> No more violations to hide.</p>
         </div>
-        <br>
         <br>
 
         <div>

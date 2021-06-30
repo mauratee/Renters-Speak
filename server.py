@@ -275,6 +275,11 @@ def search_nyc_address():
                                                  searched_postalcode)
     registrations = crud.get_hpdregistration_by_address(searched_housenumber, searched_streetname,
                                                             searched_postalcode)
+    # Sort violation list by inspectiondate attribute
+    violation_list.sort(key=lambda violation: violation.inspectiondate, reverse=True)
+    print("!!!!!!!!!!!!!!!!!!!!!")
+    print(f"violation list = {violation_list}")
+
     contacts = []
     if registrations:
         for registration in registrations:

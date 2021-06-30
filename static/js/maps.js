@@ -117,8 +117,8 @@ function initMap() {
         title: 'New York City',
         icon: {url: "/static/img/map-marker.png",
                 scaledSize: {
-                    width: 45,
-                    height: 45 
+                    width: 55,
+                    height: 55 
                 }
                 },
         map: basicMap

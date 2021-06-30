@@ -11,11 +11,21 @@ body { font-family: 'Inconsolata', monospace;
     background-color: #ffffff;
     }
 
-h1, h2, h3, h4, h5, h6 {
+strong {
+        font-weight: 800;
+      }
+
+h1, h2, h3, h4 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-weight:  500; */
+    font-weight: 400;
     }
+
+h5, h6 {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 400;
+    }
+
+.xtra-bold {font-weight: 800;}
 
 #home-search-box {
 
