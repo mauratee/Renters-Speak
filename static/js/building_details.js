@@ -121,7 +121,7 @@ $(document).ready(function(){
 
 // Add highlight to Violation Class text on mouseover
 $(document).ready(function(){
-  $("#violations-class-info-trigger")
+  $(".violations-class-info-trigger")
     .mouseenter(function() {
       $(this).find("span").effect("highlight", {color:"#FFFF00"}, 1000);
     })

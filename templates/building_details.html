@@ -233,26 +233,28 @@
             {% for violation in violation_list %}
                 <div class="violation-list" id="violation-list">
 
-
-                        <h4>Details for Violation #{{ violation.violationid }}</h4>
-                        <br>
+                        
                         <h5>Violation Date</h5>
                         <div>{{ violation.inspectiondate }}</div><br>
+                        <h5>Violation ID #</h5>
+                        <div>{{ violation.violationid }}</div><br>
                         <h5 id="violations-class-info-trigger"><span>Violation Class</span></h5>
-                        <div>{{ violation.violation_class }}</div><br>
-                        <div id="violations-class-info" class="panel"><h5>Summary of the Classes of NYC Housing Violations:</h5>
-                            <u>Class A violations (non-hazardous)</u><br>
-                            Must be corrected within 90 days from the mailing of the notice of violation.
-                            Certification of Correction is required 14 days after the correction date.<br>
-                            <u>Class B violations (hazardous)</u><br>
-                            Must be corrected within 30 days from the mailing of the notice of violation.
-                            Certification of correction is required five days after the correction date.<br>
-                            <u>Class C violations (immediately hazardous)</u><br>
-                            Must be corrected within twenty four hours from the mailing of the notice of violation.
-                            Certification of correction is required five days after the correction date. 
-                            <br>
+                        <details>
+                            <summary>{{ violation.violation_class }}</summary>
+                                <p>
+                                    <!-- <h5>Summary of the Classes of NYC Housing Violations:</h5> -->
+                                    <u>Class A violations (non-hazardous)</u><br>
+                                    Must be corrected within 90 days from the mailing of the notice of violation.
+                                    Certification of Correction is required 14 days after the correction date.<br>
+                                    <u>Class B violations (hazardous)</u><br>
+                                    Must be corrected within 30 days from the mailing of the notice of violation.
+                                    Certification of correction is required five days after the correction date.<br>
+                                    <u>Class C violations (immediately hazardous)</u><br>
+                                    Must be corrected within twenty four hours from the mailing of the notice of violation.
+                                    Certification of correction is required five days after the correction date. 
+                                </p>
+                        </details>
                         <br>    
-                        </div>
                         <h5>Description of Violation</h5>
                         <div>{{ violation.novdescription|title }}</div>
                         <br>
@@ -271,11 +273,11 @@
                     <button id="show-more-violations" class="btn btn-outline-secondary">
                         Show More Violations</button>
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <button id="show-fewer-violations" class="btn btn-outline-secondary">
                         Show Fewer Violations</button>
                 </div>
-                <div class="col-4 offset-4">
+                <div class="col-3 offset-4">
                     <button id="show-all-violations" class="btn btn-outline-dark">
                         Show All {{ length_violation_list }} Violations</button>
                 </div>

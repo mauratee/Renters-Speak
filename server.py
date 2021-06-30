@@ -277,23 +277,17 @@ def search_nyc_address():
                                                             searched_postalcode)
     # Sort violation list by inspectiondate attribute
     violation_list.sort(key=lambda violation: violation.inspectiondate, reverse=True)
-    print("!!!!!!!!!!!!!!!!!!!!!")
-    print(f"violation list = {violation_list}")
 
     contacts = []
     if registrations:
         for registration in registrations:
             contact = crud.get_hpdcontact_by_registration(registration.registrationid)
             contacts.append(contact)
-    print("!!!!!!!!!!!!!!!!!!!!!")
-    print(f"contacts = {contacts}")
 
     if contacts:
         contact_list = contacts[0]
-    print("!!!!!!!!!!!!!!!!!!!!!")
-    print(f"contact_list = {contact_list}")
 
-    
+
     violations = {}
     for violation in violation_list:
         if violation.violation_class in violations:
