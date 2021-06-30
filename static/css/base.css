@@ -1,4 +1,5 @@
 
+/* font-family: 'Roboto', sans-serif; */
     
 body { font-family: 'Inconsolata', monospace;
     font-weight: 300;
@@ -11,9 +12,8 @@ body { font-family: 'Inconsolata', monospace;
     }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    /* font-family: "Roboto", sans-serif;
     font-weight:  500; */
     }
 

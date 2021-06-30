@@ -34,7 +34,8 @@
         </section>
     </div>
 </div>
-
+<br>
+<br>
 <!-- Bootstrap Tab Navigation -->
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -121,10 +122,24 @@
                 <div class="col-12">
                     <br>
                     <br>
-                    <h2>Landlord of {{ building.building_housenumber }} {{ building.building_streetname|title }}:</h2>
-                    Landlord Name: {{ building.landlord.landlord_name }}
-                    <br>
-                    Landlord Office Address: {{ building.landlord.office_address }}
+                    <details>
+                    
+                        <summary>Who's the landlord of this building?</summary>
+                        <p><br>The city of New York requires property owners of residential buildings to register annually
+                            with the <a href=
+                            "https://www1.nyc.gov/site/hpd/services-and-information/register-your-property.page" target="_blank">
+                            Housing Preservation & Development Department (HPD)</a>.<br>
+                            <br>
+                            The legal owner of many buildings may be a corporation or LLC but there are often other names
+                            listed in HPD registration paperwork that offer a clearer picture of who the owners actually are.
+                            People listed as "Officer" or "Owner" often have ties to ownership while those listed as "Site Manager"
+                            are often more involved in the management of the building.<br>
+                            <br>
+                            Please also keep in mind that the names listed below are self-reported by the landlord and can 
+                            sometimes be misleading.
+                        </p>
+
+                    </details>
                     <br>
                     <br>
                         {% if registrations and contact_list %}
