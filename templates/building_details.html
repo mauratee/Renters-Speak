@@ -208,17 +208,25 @@
         <br>
         
         <!-- Chart.js chart object for violations class doughnut chart -->
-        <div id="violations-doughnut-chart">
-            <canvas id="violation-class" data-chart='{{data}}'></canvas>
-        </div>
+        <div class="row">
+
+            <div class="col-6">
+                <div id="violations-doughnut-chart" class="chart-container">
+                    <canvas id="violation-class" data-chart='{{data}}'></canvas>
+                </div>
+            </div>
+        
 
         <br>
         <br>
         <br>
 
-        <!-- Chart.js chart object for violations class doughnut chart -->
-        <div id="violations-bar-chart">
-            <canvas id="violation-date" data-chart='{{bar_data}}'></canvas>
+        <!-- Chart.js chart object for violations class bar chart -->
+            <div class="col-6">
+                <div id="violations-bar-chart" class="chart-container">
+                    <canvas id="violation-date" data-chart='{{bar_data}}'></canvas>
+                </div>
+            </div>  
         </div>
         <br>
 

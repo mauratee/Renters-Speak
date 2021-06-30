@@ -306,14 +306,26 @@ def search_nyc_address():
     print("~~~~~~~~~~~~~~~~~~~")
     print(violation_types)
 
+    violation_dates = {}
+    for violation in violation_list:
+        if violation.inspectiondate.year in violation_dates:
+            violation_dates[violation.inspectiondate.year] +=1
+        else:
+            violation_dates[violation.inspectiondate.year] = 1
+    # print("!!!!!!*****<<<>>>>>>!!!!!!")
+    # print(f"violation_dates = {violation_dates}")
+
+    violation_year_counts = list(violation_dates.values())
+    violation_years = list(violation_dates.keys())
+
 
     # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
     data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }]}'
 
-    bar_data = '{"labels":["does", "this", "work"], "datasets":[{"data":[2, 4, 8], "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }] }'
+    bar_data = '{"labels":' + f'{violation_years}' + ', "datasets":[{"data":' + f'{violation_year_counts}' + ', "backgroundColor":["#3e309c", "#b8b1e7", "#3819e6"] }] }'
 
-    print("!!!!!!!!!!!!!!!!!!!!!")
-    print(data)
+    # print("!!!!!!!!!!!!!!!!!!!!!")
+    # print(data)
     # "datasets":[{"data":[2, 4, 8]}]
     # "labels":["does", "this", "work"],
 

@@ -25,6 +25,17 @@ h5, h6 {
     font-weight: 400;
     }
 
+canvas {
+        border: 1px dotted #817899;
+      }
+      
+.chart-container {
+        position: relative;
+        margin: auto;
+        height: 500px;
+        width: 500px;
+      }
+
 .xtra-bold {font-weight: 800;}
 
 #home-search-box {
