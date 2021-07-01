@@ -50,6 +50,7 @@ canvas {
 /* Navbar background */
 .navbar-custom-theme {
     background-color: #f8f8f8;
+    border-bottom: 1px dotted #8e9aa5; 
   }
   
   /* Color of the logo */
@@ -66,6 +67,7 @@ canvas {
   .navbar-custom-theme .navbar-brand {
     font-size: 2.0rem;
     font-family: 'Inconsolata', monospace;
+    font-weight: 600;
     display: block;
     position: absolute;
     width: -webkit-fit-content;
