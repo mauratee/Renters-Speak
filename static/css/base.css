@@ -25,6 +25,7 @@ h5, h6 {
     font-weight: 400;
     }
 
+    /* styling for chart.js canvas */
 canvas {
         border: 1px dotted #817899;
         background: #f8f8f8
@@ -36,6 +37,17 @@ canvas {
         height: 500px;
         width: 500px;
       } */
+
+.ui-autocomplete {
+        background: white;
+        border: 1px #817899;
+    }
+
+.ui-menu .ui-menu-item a{
+        background: white;
+        border: 1px #817899;
+        list-style: disc inside;
+    }
 
 .xtra-bold {font-weight: 800;}
 
