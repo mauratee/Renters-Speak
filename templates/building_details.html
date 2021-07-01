@@ -85,6 +85,7 @@
             <br>
             <h2>Write a Review</h2>
             <br>
+            <div class="col-8">
             <form id="write_review" action="/write_review" method="POST">
     
                 <div class="form-group">
@@ -110,6 +111,7 @@
                     Submit Review</button>
                 </div> 
             </form>
+            </div>
     
         </div>
     
@@ -264,10 +266,8 @@
                 <div class="violation-list" id="violation-list">
                     <div class="row top-bottom-border">
                 
-                        <div class="col-1">{{ violation.inspectiondate }}</div><br>
-                        <div class="col-2">
-                        Violation ID #{{ violation.violationid }}
-                        </div><br>
+                        <div class="col-2"><i class="bi bi-calendar-week"></i> {{ violation.inspectiondate }}</div><br>
+                        <div class="col-3"><i class="bi bi-card-checklist"></i> Violation ID #{{ violation.violationid }}</div><br>
                     </div>
                         <br>
                         <h5 id="violations-class-info-trigger"><span>Violation Class</span></h5>
