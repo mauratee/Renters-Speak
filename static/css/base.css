@@ -47,6 +47,65 @@ canvas {
     padding: 35px;
 }
 
+/* Navbar background */
+.navbar-custom-theme {
+    background-color: #f8f8f8;
+  }
+  
+  /* Color of the logo */
+  .navbar-custom-theme .navbar-brand {
+    color: #383442;
+  }
+  
+  /* Color of logo when you hover on it */
+  .navbar-custom-theme .navbar-brand:hover,
+  .navbar-custom-theme .navbar-brand:focus {
+    color: white;
+  }
+  
+  .navbar-custom-theme .nav-link {
+    color: #6b5f93;
+  }
+  
+  .navbar-custom-theme .nav-link:hover,
+  .navbar-custom-theme .nav-link:focus {
+    color: #383442;
+  }
+  
+  /* Change border color of navbar-toggler */
+  /* .navbar-custom-theme .navbar-toggler { */
+  /*   border-color: white; */ 
+  /* } */
+  
+  /* You can even edit the toggler icon (see example below)! Here are
+   * the properties you can edit:
+   *   stroke
+   *     the color of the lines
+   *
+   *   stroke-width
+   *     width of lines
+   *
+   *   stroke-miterlimit
+   *     tbh I have no idea how to explain this... it basically helps the SVG
+   *     renderer decide when to make a stroke pointy. You can see a better
+   *     explanation here:
+   *     https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit
+   *
+   *   d
+   *     how to draw the svg. For example:
+   *       M4 --- the margin for the first line (set to 4)
+   *       12h22 --- 12 is where to start drawing the line, h22 is how long it
+   *                 should be
+   */
+  .navbar-custom-theme .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(76, 81, 141)' stroke-width='1' stroke-miterlimit='10' d='M4 12h22 M4 17h22 '/%3E%3C/svg%3E");
+  }
+  
+  .static-height {
+    height: 400px;
+    background: #f8f8f8;
+  }
+
 
     /* light gray: #f4f6fc */
     
