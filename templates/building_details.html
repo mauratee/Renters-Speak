@@ -153,10 +153,11 @@
                                         {{ contact.businesshousenumber }} {{ contact.businessstreetname|title }}<br>
                                         {{ contact.businesscity|title }}, {{ contact.businessstate }} {{ contact.businesszip }}<br>
                                     {% endif %}
+                                    <br>
                                 {% endif %}
 
                             {% endfor %}
-                            <br>
+
                             <h5>Other Contact Info</h5>
 
                             {% for contact in contact_list %}
@@ -171,7 +172,7 @@
                                     
                             {% for registration in registrations %}
     
-                            <h5>Date of Last Registration with the city</h5>
+                            <h5>Date of last registration with the city of New York</h5>
                             <div>{{ registration.lastregistrationdate }}</div><br>
                             {% endfor %}
 
