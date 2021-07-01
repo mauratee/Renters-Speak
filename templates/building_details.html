@@ -217,13 +217,14 @@
             
 
             <!-- <div class="col-6"> -->
-            <dd class="col-12">
+            <div class="col-12">
                 <details>
                     
                     <summary><strong>Pie chart: Violations by Class</strong></summary>
                     
                     <p>
-                        <br>
+                        <div class="row">
+                        <div class="col-6">
                         This chart shows NYC Department of Housing Preservation and Development Violations by class for this address.
                         The classes are described below:<br>
                         <br>
@@ -236,15 +237,17 @@
                         <u>Class C violations (immediately hazardous)</u> <i class="bi bi-x-octagon-fill" style="color:#E74C3C;"></i><br>
                         Must be corrected <strong>within twenty four hours</strong> from the mailing of the notice of violation.
                         Certification of correction is required five days after the correction date.
+                        </div>
 
-                        <dt class="col-6">
+                        <div class="col-6">
                         <div id="violations-doughnut-chart" class="chart-container">
                             <canvas id="violation-class" style="width: 40%; height: auto;"data-chart='{{data}}'></canvas>
                         </div>
-                        </dt>
+                        </div>
+                        </div>
                     </p>
                 </details>
-            </dd>
+            </div>
                 
             <!-- </div> -->
             <!-- <div class="col-4">
