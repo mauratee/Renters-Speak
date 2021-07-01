@@ -46,19 +46,24 @@ canvas {
 
 .ui-menu .ui-menu-item a{
         background: white;
-        border: 1px #817899;
+        border: 1px solid #817899;
         list-style: disc inside;
+        display: block;
     }
 
 .ui-state-hover, .ui-state-active {
         color: #dbdaed;
         text-decoration: none;
+        display: block;
         background-color: #1b31a3;
         border-radius: 1px;
         -webkit-border-radius: 0px;
         -moz-border-radius: 0px;
         background-image: none;
     }
+
+/* Keeps autocomplete menu box same width as input */
+html .ui-autocomplete { width:1px; }
 
 .ui-helper-hidden-accessible{
       display:none !important;
