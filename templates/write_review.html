@@ -5,9 +5,11 @@
 {% block body %}
 
 {% if session.get("user_email") %}
-
+  <br>
+  <br>
   <h2>Write a Review</h2>
     <br>
+    <div class="col-6">
     <form id="write_review" action="/write_review" method="POST">
 
       <div class="form-group">
@@ -33,8 +35,13 @@
           Submit Review</button>
       </div> 
     </form>
-  
-  {% endif %}
+  </div>
+{% else %}
+<br>
+<br>
+You must be logged in to write a review. <a href="/user_login">Log in here</a>
+<br>
+{% endif %}
 
 <!-- Connect to JS file
 <script src="/static/js/login.js"></script> -->
