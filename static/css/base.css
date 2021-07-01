@@ -83,6 +83,10 @@ canvas {
   .navbar-custom-theme .nav-link {
     color: #6b5f93;
   }
+
+  #nav-expand-box {
+    margin-right: 15px;
+  }
   
   .navbar-custom-theme .nav-link:hover,
   .navbar-custom-theme .nav-link:focus {
