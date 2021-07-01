@@ -80,6 +80,14 @@ html .ui-autocomplete { width:1px; }
     padding: 35px;
 }
 
+.box {
+
+  background-color: white;
+  border: 2px dotted #8e9aa5;
+  /* margin: 75px auto 60px; */
+  padding: 20px;
+}
+
 .top-bottom-border {
 
     border-bottom: 1px dotted #8e9aa5;

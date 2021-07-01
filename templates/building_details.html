@@ -56,24 +56,26 @@
                 <br>
                 <h2>Renter Reviews of {{ building.building_housenumber }} {{ building.building_streetname|title }}</h2>
                     <br>
-                    <dl class="row">
+        
                     {% if building.reviews %}
                         {% for review in building.reviews %}
-    
-                            <h4>Details for Review</h4>
-    
-                            <dt class="col-12">Date of Review</dt>
-                            <dl class="col-12">{{ review.created_on.strftime('%Y-%m-%d') }}</dl>
-                            <dt class="col-12">Written By</dt>
-                            <dl class="col-12">{{ review.user.username }}</dl>
-                            <dt class="col-12">Review Text</dt>
-                            <dl class="col-12">{{ review.review_body }}</dl>
+                        <div class="col-6">
+                            <div class="box">
+                                <div class="row">
+                                <div class="col-2.5"><i class="bi bi-calendar-week"></i> {{ review.created_on.strftime('%Y-%m-%d') }}</div>
+                                <div class="col-2.5"><i class="bi bi-person-circle"></i> {{ review.user.username }}</div>
+                                </div>
+                                <br>
+                            {{ review.review_body }}<br>
+                            </div>
+                        </div>
+                            <br>
                             <br>
                             {% endfor %}
                     {% else %}
-                        <dt class="col-12">No Renter Reviews for this Address </dt>
+                        No Renter Reviews for this Address
                     {% endif %}
-                    </dl>
+   
                 <button id="write-a-review" class="btn btn-outline-info">Write A Review</button>
             </div>
         </div>
@@ -220,6 +222,16 @@
                     </p>
                 </details>
             </div>
+            <div class="col-4">
+                <p>
+                    <br>
+                    <br>
+                    Explanatory text about violations class pie chart<br>
+                    Explanatory text about violations class pie chart<br>
+                    Explanatory text about violations class pie chart<br>
+                    Explanatory text about violations class pie chart<br>
+                </p>
+            </div>
         </div>
         
 
@@ -252,9 +264,9 @@
                 <div class="violation-list" id="violation-list">
                     <div class="row top-bottom-border">
                 
-                        <div class="col-1"><i class="bi bi-calendar3"></i> {{ violation.inspectiondate }}</div><br>
+                        <div class="col-1">{{ violation.inspectiondate }}</div><br>
                         <div class="col-2">
-                        <br>Violation ID #{{ violation.violationid }}
+                        Violation ID #{{ violation.violationid }}
                         </div><br>
                     </div>
                         <br>
