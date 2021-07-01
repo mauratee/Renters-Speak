@@ -7,7 +7,8 @@ import crud
 from jinja2 import StrictUndefined
 import os
 import requests
-import collections
+from collections import OrderedDict
+import operator
 
 
 app = Flask(__name__)
@@ -297,8 +298,9 @@ def search_nyc_address():
             violations[violation.violation_class] +=1
         else:
             violations[violation.violation_class] = 1
-    # # Order dictionary keys alphabetically
-    # violations = collections.OrderedDict(violations)
+    # Order dictionary keys alphabetically
+    # violations = OrderedDict(sorted(list(violations.keys())))
+    # violations = dict( sorted(violations.items(), key=operator.itemgetter(1),reverse=True))
     
     violation_counts = list(violations.values())
 
@@ -306,6 +308,7 @@ def search_nyc_address():
     print(violation_counts)
 
     violation_types = list(violations.keys())
+    violation_types.sort()
     # violation_types = violation_types.sorted()
     violation_types = '['+','.join(['"'+x+'"' for x in violation_types])+']'
 
@@ -326,7 +329,7 @@ def search_nyc_address():
 
 
     # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
-    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#E74C3C", "#358f49", "#E8A33C","#414f7a"] }]}'
+    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#358f49", "#E8A33C", "#E74C3C", "#414f7a"] }]}'
 
     bar_data = '{"labels":' + f'{violation_years}' + ', "datasets":[{"data":' + f'{violation_year_counts}' + ', "backgroundColor":["#8c84a1"] }] }'
 
