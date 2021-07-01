@@ -205,29 +205,36 @@
         </div>
 
         <br>
-        <br>
         
         <!-- Chart.js chart object for violations class doughnut chart -->
         <div class="row">
 
             <div class="col-6">
-                <div id="violations-doughnut-chart" class="chart-container">
-                    <canvas id="violation-class" style="width: 40%; height: auto;"data-chart='{{data}}'></canvas>
-                </div>
+                <details>
+                    <summary>Pie chart: Violations by Class</summary>
+                    <p>
+                        <div id="violations-doughnut-chart" class="chart-container">
+                            <canvas id="violation-class" style="width: 40%; height: auto;"data-chart='{{data}}'></canvas>
+                        </div>
+                    </p>
+                </details>
             </div>
         </div>
         
 
         <br>
-        <br>
-        <br>
 
         <!-- Chart.js chart object for violations class bar chart -->
         <div class="row">
-            <div class="col-8">
-                <div id="violations-bar-chart" class="chart-container">
-                    <canvas id="violation-date" style="width: 70%; height: auto;" data-chart='{{bar_data}}'></canvas>
-                </div>
+            <div class="col-10">
+                <details>
+                    <summary>Bar graph: Violations by Year</summary>
+                    <p>
+                        <div id="violations-bar-chart" class="chart-container">
+                            <canvas id="violation-date" style="width: auto; height: 90px;" data-chart='{{bar_data}}'></canvas>
+                        </div>
+                    </p>
+                </details>
             </div>  
         </div>
         <br>
@@ -242,12 +249,14 @@
         <div>
             {% for violation in violation_list %}
                 <div class="violation-list" id="violation-list">
-
-                        
-                        <h5>Violation Date</h5>
-                        <div>{{ violation.inspectiondate }}</div><br>
-                        <h5>Violation ID #</h5>
-                        <div>{{ violation.violationid }}</div><br>
+                    <div class="row top-bottom-border">
+                
+                        <div class="col-1"><i class="bi bi-calendar3"></i> {{ violation.inspectiondate }}</div><br>
+                        <div class="col-2">
+                        <br>Violation ID #{{ violation.violationid }}
+                        </div><br>
+                    </div>
+                        <br>
                         <h5 id="violations-class-info-trigger"><span>Violation Class</span></h5>
                         <details>
                             <summary>{{ violation.violation_class }}</summary>

@@ -5,26 +5,29 @@
 {% block body %}
 
 <div>
+    <br>
+    <br>
 
-    <h2>Create an Account</h2>
+    <h2>Create a new account:</h2>
+    <br>
 
     <form id="new-user-form" action="/new_user" method="POST">
 
         <div class="form-group">
     
-            Email 
+            <i class="bi bi-envelope-fill"></i> Email 
             <input class="form-control" type="text" name="email" id="new_email-field"
             placeholder="email@email.com">
         </div>
-
+        <br>
         <div class="form-group">
-            Username 
+            <i class="bi bi-person-circle"></i> Username 
             <input class="form-control" type="text" name="username" id="new_username-field"
             placeholder="Username">
         </div>
-
+        <br>
         <div class="form-group">
-            Password 
+            <i class="bi bi-key-fill"></i> Password 
             <input class="form-control" type="text" name="password" id="new_password-field"
             placeholder="Password">
         </div>

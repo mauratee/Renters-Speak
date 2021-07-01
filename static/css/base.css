@@ -47,6 +47,13 @@ canvas {
     padding: 35px;
 }
 
+.top-bottom-border {
+
+    border-bottom: 1px dotted #8e9aa5;
+    border-top: 1px dotted #8e9aa5;
+    padding: 10px;
+}
+
 #login-form-box {
 
     border: 1px dotted #727e96;
