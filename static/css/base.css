@@ -49,6 +49,16 @@ canvas {
         list-style: disc inside;
     }
 
+.ui-state-hover, .ui-state-active {
+        color: #dbdaed;
+        text-decoration: none;
+        background-color: #1b31a3;
+        border-radius: 1px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        background-image: none;
+    }
+
 .xtra-bold {font-weight: 800;}
 
 #home-search-box {
