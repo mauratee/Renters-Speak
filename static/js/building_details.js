@@ -1,6 +1,6 @@
 "use strict";
 
-alert("JS is connected");
+// alert("JS is connected");
 
 // Enable reviews tab
 var triggerTabList = [].slice.call(document.querySelectorAll('#nav-reviews-tab'))
