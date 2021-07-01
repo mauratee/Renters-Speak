@@ -325,7 +325,7 @@ def search_nyc_address():
 
 
     # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
-    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#85a2fb", "#666b7a", "#cfdafa", "#414f7a"] }]}'
+    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#E74C3C", "#5CA52B", "#E8A33C","#414f7a"] }]}'
 
     bar_data = '{"labels":' + f'{violation_years}' + ', "datasets":[{"data":' + f'{violation_year_counts}' + ', "backgroundColor":["#8c84a1"] }] }'
 
