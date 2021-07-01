@@ -60,7 +60,22 @@ canvas {
   /* Color of logo when you hover on it */
   .navbar-custom-theme .navbar-brand:hover,
   .navbar-custom-theme .navbar-brand:focus {
-    color: white;
+    color: #414f7a;
+  }
+
+  .navbar-custom-theme .navbar-brand {
+    font-size: 2.0rem;
+    font-family: 'Inconsolata', monospace;
+    display: block;
+    position: absolute;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 75%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   
   .navbar-custom-theme .nav-link {
@@ -102,7 +117,7 @@ canvas {
   }
   
   .static-height {
-    height: 400px;
+    height: 350px;
     background: #f8f8f8;
   }
 
