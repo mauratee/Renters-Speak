@@ -9,7 +9,7 @@
 {% endblock %}
 
 
-{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }} - Details
+{% block title %}{{ building.building_housenumber }} {{ building.building_streetname }}, {{ borough }} - Details
 {% endblock %}
 
 
@@ -21,7 +21,7 @@
 <!-- Page title -->
 <div class="row">
     <div class="col-6">
-        <h1>{{ building.building_housenumber }} {{ building.building_streetname|title }},
+        <h1>{{ building.building_housenumber }} {{ building.building_streetname|title }}, {{ borough }} NY
             {{ building.building_postcode }} </h1>
     </div>
 </div>
@@ -263,14 +263,14 @@
                             <summary>{{ violation.violation_class }}</summary>
                                 <p>
                                     <!-- <h5>Summary of the Classes of NYC Housing Violations:</h5> -->
-                                    <u>Class A violations (non-hazardous)</u><br>
-                                    Must be corrected within 90 days from the mailing of the notice of violation.
+                                    <u>Class A violations (non-hazardous)</u> <i class="bi bi-exclamation-triangle-fill" style="color:#5CA52B;"></i><br>
+                                    Must be corrected <i>within 90 days</i> from the mailing of the notice of violation.
                                     Certification of Correction is required 14 days after the correction date.<br>
-                                    <u>Class B violations (hazardous)</u><br>
-                                    Must be corrected within 30 days from the mailing of the notice of violation.
+                                    <u>Class B violations (hazardous)</u> <i class="bi bi-question-diamond-fill" style="color:#E8A33C;"></i><br>
+                                    Must be corrected <i>within 30 days</i> from the mailing of the notice of violation.
                                     Certification of correction is required five days after the correction date.<br>
-                                    <u>Class C violations (immediately hazardous)</u><br>
-                                    Must be corrected within twenty four hours from the mailing of the notice of violation.
+                                    <u>Class C violations (immediately hazardous)</u> <i class="bi bi-x-octagon-fill" style="color:#E74C3C;"></i><br>
+                                    Must be corrected <strong>within twenty four hours</strong> from the mailing of the notice of violation.
                                     Certification of correction is required five days after the correction date. 
                                 </p>
                         </details>

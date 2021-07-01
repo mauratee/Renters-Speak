@@ -1,6 +1,6 @@
 "use strict";
 
-alert("JS is connected");
+// alert("JS is connected");
 
 
 // // Add event listener input type to detect any change to input field

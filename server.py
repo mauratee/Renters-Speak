@@ -271,6 +271,7 @@ def search_nyc_address():
     searched_housenumber = properties["housenumber"]
     searched_streetname = properties["street"]
     searched_postalcode = properties["postalcode"]
+    borough = properties["borough"]
 
     building = crud.get_building_by_address(searched_housenumber, searched_streetname, searched_postalcode)
     violation_list = crud.get_violation_by_address(searched_housenumber, searched_streetname,
@@ -325,7 +326,7 @@ def search_nyc_address():
 
 
     # data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + '}]}'
-    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#E74C3C", "#5CA52B", "#E8A33C","#414f7a"] }]}'
+    data = '{"labels":' + f'{violation_types}' + ', "datasets":[{"data":' + f'{violation_counts}' + ', "backgroundColor":["#E74C3C", "#358f49", "#E8A33C","#414f7a"] }]}'
 
     bar_data = '{"labels":' + f'{violation_years}' + ', "datasets":[{"data":' + f'{violation_year_counts}' + ', "backgroundColor":["#8c84a1"] }] }'
 
@@ -352,7 +353,7 @@ def search_nyc_address():
         
 
     length_violation_list = len(violation_list)
-    return render_template('building_details.html', building=building, 
+    return render_template('building_details.html', building=building, borough=borough,
                             violation_list=violation_list, length_violation_list=length_violation_list, 
                             data=data, registrations=registrations, contact_list=contact_list, bar_data=bar_data)
 
