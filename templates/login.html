@@ -5,34 +5,40 @@
 {% block body %}
 
 <div>
-
+    <br>
+    <br>
     <h2>Login to your Account:</h2>
+    <br>
 
-    <form id="login-form">
+    <div class="col-4">
+        <form id="login-form">
 
-        <div class="form-group">
-        
-            Email
-            <input class="form-control" type="text" name="email" id="email-field"
-             placeholder="email">
-        </div>
-        
-        <div class="form-group">
-            Password 
-            <input class="form-control" type="password" name="password"
-            id="password-field" placeholder="password">
-        </div>
-        <br>
-        <div class="form-group">
-            <button type="submit" id="login_button" class="btn btn-primary">
-                Login</button>
-        </div>
+            <div class="form-group">
+            
+                <i class="bi bi-envelope-fill"></i> Email
+                <input class="form-control" type="text" name="email" id="email-field"
+                placeholder="email">
+            </div>
+            <br>
+            <div class="form-group">
+                <i class="bi bi-key-fill"></i> Password 
+                <input class="form-control" type="password" name="password"
+                id="password-field" placeholder="password">
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" id="login_button" class="btn btn-primary">
+                    Login</button>
+            </div>
+        </form>
+    </div>
+
         <br>
         <br>
         <div>
             <a href="/new_user">New user? Register for an account here</a>
         </div>
-    </form>
+    
 
 </div>
 
