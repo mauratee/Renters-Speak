@@ -1,7 +1,7 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 # About this Project
-<!-- After being a renter for my whole adult life -->
+Renters Speak gives users a peek behind the curtain of the New York City rental market. Designed for renters looking for more information about their current or prospective landlords, this app provides a platform for users to write and share reviews of landlords and also presents data related to building ownership and building maintenance violations from NYC housing datasets. Users can search for information by address and Renters Speak provides reviews and housing data in an easy to understand, visually appealing format.
 
 ## Technologies Used:
 This project uses:
