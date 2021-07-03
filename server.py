@@ -241,7 +241,7 @@ def write_review():
         flash(f"""You wrote a review of {building.building_housenumber} {building.building_streetname}.
                      Thanks for your review submission!""", "success")
 
-    return redirect('/reviews')
+    return redirect('/')
 
 
 ####### Routes for Search

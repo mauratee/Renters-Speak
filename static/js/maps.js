@@ -14,8 +14,8 @@ let basicMap;
 
 function initMap() {
     const NYCoords = {
-        lat: 40.849874,
-        lng: -73.904286
+        lat: 40.70100109026094, 
+        lng: -73.92472885964146
       };
       
     const basicMap = new google.maps.Map(
