@@ -4,14 +4,41 @@
 Renters Speak gives users a peek behind the curtain of the New York City rental market. Designed for renters looking for more information about their current or prospective landlords, this app provides a platform for users to write and share reviews of landlords and also presents data related to building ownership and building maintenance violations from NYC housing datasets. Users can search for information by address and Renters Speak provides reviews and housing data in an easy to understand, visually appealing format.
 
 ## Technologies Used:
-This project uses:
+
+### Languages:
 <ul>
 <li>Python 3</li>
-<li>HTML</li>
-<li>Jinja 2</li>
+<li>JavaScript</li>
+<li>SQL</li>
+<li>CSS</li>
+<li>HTML 5</li>
 <li>Flask</li>
 <li>SQLAlchemy</li>
 <li>Flask-SQLAlchemy</li>
+<li></li> 
+</ul>
+
+### Libraries/Frameworks:
+<ul>
+<li>Python unittest</li>
+<li>Flask test_client</li>
+<li>PostgreSQL</li>
+<li>Flask</li>
+<li>SQLAlchemy</li>
+<li>Flask-SQLAlchemy</li>
+<li>Jinja 2</li>
+<li>AJAX</li>
+<li>jQuery</li>
+<li>jQuery UI</li>
+<li>Chart.js</li>
+<li>Bootstrap</li> 
+</ul>
+
+### APIs:
+<ul>
+<li>Google Maps for JavaScript API</li>
+<li>NYC Geosearch API</li>
+<li>NYC housing datasets via NYCDB</li>
 </ul>
 
 ## Instructions to Run Renters Speak Web App:
