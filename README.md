@@ -4,7 +4,6 @@
 Renters Speak gives users a peek behind the curtain of the New York City rental market. Designed for renters looking for more information about their current or prospective landlords, this app provides a platform for users to write and share reviews of landlords and also presents data related to building ownership and building maintenance violations from NYC housing datasets. Users can search for information by address and Renters Speak provides reviews and housing data in an easy to understand, visually appealing format.
 
 ## Technologies Used:
-
 ### Languages:
 <ul>
 <li>Python 3</li>
@@ -84,6 +83,6 @@ in shell:
 In terminal, enter `python3 tests.py`<br>
 The output will tell you how many tests ran and how many failed of the tests that ran.
 
-### Acknowledgements
+## 👏 Acknowledgements
 Thanks to the New York Housing Data Coalition, the programmers of NYCDB, and my teachers, classmates and mentors at the Hackbright Academy Engineering Fellowship.
 
