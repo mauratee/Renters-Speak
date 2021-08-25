@@ -4,6 +4,7 @@ Routes covered by this file:
 /new_user
 /login
 /logout
+/reviews
 """
 
 from unittest import TestCase
