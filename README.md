@@ -43,7 +43,7 @@ Renters Speak gives users a peek behind the curtain of the New York City rental 
 
 Use `git clone` or other method to copy entire contents of this repository to your local machine
 
-Install dependencies from `requirements.txt` (`pip3 install`, `python3 -m pip install` or other)
+Install dependencies from `requirements.txt` (`pip3 install -r requirements.txt`, `python3 -m pip install` or other)
 
 Run `source secrets.sh` in terminal to execute contents of `secrets.sh`
 
@@ -71,6 +71,8 @@ in shell:
     `dropdb testdb`
     `createdb testdb`
     `nycdb -U hackbright -D testdb --load hpd_registrations` <!-- loads hpd_registrations and hpd_contacts tables, takes about 2 mins -->
+    <!-- if you run and 'nycdb' command and get bash error: command not found,
+    try running `pip3 install  nycdb` -->
     `nycdb -U hackbright -D testdb --load hpd_violations`<!-- creates SQL table in testdb
     hpd_violations rows should load, will take about 20-50 mins -->
 run model.py interactively: `python3 -i model.py`
