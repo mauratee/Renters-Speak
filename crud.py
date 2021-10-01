@@ -4,6 +4,22 @@ import datetime
 from model import db, User, Landlord, Building, Review, HPDViolation, HPDRegistration, HPDContact, connect_to_db
 
 
+# || Functions for API Calls ||
+
+# def geosearch_api(text):
+#     return properties
+
+def hpd_violations_api(searched_housenumber, searched_streetname, searched_postalcode):
+
+    # Transform string to match data format in DB
+    searched_streetname = searched_streetname.upper()
+
+    url = "https://data.cityofnewyork.us/resource/wvxf-dwi5.json"
+    payload = {"housenumber": searched_housenumber, "streetname": searched_streetname, 
+              "zip": searched_postalcode}
+    res = requests.get(url, params=payload)
+    data = res.json()
+
 ####### Functions for Database Entry Creation
 
 def create_user(email, username, password):
