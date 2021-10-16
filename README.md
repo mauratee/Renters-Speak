@@ -70,10 +70,13 @@ To Seed Database:
 in shell:
     `dropdb testdb`
     `createdb testdb`
-    `nycdb -U hackbright -D testdb --load hpd_registrations` <!-- loads hpd_registrations and hpd_contacts tables, takes about 2 mins -->
+    `nycdb -U <postgres username> -P <postgres password> -D testdb --load hpd_registrations` <!-- loads hpd_registrations and hpd_contacts tables, takes about 2 mins -->
     <!-- if you run and 'nycdb' command and get bash error: command not found,
     try running `pip3 install  nycdb` -->
-    `nycdb -U hackbright -D testdb --load hpd_violations`<!-- creates SQL table in testdb
+    <!-- if you run 'nycdb' command and get bash error: nycdb command not found,
+    try running `pip3 install -e <add path to folder in nycdb containing setup.py> 
+    i.e, <../nycdb/src>` -->
+    `nycdb -U <postgres username> -P <postgres password> -D testdb --load hpd_violations`<!-- creates SQL table in testdb
     hpd_violations rows should load, will take about 20-50 mins -->
 run model.py interactively: `python3 -i model.py`
     `db.create_all()` <!-- creates all other tables in testdb -->

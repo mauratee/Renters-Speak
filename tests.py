@@ -118,8 +118,6 @@ class FlaskTestsLogInLogOut(TestCase):
             self.assertNotIn(b"user_email", session)
 
 
-# class FlaskTestsDatabase(TestCase):
-
 
 class FlaskTestsLoggedIn(TestCase):
     """Flask tests with user logged in to session."""

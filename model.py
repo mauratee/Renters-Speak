@@ -1,4 +1,4 @@
-""" Models for landlord review site"""
+""" Models and database Schema for Renters Speak"""
 
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
