@@ -9,11 +9,14 @@
 //       zoom: 11,
 //     });
 
+// console.log(coordinates)
 
 let basicMap;
 
 function initMap() {
     const NYCoords = {
+        // lat: coordinates[1],
+        // lng: coordinates[0]
         lat: 40.70100109026094, 
         lng: -73.92472885964146
       };

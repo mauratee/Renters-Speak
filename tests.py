@@ -32,7 +32,7 @@ class FlaskTestsBasic(TestCase):
         """Test homepage."""
 
         result = self.client.get("/")
-        self.assertIn(b"Navigation", result.data)
+        self.assertIn(b"Renters", result.data)
         
 
 class FlaskTestsNewUSer(TestCase):

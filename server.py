@@ -348,7 +348,8 @@ def search_nyc_address():
     elif building is None and violation_list:
         length_violation_list = len(violation_list)
         return render_template("violation_details.html", violation_list=violation_list,
-                                length_violation_list=length_violation_list)
+                                length_violation_list=length_violation_list, data=data, registrations=registrations,
+                                contact_list=contact_list, bar_data=bar_data)
                                 # Add data=data if rendering chart.js in violation_details.html
 
     elif not violation_list and building:
