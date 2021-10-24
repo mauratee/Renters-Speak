@@ -44,7 +44,7 @@ Renters Speak gives users a peek behind the curtain of the New York City rental 
 
 ### Create New User Account and User Login
 
-![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/user_login.gif "Create new user page and user login with success modal")
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/User-login.gif "Create new user page and user login with success modal")
 
 ## Instructions to Run Renters Speak Web App:
 
