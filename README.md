@@ -83,6 +83,9 @@ run model.py interactively: `python3 -i model.py`
 in shell:
     `python3 seed_db.py` <!-- Commented out lines to dropdb, createdb and db.create_all() -->
 
+### Create New User Account and User Login
+
+![](https://media.giphy.com/media/Aygz8OdGtKIzErRjyx/giphy.gif)
 
 ### To Run Tests:
 In terminal, enter `python3 tests.py`<br>
