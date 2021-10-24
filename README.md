@@ -50,10 +50,31 @@ Users can register for a new account on the "Create New Account" page and existi
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/User-login.gif "Create new user page and user login with success modal")
 
 ### Logged In Users Can Write a Review
+Users that are logged in can write and submit a review on the "Write a Review" page. The review is then saved to the database and available for other viewers on the detail page for that address.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Write-review.gif "Write a new review and save to database")
 
-## Instructions to Run Renters Speak Web App:
+### Search an Address
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Search-address.gif "Search an address on the hompage to view detailed information for that building")
+
+### Address Details - Reviews
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-reviews.gif "View detailed information for a searched building including user reviews")
+
+### Address Details - Landlord Information
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-landlord.gif "View detailed information for a searched building including ownership information")
+
+### Address Details - Violation Information: Charts
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-violations-1.gif "View detailed information for a searched building including violations with the NYC housing department displayed with charts")
+
+### Address Details - Violations List
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-violations-2.gif "View detailed information for a searched building including violations with the NYC housing department listed by violation")
+
+### Instructions to Run Renters Speak Web App:
 
 Use `git clone` or other method to copy entire contents of this repository to your local machine
 
