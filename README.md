@@ -42,9 +42,16 @@ Renters Speak gives users a peek behind the curtain of the New York City rental 
 <li>NYC housing datasets via NYCDB</li>
 </ul>
 
-### Create New User Account and User Login
+## Features
+
+### Create New User Account and Existing User Login
+Users can register for a new account on the "Create New Account" page and existing users can login on the "Login" page. Bootstrap modal boxes implemented with Javascript interactive elements notify users of a successful or unsuccessful login request.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/User-login.gif "Create new user page and user login with success modal")
+
+### Logged In Users Can Write a Review
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Write-review.gif "Write a new review and save to database")
 
 ## Instructions to Run Renters Speak Web App:
 
