@@ -55,26 +55,31 @@ Users that are logged in can write and submit a review on the "Write a Review" p
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Write-review.gif "Write a new review and save to database")
 
 ### Search an Address
+Using the NYC Geosearch API and an AJAX request utilizing the JQuery UI Autocomplete widget, user input is sanitized and normalized and a list of matching NYC addresses is presented to the user to choose from.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Search-address.gif "Search an address on the hompage to view detailed information for that building")
 
 ### Address Details - Reviews
+When a searched address is submitted, the database is queried to present detailed information for the matching address. The Google Maps API is implemented to display a styled map of the searched address. Below the map, the Bootstrap CSS framework is used to organize and display information by tabs including a tab for renter reviews that match the specific address.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-reviews.gif "View detailed information for a searched building including user reviews")
 
 ### Address Details - Landlord Information
+Another tab displays ownership and landlord information for the address and includes interactive Javascript dropdowns with more detailed information.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-landlord.gif "View detailed information for a searched building including ownership information")
 
 ### Address Details - Violation Information: Charts
+The violations tab displays information about NYC housing violations related to the address. The first section contains interactive dropdowns that expand to display charts created with the Chart.js library to visually represent housing violation information by class and over time.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-violations-1.gif "View detailed information for a searched building including violations with the NYC housing department displayed with charts")
 
 ### Address Details - Violations List
+The violations tab also contains a list of all violations for the searched address which includes information about the date, class and description of each violation. Interactive Javascript buttons and alerts allow the user to diplay fewer, more, or all violations for a particular address.
 
 ![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/Address_details-violations-2.gif "View detailed information for a searched building including violations with the NYC housing department listed by violation")
 
-### Instructions to Run Renters Speak Web App:
+## Instructions to Run Renters Speak Web App:
 
 Use `git clone` or other method to copy entire contents of this repository to your local machine
 
