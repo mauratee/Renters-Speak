@@ -88,7 +88,7 @@ Install dependencies from `requirements.txt` (`pip3 install -r requirements.txt`
 
 Run `source secrets.sh` in terminal to execute contents of `secrets.sh`.
 
-### Seed the Database
+### Seed the Database:
 
 Clone the <a href="https://github.com/nycdb/nycdb" target="_blank">NYCDB tool</a> to your local development environment.
 
