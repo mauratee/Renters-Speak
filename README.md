@@ -90,14 +90,14 @@ Run `source secrets.sh` in terminal to execute contents of `secrets.sh`.
 
 ### Seed the Database
 
-To Seed the Database:
+To Seed the Database:<br>
 Clone the <a href="https://github.com/nycdb/nycdb" target="_blank">NYCDB tool</a> to your local development environment.
 
 Use the postgres command `createdb <name of database>` to create the database.
 
-To Load datasets from NYCDB into your database:
+To Load datasets from NYCDB into your database:<br>
     Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_registrations` to load the hpd_registrations and hpd_contacts tables. <br><br>
-    Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_violations` to laod the hpd_violations table.<br><br>
+    Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_violations` to laod the hpd_violations table.<br>
 
 Run run model.py interactively `python3 -i model.py` and then run `db.create_all()` to create all the other tables in the database.
 
