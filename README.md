@@ -81,18 +81,53 @@ The violations tab also contains a list of all violations for the searched addre
 
 ## Instructions to Run Renters Speak Web App:
 
-Use `git clone` or other method to copy entire contents of this repository to your local machine
+### Setup:
+Use `git clone` or other method to copy entire contents of this repository to your local machine.
 
-Install dependencies from `requirements.txt` (`pip3 install -r requirements.txt`, `python3 -m pip install` or other)
+Install dependencies from `requirements.txt` (`pip3 install -r requirements.txt`, `python3 -m pip install` or other).
 
-Run `source secrets.sh` in terminal to execute contents of `secrets.sh`
+Run `source secrets.sh` in terminal to execute contents of `secrets.sh`.
 
-Enter `python3 seed_db.py`in terminal to seed database `testdb` with test data <br>
+### Seed the Database
 
-To view and query test database using SQL queries, enter `psql testdb` from terminal and enter (`\q` to exit)<br>
-To query `testdb`using SQLAlchemy queries,  run `model.py` in interactive mode and use `quit()` to exit
+To Seed the Database:
+Clone the <a href="https://github.com/nycdb/nycdb" target="_blank">NYCDB tool</a> to your local development environment.
+
+Use the postgres command `createdb <name of database>` to create the database.
+
+To Load datasets from NYCDB into your database:
+    Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_registrations` to load the hpd_registrations and hpd_contacts tables. <br><br>
+    Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_violations` to laod the hpd_violations table.<br><br>
+
+Run run model.py interactively `python3 -i model.py` and then run `db.create_all()` to create all the other tables in the database.
+
+<!-- in shell: -->
+<!-- `dropdb testdb` -->
+<!-- `createdb testdb` -->
+<!-- `nycdb -U <postgres username> -P <postgres password> -D testdb --load hpd_registrations` loads hpd_registrations and hpd_contacts tables, takes about 2 mins -->
+<!-- if you run and 'nycdb' command and get bash error: command not found,
+    try running `pip3 install  nycdb` -->
+<!-- if you run 'nycdb' command and get bash error: nycdb command not found,
+    try running `pip3 install -e <add path to folder in nycdb containing setup.py> 
+    i.e, <../nycdb/src>` -->
+<!-- `nycdb -U <postgres username> -P <postgres password> -D testdb --load hpd_violations` -->
+<!-- creates SQL table in testdb
+    hpd_violations rows should load, will take about 20-50 mins -->
+<!-- run model.py interactively: `python3 -i model.py` -->
+<!-- `db.create_all()`  creates all other tables in testdb -->
+<!-- in shell: -->
+<!--`python3 seed_db.py`  Commented out lines to dropdb, createdb and db.create_all() -->
+
+<!-- Enter `python3 seed_db.py`in terminal to seed database `testdb` with test data. <br> -->
+
+#### Query the Database
+To view and query test database using SQL queries, enter `psql testdb` from terminal and enter (`\q` to exit).<br><br>
+
+To query `testdb`using SQLAlchemy queries,  run `model.py` in interactive mode and use `quit()` to exit.
 
 ### To Run Server:
+Create a virtual environment in your local directory using `virtualenv env` or another virtual environment library.<br><br>
+
 Activate virtual environment by entering `source env/bin/activate` in terminal<br>
     Your command prompt should then show `(env)` at the beginning of the line<br>
 
@@ -106,23 +141,6 @@ You should then see the Renters Speak homepage!
 
 To exit and stop running server, enter `CTRL + c` or `CMD + c`
 
-To Seed Database:
-in shell:
-    `dropdb testdb`
-    `createdb testdb`
-    `nycdb -U <postgres username> -P <postgres password> -D testdb --load hpd_registrations` <!-- loads hpd_registrations and hpd_contacts tables, takes about 2 mins -->
-    <!-- if you run and 'nycdb' command and get bash error: command not found,
-    try running `pip3 install  nycdb` -->
-    <!-- if you run 'nycdb' command and get bash error: nycdb command not found,
-    try running `pip3 install -e <add path to folder in nycdb containing setup.py> 
-    i.e, <../nycdb/src>` -->
-    `nycdb -U <postgres username> -P <postgres password> -D testdb --load hpd_violations`<!-- creates SQL table in testdb
-    hpd_violations rows should load, will take about 20-50 mins -->
-run model.py interactively: `python3 -i model.py`
-    `db.create_all()` <!-- creates all other tables in testdb -->
-in shell:
-    `python3 seed_db.py` <!-- Commented out lines to dropdb, createdb and db.create_all() -->
-
 
 ### To Run Tests:
 In terminal, enter `python3 tests.py`<br>
@@ -130,4 +148,3 @@ The output will tell you how many tests ran and how many failed of the tests tha
 
 ## 👏 Acknowledgements
 Thanks to the New York Housing Data Coalition, the programmers of NYCDB, and my teachers, classmates and mentors at the Hackbright Academy Engineering Fellowship.
-
