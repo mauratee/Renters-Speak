@@ -42,6 +42,10 @@ Renters Speak gives users a peek behind the curtain of the New York City rental 
 <li>NYC housing datasets via NYCDB</li>
 </ul>
 
+### Create New User Account and User Login
+
+![alt text](https://github.com/mauratee/Renters-Speak/blob/main/static/img/user_login.gif "Create new user page and user login with success modal")
+
 ## Instructions to Run Renters Speak Web App:
 
 Use `git clone` or other method to copy entire contents of this repository to your local machine
@@ -85,10 +89,6 @@ run model.py interactively: `python3 -i model.py`
     `db.create_all()` <!-- creates all other tables in testdb -->
 in shell:
     `python3 seed_db.py` <!-- Commented out lines to dropdb, createdb and db.create_all() -->
-
-### Create New User Account and User Login
-
-![](https://media.giphy.com/media/Aygz8OdGtKIzErRjyx/giphy.gif)
 
 
 ### To Run Tests:
