@@ -3,6 +3,9 @@
 # ✨ About this Project
 Renters Speak gives users a peek behind the curtain of the New York City rental market. Designed for renters looking for more information about their current or prospective landlords, this app provides a platform for users to write and share reviews of landlords and also presents data related to building ownership and building maintenance violations from NYC housing datasets. Users can search for information by address and Renters Speak provides reviews and housing data in an easy to understand, visually appealing format.
 
+
+![alt text](https://github.com/mearajennifer/jobtracker/blob/master/static/img/active-jobs.png "JRenters Speak homepage") /home/mauratee/src/Renters-Speak/static/img/Renters Speak - homepage_screenshot.png
+
 ## Technologies Used:
 ### Languages:
 <ul>
@@ -86,6 +89,7 @@ in shell:
 ### Create New User Account and User Login
 
 ![](https://media.giphy.com/media/Aygz8OdGtKIzErRjyx/giphy.gif)
+
 
 ### To Run Tests:
 In terminal, enter `python3 tests.py`<br>
