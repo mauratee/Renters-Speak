@@ -90,7 +90,6 @@ Run `source secrets.sh` in terminal to execute contents of `secrets.sh`.
 
 ### Seed the Database
 
-To Seed the Database:<br>
 Clone the <a href="https://github.com/nycdb/nycdb" target="_blank">NYCDB tool</a> to your local development environment.
 
 Use the postgres command `createdb <name of database>` to create the database.
