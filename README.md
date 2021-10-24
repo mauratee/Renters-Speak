@@ -97,7 +97,7 @@ Use the postgres command `createdb <name of database>` to create the database.
 
 To Load datasets from NYCDB into your database:<br>
     Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_registrations` to load the hpd_registrations and hpd_contacts tables. <br><br>
-    Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_violations` to laod the hpd_violations table.<br>
+    Run `nycdb -U <postgres username> -P <postgres password> -D <name of database> --load hpd_violations` to load the hpd_violations table.<br>
 
 Run run model.py interactively `python3 -i model.py` and then run `db.create_all()` to create all the other tables in the database.
 
@@ -121,12 +121,12 @@ Run run model.py interactively `python3 -i model.py` and then run `db.create_all
 <!-- Enter `python3 seed_db.py`in terminal to seed database `testdb` with test data. <br> -->
 
 #### Query the Database
-To view and query test database using SQL queries, enter `psql testdb` from terminal and enter (`\q` to exit).<br><br>
+To view and query test database using SQL queries, enter `psql testdb` from terminal and enter (`\q` to exit).<br>
 
 To query `testdb`using SQLAlchemy queries,  run `model.py` in interactive mode and use `quit()` to exit.
 
-### To Run Server:
-Create a virtual environment in your local directory using `virtualenv env` or another virtual environment library.<br><br>
+### To Run the Server:
+Create a virtual environment in your local directory using `virtualenv env` or another virtual environment library.<br>
 
 Activate virtual environment by entering `source env/bin/activate` in terminal<br>
     Your command prompt should then show `(env)` at the beginning of the line<br>
