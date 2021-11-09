@@ -180,7 +180,7 @@ const testChart = new Chart(
     }
 );
 
-// construct Chart.js doughnut graph for violation classes
+// construct Chart.js bar chart for violation classes
 const barChart = new Chart(
   $('#violation-date'),
   {

@@ -478,9 +478,10 @@ def autocomplete():
 
     # return address_list
 
-
-
+# Modify port and debug for deployment to Heroku
+ PORT = int(os.environ.get("PORT", 5000))
+ DEBUG = "NO_DEBUG" not in os.environ
 
 if __name__ == "__main__":
     connect_to_db(app)
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=DEBUG)
