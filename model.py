@@ -159,7 +159,8 @@ class HPDContact(db.Model):
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///testdb', echo=True):
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    # flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    flask_app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     # flask_app.config['SQLALCHEMY_ECHO'] = echo
     SECRET_KEY = 'this-really-needs-to-be-changed'
     flask_app.config['SECRET_KEY'] = SECRET_KEY
