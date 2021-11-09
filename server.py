@@ -13,7 +13,8 @@ import operator
 
 
 app = Flask(__name__)
-app.secret_key = "dev_key000"
+# app.secret_key = os.environ.get('secret_key')
+# print(app.secret_key)
 app.jinja_env.undefined = StrictUndefined
 
 
